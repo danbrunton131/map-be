@@ -2,6 +2,16 @@ from django.db import models
 
 # represents one course (either high school or university)
 class Course(models.Model):
+    SUMMER = 'Summer'
+    FALL = 'Fall'
+    WINTER = 'Winter'
+    SPRING = 'Spring'
+    SEASONS = (
+        (SUMMER, 'Summer'),
+        (FALL, 'Fall'),
+        (WINTER, 'Winter'),
+        (SPRING, 'Spring')
+    )
     # ID of the course (just a unique number)
     course_id = models.IntegerField(primary_key=True)
     # course code, e.g. COMPSCI 1MD3
@@ -10,7 +20,17 @@ class Course(models.Model):
     course_name = models.TextField()
     # course desc, e.g. Learn how to program in Python
     course_desc = models.TextField()
-    # todo: might need a faculty column as well.
+    # course season, should be one of summer, fall, winter, spring
+    course_season = models.TextField(choices=SEASONS, default=FALL)
+    
+    # todo for both of the below:
+    # consider creating separate structural tables for Faculty, Department
+    # so we can enforce foreign key relationships on them, make it easier
+    # to make large modifications.
+    # faculty column, indicates the overarching faculty
+    course_faculty = models.TextField()
+    # department column, indicates the department
+    course_department = models.TextField()
 
 # represents a requirement which must be satisfied for a program
 class Requirement(models.Model):
