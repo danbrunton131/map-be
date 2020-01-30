@@ -12,6 +12,41 @@ class Course(models.Model):
     course_desc = models.TextField()
     # todo: might need a faculty column as well.
 
+# represents a requirement which must be satisfied for a program
+class Requirement(models.Model):
+    REQUIREMENT = 'RequirementID'
+    COURSE = 'CourseID'
+    CHOICES_REQS = (
+        (REQUIREMENT, 'Nested Requirement'),
+        (COURSE, 'Required Course')
+    )
+
+    AND = 'AND'
+    OR = 'OR'
+    CHOICES_CONNECTORS = (
+        (AND, 'AND'),
+        (OR, 'OR')
+    )
+    
+    # ID for this requirement
+    requirement_id = models.IntegerField(primary_key=True)
+    # ID of the referenced requirement, could match up to any of:
+    # requirement ID, course ID
+    req_1_id = models.IntegerField()
+    # type of the referenced requirement, could be one of:
+    # Requirement, Course
+    req_1_type = models.TextField(choices=CHOICES_REQS, default=REQUIREMENT)
+    # type of logical connector between the requirements, could be one of:
+    # AND,OR
+    logic_connector = models.TextField(choices=CHOICES_CONNECTORS, default=AND)
+    # ID of the referenced requirement, could be one of:
+    # requirement ID, course ID
+    req_2_id = models.IntegerField()
+    # type of the referenced requirement, could be one of:
+    # 0 - RequirementID
+    # 1 - CourseID
+    req_2_type = models.TextField(choices=CHOICES_REQS, default=REQUIREMENT)
+
 # represents one program
 class Program(models.Model):
     # unique ID for the program
@@ -21,27 +56,4 @@ class Program(models.Model):
     # description of the program
     program_desc = models.TextField()
     # base requirement from which requirement parsing begins
-    program_base_requirement = models.ForeignKey(Requirement, on_delete=models.SET_NULL)
-    
-# represents a requirement which must be satisfied for a program
-class Requirement(models.Model):
-    # ID for this requirement
-    requirement_id = models.IntegerField(primary_key=True)
-    # ID of the referenced requirement, could match up to any of:
-    # requirement ID, course ID
-    req_1_id = models.IntegerField()
-    # type of the referenced requirement, could be one of:
-    # 0 - RequirementID
-    # 1 - CourseID
-    req_1_type = models.IntegerField()
-    # type of logical connector between the requirements, could be one of:
-    # 0 - AND
-    # 1 - OR
-    logic_connector = models.IntegerField()
-    # ID of the referenced requirement, could be one of:
-    # requirement ID, course ID
-    req_2_id = models.IntegerField()
-    # type of the referenced requirement, could be one of:
-    # 0 - RequirementID
-    # 1 - CourseID
-    req_2_type = models.IntegerField()
+    program_base_requirement = models.ForeignKey(Requirement, on_delete=models.SET_NULL, null=True)
