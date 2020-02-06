@@ -41,7 +41,7 @@ class GetCourseData(View):
             # insert into the response based on season, department
             if not course.course_department in response_data['courseLists'][course.course_season]:
                 response_data['courseLists'][course.course_season][course.course_department] = []
-                response_data['courseLists'][course.course_season][course.course_department].append(course_data)
+            response_data['courseLists'][course.course_season][course.course_department].append(course_data)
         # return data
         return JsonResponse(response_data)
     
