@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import GetCourseData
+from .views import GetCourseData, SubmitCourseSelections
 
 urlpatterns = [
     path('GetCourseData/', GetCourseData.as_view()),
+    path('SubmitCourseSelections/', SubmitCourseSelections.as_view()),
 ]
