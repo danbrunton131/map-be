@@ -27,7 +27,7 @@ def load_course(file):
 			units = data[d]["units"]
 			department = code.split(" ")[0]
 			# print(course_id, code, name)
-			c = Course(course_id=d, code=code, name=name, desc=desc, units=units, department=department)
+			c = Course(course_id=d, code=code, name=name, desc=desc, units=units, department=department, offered_fall=True, offered_winter=False, offered_summer=False, offered_spring=False)
 			c.save()
 
 # def load_course(file):
