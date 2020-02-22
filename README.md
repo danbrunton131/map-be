@@ -14,8 +14,11 @@ To start run: **py manage.py runserver**
 A temporary method of populating the database with science courses are provided.  Make sure to makemigrations and migrate before. Use admin panel to verify results
 
  **py manage.py load_courses courses.json**
+ 
  **py manage.py load_courselist course_list.json**
+ 
  **py manage.py load_programs programs.json**
+ 
  **py manage.py load_requirements requirements.json**
 
 # Endpoints
