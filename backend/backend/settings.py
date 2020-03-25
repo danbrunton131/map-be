@@ -28,7 +28,10 @@ DEBUG = True
 # Caching
 CACHING = False
 
-ALLOWED_HOSTS = []
+# 3.14.128.228 is dev server
+ALLOWED_HOSTS = [
+    '3.14.128.228',
+]
 
 
 # Application definition
