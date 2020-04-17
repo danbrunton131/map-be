@@ -6,7 +6,11 @@
 <h1 id="site-name">{% trans 'McMaster Academic Planner' %}</h1>
 {% endblock %}
 
-
+{% block userlinks %}
+    <a href="">{% trans 'Load data' %}</a>
+    /
+    {{block.super}}
+{% endblock %}
 
 {% block extrastyle %}
 
