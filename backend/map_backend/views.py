@@ -7,11 +7,39 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .requirement_handler import BinOp, Parser
 import json
+from django.core import management
 
 import time
 
 from .models import Course, Program, RequirementGroup, RequirementItem
 
+# /admin/loader
+# template view for loading data frontend in admin
+class LoadView(View):
+
+	def get(self, request):
+		# only authenticated users can access
+		if request.user.is_authenticated:
+			return render(request, 'admin/loader.html')
+		else:
+			return JsonResponse({'authenticated': 'no'})
+
+# /admin/loader/Load
+# should be authenticated access only.
+# loads data into the model from the scraper.
+class Load(View):
+
+	def get(self, request):
+		# only authenticated users can access
+		if request.user.is_authenticated:
+			management.call_command('write_data', verbosity=0)
+			management.call_command('load_courses', 'courses.json', verbosity=1)
+			management.call_command('load_courselist', 'course_list.json', verbosity=1)
+			management.call_command('load_programs', 'programs.json', verbosity=1)
+			management.call_command('load_requirements', 'requirements.json', verbosity=1)
+			return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
+		else:
+			return JsonResponse({'authenticated': 'no'})
 
 # /api/GetCourseData?faculty=<faculty name>
 # returns the courselists for the given faculty.

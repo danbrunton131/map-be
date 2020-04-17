@@ -1,15 +1,14 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/base.html" %}
 {% load i18n %}
 
+{% block title %}Load Data{% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{% trans 'McMaster Academic Planner' %}</h1>
+<h1 id="site-name">{% trans 'McMaster Academic Planner - Data Loader' %}</h1>
 {% endblock %}
 
-{% block userlinks %}
-    <a href="loader">{% trans 'Load data' %}</a>
-    /
-    {{block.super}}
+{% block content %}
+<div>Test content</div>
 {% endblock %}
 
 {% block extrastyle %}
