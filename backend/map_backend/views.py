@@ -33,14 +33,14 @@ class Load(View):
 		# only authenticated users can access
 		if request.user.is_authenticated:
 			try:
-				management.call_command('write_data', verbosity=0)
+				management.call_command('write_data', json.loads(request.body)['catalog'], verbosity=0)
 				management.call_command('load_courses', 'courses.json', verbosity=1)
 				management.call_command('load_courselist', 'course_list.json', verbosity=1)
 				management.call_command('load_programs', 'programs.json', verbosity=1)
 				management.call_command('load_requirements', 'requirements.json', verbosity=1)
 				return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
-			except:
-				return JsonResponse({'authenticated': 'yes', 'successful': 'no'})
+			except Exception as e:
+				return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})
 		else:
 			return JsonResponse({'authenticated': 'no'})
 

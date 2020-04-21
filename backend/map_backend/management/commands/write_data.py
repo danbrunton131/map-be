@@ -16,6 +16,7 @@ DETAILS_URL = "http://m.academiccalendars.romcmaster.ca/mobile_functions.php?cat
 SELECTION_URL = "http://m.academiccalendars.romcmaster.ca/mobile_functions.php?catalog={CID}&type=program&oid={OID}&coreid={CORE}&showdetails"
 REQ_URL = "http://m.academiccalendars.romcmaster.ca/mobile_functions.php?catalog={CID}&type=program&oid={OID}&coreid={CORE}&showdetails"
 COURSE_URL = "http://m.academiccalendars.romcmaster.ca/mobile_functions.php?catalog={CID}&type=course&oid={OID}&showdetails"
+COURSELIST_URL = "http://m.academiccalendars.romcmaster.ca/mobile_functions.php?catalog={CID}&oid={OID}&type=page&page={PAGE}&showCustomPage"
 
 # base scraping function, start at the program header (?) level and drill down.
 def scrape_headers():
@@ -56,9 +57,8 @@ def scrape_headers():
             scrape_programs(headers[h])
 
 # scrapes programs
+programs = {}
 def scrape_programs(hid):
-    # dict mapping program IDs to names
-    programs = {}
     # we want to account for potentially multiple pages.
     page = 1
     while True:
@@ -109,6 +109,7 @@ def scrape_programs(hid):
     get_details(programs)
 
 # gets details (i.e. reqs) for programs
+progreqs = {}
 def get_details(programs):
     # iterate over all the found programs
     for program in programs:
@@ -166,7 +167,8 @@ def get_details(programs):
                     units: get_requirements(program, link_id)
                 }
                 reqs.append(requirement)
-        print(reqs)
+        if not reqs == []:
+            progreqs[program] = reqs
 
 # gets courses fulfilling a requirement, given the program and requirement IDs                
 def get_requirements(program, req):
@@ -185,11 +187,19 @@ def get_requirements(program, req):
     page_soup = soup(text, 'lxml')
     # retrieve the list items
     pdata = page_soup.findAll('li', {"class": "arrow"})
+    cldata = page_soup.findAll('li')
+    if pdata == [] and cldata != []:
+        for cl in cldata:
+            clid = cl.find('a')
+            if not clid == None:
+                clid = clid.get('onclick')
+                clid = clid.split("(")[1].split(")")[0].split(',')[0]
+                for item in process_courselist(clid):
+                    courses.append(item)
+                    get_one_course(item)
 
     courses = []
     for link in pdata:
-        if "List" in link:
-            return ["LIST"]
         course_id = link.find('a').get('onclick')
         course_id = course_id.split("(")[1].split(")")[0]
         courses.append(course_id)
@@ -197,9 +207,47 @@ def get_requirements(program, req):
 
     return courses
 
+courselists = {}
+def process_courselist(clid):
+    cs = []
+    # if courselist already processed, we skip it
+    if clid in courselists:
+        return courselists[clid]
+        # pull courses data
+        # note: even though this API call takes a page argument it actually returns the same results for all page numbers,
+        # and it's impossible to tell how many pages there are.
+        # we assume there is 1 page only for now.
+        data = uReq(COURSELIST_URL.format(CID=CATALOG_ID, OID=clid, PAGE=1).replace('\'', ''))
+        # check status code
+        if data.getcode() < 200 or data.getcode() > 299:
+            print("Error code received from scraping the academic calendar.")
+            exit(-1)
+        # read the text of the courses page
+        text = data.read()
+        # close the stream
+        data.close()
+
+        # parse the HTML data
+        page_soup = soup(text, 'lxml')
+        # retrieve the list items
+        pdata = page_soup.findAll('li')
+
+        # process each course in the list
+        for p in pdata:
+            # error checking
+            if p != None:
+                link = p.find('a')
+                if not link == None:
+                    link = link.get('onclick')
+                    link = link.split("(")[1].split(")")[0].replace('\'', '')
+                    cs.append(link)
+    return cs
+
 courses = {}
 # gets details (name+desc) of specific courses.
 def get_one_course(course_id):
+    if course_id in courses:
+        return
     uClient = uReq(COURSE_URL.format(CID=CATALOG_ID,OID=course_id))
     page_html = uClient.read()
     uClient.close()
@@ -248,10 +296,18 @@ def get_one_course(course_id):
 
 class Command(BaseCommand):
     help = 'Writes parsed requirements to files to be loaded'
+	
+    def add_arguments(self, parser):
+        parser.add_argument('catalog_id')
 
     def handle(self, *args, **options):
-        print('\nWriting out data...\n')
+        CATALOG_ID = options['catalog_id']
+        print('\nWriting out data, catalog {CID}...\n'.format(CID=CATALOG_ID))
         scrape_headers()
         fp = os.path.abspath(os.path.join(settings.BASE_DIR, 'data', 'courses.json'))
         with open(fp, 'w') as f: json.dump(courses, f, indent=4)
+        fp = os.path.abspath(os.path.join(settings.BASE_DIR, 'data', 'programs.json'))
+        with open(fp, 'w') as f: json.dump(programs, f, indent=4)
+        fp = os.path.abspath(os.path.join(settings.BASE_DIR, 'data', 'requirements.json'))
+        with open(fp, 'w') as f: json.dump(progreqs, f, indent=4)
         print('\nParsed and written\n')
