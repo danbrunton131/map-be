@@ -41,7 +41,9 @@ class GetCourseData(View):
 			# build the course data
 			course_data = {
 				"courseID": course.course_id,
-				"courseCode": course.code
+				"courseCode": course.code,
+				"courseName": course.name,
+				"courseDesc": course.desc
 			}
 
 			# insert into the response based on season, department
