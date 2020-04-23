@@ -32,6 +32,7 @@ CACHING = False
 if not DEBUG:
     ALLOWED_HOSTS = [
         '3.14.128.228',
+        'localhost',
     ]
 
 
