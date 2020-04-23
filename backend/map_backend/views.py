@@ -5,12 +5,45 @@ from django.core import serializers
 from collections import defaultdict
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from haystack.query import SearchQuerySet
 from .requirement_handler import BinOp, Parser
 import json
-
 import time
 
 from .models import Course, Program, RequirementGroup, RequirementItem
+
+AND = 0
+OR = 1
+
+class SearchCourse(View):
+
+	def get(self, request):
+
+		query = request.GET.get('q', '')
+
+		if len(query) > 15:
+			return JsonResponse({"error" : "long query"}) 
+
+		res = SearchQuerySet().filter(content=query)
+		suggestions = []
+
+		for course in res:
+			course_data = {
+				"courseID": course.object.course_id,
+				"courseCode": course.object.code,
+				"courseName": course.object.name,
+			}
+
+			suggestions.append(course_data)
+
+
+		response_data = {
+			'results' : suggestions # in list to maintain order/ranking
+		}
+
+		return JsonResponse(response_data)
+
+
 
 
 # /api/GetCourseData?faculty=<faculty name>
@@ -41,7 +74,9 @@ class GetCourseData(View):
 			# build the course data
 			course_data = {
 				"courseID": course.course_id,
-				"courseCode": course.code
+				"courseCode": course.code,
+				"courseName": course.name,
+				"courseDesc": course.desc
 			}
 
 			# insert into the response based on season, department
@@ -87,16 +122,13 @@ class GetCourseDetails(View):
 # body should contain one key 'selections' with a value of an array of course IDs selected.
 # still in progress
 class SubmitCourseSelections(View):
-	AND = 0
-	OR = 1
-	
+
 	# temp exempt for testing
 	@method_decorator(csrf_exempt)
 	def dispatch(self, request, *args, **kwargs):
 		return super(SubmitCourseSelections, self).dispatch(request, *args, **kwargs)
 
 	def post(self, request):
-		start = time.time()
 		# get programs
 		# to do -> calculator ID should only filter a select number of courses
 		programs = Program.objects.all()
@@ -121,6 +153,8 @@ class SubmitCourseSelections(View):
 				#requirement_items = RequirementItem.objects.filter(parent_group=requirement)
 				requirement_items = requirement.requirementitem_set.all()
 
+				# TODO: merge == 1 and multi together
+				
 				if len(requirement_items) == 1:
 
 					units = requirement_items[0].req_units
@@ -135,22 +169,58 @@ class SubmitCourseSelections(View):
 					total_required_courses += required_courses
 
 				else:
-					# to do
-					# implement List1 and List2 or list3 etc
-					pass
+
+					build_requirements = []
+
+
+					# We are converting a complex requirement_group 
+						# Ex. Group connector is OR 
+						# 
+						# -     |   3 units from List 1
+						# AND   |   3 units from List 2
+						# OR    |   3 units from List 3
+						# AND   |   3 units from List 4
+						#
+						# This is converted to 
+						# output -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4) 
+
+					for i, item in enumerate(requirement_items):
+						# We skip the connector for the first item
+						if i != 0:
+							build_requirements.append(item.connector)
+
+						units = item.req_units
+						check_list = list((item.req_list.courses.all().values_list('course_id', 'units')))
+						check_list = (units, check_list)
+	
+						build_requirements.append(check_list)
+
+					# Now we build a parse tree
+					# Parser takes in a precedence which is opposite of connector
+					# 	 -> mosaic's connector is the opposite of the precedence
+					# This will output something like 
+						# -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
+					check_list = Parser(build_requirements, not requirement.connector).parse()
+				
+					# apply calculations
+					completed_courses, required_courses, course_list = self.calculate(check_list, course_list)
+					# update total counter
+					total_completed_courses += completed_courses
+					total_required_courses += required_courses
+					
 
 			# append answer to our result
 			res = {
 				"programName" : program.name,
 				"programDescription" : program.desc,
-				"programPercentage" :  round(total_completed_courses / total_required_courses, 2)
+				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0
 			}
 			response_json["matchedPrograms"].append(res)
-		print(time.time() - start)
 
 		return JsonResponse(response_json)
 
 	def calculate(self, tree, course_list):
+
 		# base case
 		if not isinstance(tree, BinOp):
 			units, check_list = tree
@@ -188,7 +258,7 @@ class SubmitCourseSelections(View):
 			right_completed_courses, right_required_courses, right_course_list = self.calculate(tree.right, course_list_copy)
 
 			# if left side of equation is True, we propogate that up
-			if left_completed_courses == left_required_coures or ((left_required_coures - left_completed_courses) > (right_required_courses - right_completed_courses)):
+			if left_completed_courses == left_required_coures or ((left_required_coures - left_completed_courses) < (right_required_courses - right_completed_courses)):
 				return left_completed_courses, left_required_coures, left_course_list
 			else:
 				return right_completed_courses, right_required_courses, right_course_list

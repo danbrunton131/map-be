@@ -29,9 +29,10 @@ DEBUG = True
 CACHING = False
 
 # 3.14.128.228 is dev server
-ALLOWED_HOSTS = [
-    '3.14.128.228',
-]
+if not DEBUG:
+    ALLOWED_HOSTS = [
+        '3.14.128.228',
+    ]
 
 
 # Application definition
@@ -43,9 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whoosh',
+    'haystack',
     'map_backend',
     'corsheaders',
-
 ]
 
 CORS_ORIGIN_WHITELIST = [
@@ -99,6 +101,18 @@ DATABASES = {
     }
 }
 
+
+# Searching stuff
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+# This makes it so the index should automatically update when things are added to DB
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

@@ -1,3 +1,7 @@
+
+AND = 0 # TODO make a proper enum class
+OR = 1
+
 class BinOp:
 	def __init__(self, left, op, right):
 		self.left = left
@@ -5,11 +9,14 @@ class BinOp:
 		self.right = right
 
 	def __str__(self):
-		return "{} {} {}".format(str(self.left), self.op, str(self.right))
+		if self.op == AND:
+			operator = "AND"
+		else:
+			operator = "OR"
+
+		return "({}) {} ({})".format(str(self.left), operator, str(self.right))
 
 class Parser:
-	AND = 0
-	OR = 1
 
 	def __init__(self, req, precedence):
 		self.req = req
@@ -127,7 +134,7 @@ class Parser:
 # i = Interpreter()
 # print(i.calculate(eq, course_list))
 
-# # p = Parser(["A", AND, "B", OR, "C"], AND)
+# p = Parser(["A", AND, "B", OR, "C"], AND)
 
-# # res = p.parse()
-# # print(res.right)
+# res = p.parse()
+# print(res.right)
