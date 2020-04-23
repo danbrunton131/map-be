@@ -21,10 +21,21 @@ A temporary method of populating the database with science courses are provided.
  
  **py manage.py load_requirements requirements.json**
 
+## Building index to search
+
+ **py manage.py rebuild_index **
+
 # Endpoints
 
 There is no error checking right now so requests must be crafted carefully. 
 
+### GET to search
+Request:
+/api/Search?q=<QUERY HERE>
+
+Must run "rebuild_index" in order to search any courses
+	
+	
 ### 1 GET to populate frontend initially
 
 Request:
