@@ -21,7 +21,7 @@ class SearchCourse(View):
 
 		query = request.GET.get('q', '')
 
-		if len(query) > 15:
+		if len(query) > 30:
 			return JsonResponse({"error" : "long query"}) 
 
 		res = SearchQuerySet().filter(content=query)
@@ -32,6 +32,11 @@ class SearchCourse(View):
 				"courseID": course.object.course_id,
 				"courseCode": course.object.code,
 				"courseName": course.object.name,
+				"courseDesc": course.desc,
+				"courseFall": course.offered_fall,
+				"courseWinter": course.offered_winter,
+				"courseSummer": course.offered_summer,
+				"courseSpring": course.offered_spring
 			}
 
 			suggestions.append(course_data)
@@ -42,8 +47,6 @@ class SearchCourse(View):
 		}
 
 		return JsonResponse(response_data)
-
-
 
 
 # /api/GetCourseData?faculty=<faculty name>
@@ -131,6 +134,11 @@ class SubmitCourseSelections(View):
 	def post(self, request):
 		# get programs
 		# to do -> calculator ID should only filter a select number of courses
+
+		selected_courses = json.loads(request.body)["selections"]
+		if len(selected_courses) > 15:
+			return JsonResponse({"error" : "too many courses"})
+
 		programs = Program.objects.all()
 
 		response_json = {
@@ -138,12 +146,12 @@ class SubmitCourseSelections(View):
 			]
 		}
 
-		selected_courses = json.loads(request.body)["selections"]
-
 		for program in programs:
 
 			# create our course list and counter
 			course_list = selected_courses.copy()
+			original_course_list = set(selected_courses.copy())
+
 			total_completed_courses = total_required_courses = 0
 
 			# get all requirements
@@ -168,10 +176,10 @@ class SubmitCourseSelections(View):
 					total_completed_courses += completed_courses
 					total_required_courses += required_courses
 
+
 				else:
 
 					build_requirements = []
-
 
 					# We are converting a complex requirement_group 
 						# Ex. Group connector is OR 
@@ -201,21 +209,26 @@ class SubmitCourseSelections(View):
 					# This will output something like 
 						# -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
 					check_list = Parser(build_requirements, not requirement.connector).parse()
-				
+					
+
+
 					# apply calculations
 					completed_courses, required_courses, course_list = self.calculate(check_list, course_list)
 					# update total counter
 					total_completed_courses += completed_courses
 					total_required_courses += required_courses
-					
+
 
 			# append answer to our result
 			res = {
 				"programName" : program.name,
 				"programDescription" : program.desc,
-				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0
+				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
+				"programRequirements": program.requirement_equation(),
+				"fufilledCourses": list(original_course_list - set(course_list))
 			}
 			response_json["matchedPrograms"].append(res)
+
 
 		return JsonResponse(response_json)
 
@@ -230,13 +243,17 @@ class SubmitCourseSelections(View):
 
 			check_list = set(units_for_course.keys())
 
+			new_course_list = course_list.copy()
+
 			for course in course_list:
 				if course in check_list:
 					units -= units_for_course[course]
 					# course_list is still a list to maintain ordering
-					course_list.remove(course)
+					new_course_list.remove(course)
 					if units == 0:
 						break
+
+			course_list = new_course_list
 
 			if units == 0:
 				return req_units, req_units, course_list
@@ -261,4 +278,4 @@ class SubmitCourseSelections(View):
 			if left_completed_courses == left_required_coures or ((left_required_coures - left_completed_courses) < (right_required_courses - right_completed_courses)):
 				return left_completed_courses, left_required_coures, left_course_list
 			else:
-				return right_completed_courses, right_required_courses, right_course_list
+				return right_completed_courses, right_required_courses, right_course_list 

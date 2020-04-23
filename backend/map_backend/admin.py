@@ -8,8 +8,7 @@ class RequirementItemInline(admin.TabularInline):
 	model = RequirementItem
 	readonly_fields = ['id']
 	extra = 0
-
-	# autocomplete_fields = ['req_list']
+	raw_id_fields  = ['req_list']
 
 class RequirementGroupAdmin(admin.ModelAdmin):
 	model = RequirementGroup
@@ -21,9 +20,35 @@ class RequirementGroupAdmin(admin.ModelAdmin):
 		TextField: {'widget': Textarea(attrs={'rows':2, 'cols':25})},
 	}
 
+	readonly_fields = ['requirement_equation']
+
+	# todo repeated code, must combine together
+	def requirement_equation(self, obj):
+		requirement_items = obj.requirementitem_set.all()
+
+		if len(requirement_items) == 0:
+			return ""
+
+		build_requirements = []
+
+		for i, item in enumerate(requirement_items):
+			# We skip the connector for the first item
+			if i != 0:
+				build_requirements.append(item.connector)
+
+			units = item.req_units
+			check_list = list((item.req_list.courses.all().values_list('code', flat=True)))
+			check_list = f"{units} Units from {check_list}" 
+
+			build_requirements.append(check_list)
+
+		check_list = Parser(build_requirements, not obj.connector).parse()
+		return str(check_list)
+
+
 class CourseListAdmin(admin.ModelAdmin):
 	filter_horizontal = ["courses"]
-	search_fields = ['name']
+	search_fields = ['name', 'courses__code']
 	list_display = ['name', 'list_courses']
 
 	def list_courses(self, obj):
