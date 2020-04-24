@@ -63,7 +63,7 @@ class SearchCourse(View):
 				"courseID": course.object.course_id,
 				"courseCode": course.object.code,
 				"courseName": course.object.name,
-				"courseDesc": course.desc,
+				"courseDesc": course.object.desc,
 				"courseFall": course.offered_fall,
 				"courseWinter": course.offered_winter,
 				"courseSummer": course.offered_summer,
