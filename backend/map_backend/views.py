@@ -252,10 +252,11 @@ class SubmitCourseSelections(View):
 			# append answer to our result
 			res = {
 				"programName" : program.name,
+				"programId" : program.program_id,
 				"programDescription" : program.desc,
 				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
 				"programRequirements": program.requirement_equation(),
-				"fufilledCourses": list(original_course_list - set(course_list))
+				"fulfilledCourses": list(original_course_list - set(course_list))
 			}
 			response_json["matchedPrograms"].append(res)
 
