@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.views.generic import TemplateView
+
+from map_backend.views import Load, LoadView
+
 urlpatterns = [
+    path('admin/loader/', LoadView.as_view()),
+    path('admin/loader/Load', Load.as_view()),
 	path('admin/', admin.site.urls),
 	path('api/', include('map_backend.urls')),
 ]

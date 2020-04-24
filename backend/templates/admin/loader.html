@@ -1,15 +1,43 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/base.html" %}
 {% load i18n %}
 
+{% block title %}Load Data{% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{% trans 'McMaster Academic Planner' %}</h1>
+<h1 id="site-name">{% trans 'McMaster Academic Planner - Data Loader' %}</h1>
 {% endblock %}
 
-{% block userlinks %}
-    <a href="loader">{% trans 'Load data' %}</a>
-    /
-    {{block.super}}
+{% block content %}
+<div>The below button will scrape data from the McMaster Undergraduate Calendar and insert it into the MAP.</div>
+<div>A catalog ID is required, this will be unique to each year's undegraduate calendar and can be found from inspecting API requests (or probably asking the team in charge of the calendar).</div>
+<div id="loader-text">
+	<div>Catalog ID: <input type="text" id="catalog" required value="41"/></div>
+	<div><input type="button" onclick="LoadData();" value="Load from Catalog"/></div>
+</div>
+{% csrf_token %}
+<script type="text/javascript">
+	function LoadData() {
+		var csrftoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+		var catalog = document.getElementById('catalog').value;
+		var xhr = new XMLHttpRequest();
+		
+		document.getElementById('loader-text').innerHTML = "<br/><br/>Performing data load... (this will take several minutes)";
+		
+		xhr.open('POST', '/admin/loader/Load', true);
+		xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xhr.onload = function (e) {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					document.getElementById('loader-text').innerHTML = "<br/><br/>Completed data load successfully.";
+				} else {
+					document.getElementById('loader-text').innerHTML = "<br/><br/>Errors occurred in data load.";
+				}
+			}
+		};
+		xhr.send(JSON.stringify({'catalog': catalog}));
+	}
+</script>
 {% endblock %}
 
 {% block extrastyle %}
