@@ -63,11 +63,11 @@ class SearchCourse(View):
 				"courseID": course.object.course_id,
 				"courseCode": course.object.code,
 				"courseName": course.object.name,
-				"courseDesc": course.desc,
-				"courseFall": course.offered_fall,
-				"courseWinter": course.offered_winter,
-				"courseSummer": course.offered_summer,
-				"courseSpring": course.offered_spring
+				"courseDesc": course.object.desc,
+				"courseFall": course.object.offered_fall,
+				"courseWinter": course.object.offered_winter,
+				"courseSummer": course.object.offered_summer,
+				"courseSpring": course.object.offered_spring
 			}
 
 			suggestions.append(course_data)
@@ -262,6 +262,7 @@ class SubmitCourseSelections(View):
 			res = {
 				"programName" : program.name,
 				"programDescription" : program.desc,
+				"programId" : program.program_id,
 				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
 				"programRequirements": program.requirement_equation(),
 				"fufilledCourses": fufilled_courses_name
