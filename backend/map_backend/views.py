@@ -250,12 +250,12 @@ class SubmitCourseSelections(View):
 
 
 
-			# return name of fufilled courses
-			fufilled_courses_id = list(original_course_list - set(course_list))
-			fufilled_courses_name = []
+			# return name of fulfilled courses
+			fulfilled_courses_id = list(original_course_list - set(course_list))
+			fulfilled_courses_name = []
 
-			for course in fufilled_courses_id:
-				fufilled_courses_name.append(Course.objects.get(course_id=course).code)
+			for course in fulfilled_courses_id:
+				fulfilled_courses_name.append(Course.objects.get(course_id=course).code)
 
 		
 			# append answer to our result
@@ -265,7 +265,7 @@ class SubmitCourseSelections(View):
 				"programId" : program.program_id,
 				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
 				"programRequirements": program.requirement_equation(),
-				"fufilledCourses": fufilled_courses_name
+				"fulfilledCourses":fulfilled_courses_name
 			}
 			response_json["matchedPrograms"].append(res)
 
