@@ -1,4 +1,6 @@
 from django.db import models
+from .requirement_handler import Parser
+
 
 class Course(models.Model):
 	""" Course, e.g. COMPSCI 1MD3 """
@@ -119,6 +121,32 @@ class Program(models.Model):
 	def __str__(self):
 		return "{} - {}".format(self.pk, self.name)
 
+	def requirement_equation(self):
+		output_requirements = []
+
+		requirement_groups = self.requirements.all().order_by('order')
+
+		for requirement in requirement_groups:
+			requirement_items = requirement.requirementitem_set.all()
+
+			build_requirements = []
+
+			for i, item in enumerate(requirement_items):
+				# We skip the connector for the first item
+				if i != 0:
+					build_requirements.append(item.connector)
+
+				units = item.req_units
+				check_list = list((item.req_list.courses.all().values_list('code', flat=True)))
+
+				check_list = f"{units} units of {', '.join(c for c in check_list)}"
+
+				build_requirements.append(check_list)
+
+			check_list = Parser(build_requirements, not requirement.connector).parse()
+			output_requirements.append(str(check_list))
+
+		return {"requirements": output_requirements}
 
 class Calculator(models.Model):
 	""" A calculator contains specific courses/programs to display to the user """
