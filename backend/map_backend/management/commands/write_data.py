@@ -188,6 +188,7 @@ def get_requirements(program, req):
     # retrieve the list items
     pdata = page_soup.findAll('li', {"class": "arrow"})
     cldata = page_soup.findAll('li')
+    courses = []
     if pdata == [] and cldata != []:
         for cl in cldata:
             clid = cl.find('a')
@@ -198,7 +199,6 @@ def get_requirements(program, req):
                     courses.append(item)
                     get_one_course(item)
 
-    courses = []
     for link in pdata:
         course_id = link.find('a').get('onclick')
         course_id = course_id.split("(")[1].split(")")[0]
@@ -213,34 +213,34 @@ def process_courselist(clid):
     # if courselist already processed, we skip it
     if clid in courselists:
         return courselists[clid]
-        # pull courses data
-        # note: even though this API call takes a page argument it actually returns the same results for all page numbers,
-        # and it's impossible to tell how many pages there are.
-        # we assume there is 1 page only for now.
-        data = uReq(COURSELIST_URL.format(CID=CATALOG_ID, OID=clid, PAGE=1).replace('\'', ''))
-        # check status code
-        if data.getcode() < 200 or data.getcode() > 299:
-            print("Error code received from scraping the academic calendar.")
-            exit(-1)
-        # read the text of the courses page
-        text = data.read()
-        # close the stream
-        data.close()
+    # pull courses data
+    # note: even though this API call takes a page argument it actually returns the same results for all page numbers,
+    # and it's impossible to tell how many pages there are.
+    # we assume there is 1 page only for now.
+    data = uReq(COURSELIST_URL.format(CID=CATALOG_ID, OID=clid, PAGE=1).replace('\'', ''))
+    # check status code
+    if data.getcode() < 200 or data.getcode() > 299:
+        print("Error code received from scraping the academic calendar.")
+        exit(-1)
+    # read the text of the courses page
+    text = data.read()
+    # close the stream
+    data.close()
 
-        # parse the HTML data
-        page_soup = soup(text, 'lxml')
-        # retrieve the list items
-        pdata = page_soup.findAll('li')
+    # parse the HTML data
+    page_soup = soup(text, 'lxml')
+    # retrieve the list items
+    pdata = page_soup.findAll('li')
 
-        # process each course in the list
-        for p in pdata:
-            # error checking
-            if p != None:
-                link = p.find('a')
-                if not link == None:
-                    link = link.get('onclick')
-                    link = link.split("(")[1].split(")")[0].replace('\'', '')
-                    cs.append(link)
+    # process each course in the list
+    for p in pdata:
+        # error checking
+        if p != None:
+            link = p.find('a')
+            if not link == None:
+                link = link.get('onclick')
+                link = link.split("(")[1].split(")")[0].replace('\'', '')
+                cs.append(link)
     return cs
 
 courses = {}
@@ -296,7 +296,7 @@ def get_one_course(course_id):
 
 class Command(BaseCommand):
     help = 'Writes parsed requirements to files to be loaded'
-	
+    
     def add_arguments(self, parser):
         parser.add_argument('catalog_id')
 
