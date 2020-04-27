@@ -27,11 +27,12 @@
 		xhr.setRequestHeader("X-CSRFToken", csrftoken);
 		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhr.onload = function (e) {
-			if (xhr.readyState === 4) {
-				if (xhr.status === 200) {
+      var json = JSON.parse(xhr.responseText);
+			if (xhr.readyState === 4)  {
+				if ((xhr.status === 200) && (json.successful == "yes")) {
 					document.getElementById('loader-text').innerHTML = "<br/><br/>Completed data load successfully.";
 				} else {
-					document.getElementById('loader-text').innerHTML = "<br/><br/>Errors occurred in data load.";
+					document.getElementById('loader-text').innerHTML = "<br/><br/>Errors occurred in data load.<br/>" + json.msg;
 				}
 			}
 		};
