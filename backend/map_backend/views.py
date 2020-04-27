@@ -5,13 +5,14 @@ from django.core import serializers
 from collections import defaultdict
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from  django.core.exceptions import ObjectDoesNotExist
 from haystack.query import SearchQuerySet
 from .requirement_handler import BinOp, Parser
 import json
 from django.core import management
 import time
 
-from .models import Course, Program, RequirementGroup, RequirementItem
+from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
 
 # /admin/loader
 # template view for loading data frontend in admin
@@ -38,6 +39,7 @@ class Load(View):
 				management.call_command('load_courselist', 'course_list.json', verbosity=1)
 				management.call_command('load_programs', 'programs.json', verbosity=1)
 				management.call_command('load_requirements', 'requirements.json', verbosity=1)
+				management.call_command('load_calculator', 'courses.json', 'programs.json', verbosity=1)
 				return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
 			except Exception as e:
 				return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})
@@ -79,22 +81,27 @@ class SearchCourse(View):
 
 		return JsonResponse(response_data)
 
-# /api/GetCourseData?faculty=<faculty name>
-# returns the courselists for the given faculty.
-# if the faculty parameter is omitted, it returns courselists for all faculties.
+# /api/GetCourseData?calc_id=<id>
 class GetCourseData(View):
 
 	def get(self, request):
-		# faculty to filter by
-		faculty = request.GET.get('faculty', '')
 
-		if faculty == "":
-			courses = Course.objects.all()
-		else:
-			courses = Course.objects.filter(department=faculty)
+		# calc_id to filter by
+		calc_id = request.GET.get('calc_id', '')
+
+		try:
+			if calc_id == "": # default to 1
+				courses = Calculator.objects.get(calculator_id=1).courses.all()
+				title = Calculator.objects.get(calculator_id=1).title
+			else:
+				courses = Calculator.objects.get(calculator_id=calc_id).courses.all()
+				title = Calculator.objects.get(calculator_id=calc_id).title
+		except ObjectDoesNotExist:
+			return JsonResponse({"error": "no such calc_id exists"})
 
 		# need to build json object to send back that matches the API spec
 		response_data = {
+			"calcTitle" : title,
 			"courseLists": {
 				"Spring": defaultdict(list),
 				"Summer": defaultdict(list),
@@ -169,7 +176,15 @@ class SubmitCourseSelections(View):
 		if len(selected_courses) > 15:
 			return JsonResponse({"error" : "too many courses"})
 
-		programs = Program.objects.all()
+		calc_id = json.loads(request.body)["calc_id"]
+
+		try:
+			if calc_id == "": # default to 1
+				programs = Calculator.objects.get(calculator_id=1).programs.all()
+			else:
+				programs = Calculator.objects.get(calculator_id=calc_id).programs.all()
+		except ObjectDoesNotExist:
+			return JsonResponse({"error": "no such calc_id exists"})
 
 		response_json = {
 			"matchedPrograms" : [
@@ -265,7 +280,7 @@ class SubmitCourseSelections(View):
 				"programId" : program.program_id,
 				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
 				"programRequirements": program.requirement_equation(),
-				"fulfilledCourses":fulfilled_courses_name
+				"fulfilledCourses": fulfilled_courses_name
 			}
 			response_json["matchedPrograms"].append(res)
 
