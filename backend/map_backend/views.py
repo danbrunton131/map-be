@@ -11,6 +11,10 @@ import json
 from django.core import management
 import time
 
+import bs4, re
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
+
 from .models import Course, Program, RequirementGroup, RequirementItem
 
 # /admin/loader
@@ -18,9 +22,31 @@ from .models import Course, Program, RequirementGroup, RequirementItem
 class LoadView(View):
 
 	def get(self, request):
+		# retrieve list of calendars
+		BASE_URL = "http://m.academiccalendars.romcmaster.ca/"
+		data = uReq(BASE_URL)
+		# check status code
+		if data.getcode() < 200 or data.getcode() > 299:
+			return render(request, 'admin/loader.html', {'enabled': False, 'catalogs': [{'id': 0, 'name': 'No catalogs available.'}]})
+		# read the text of the calendar page
+		text = data.read()
+		# close the stream
+		data.close()
+
+		# parse the HTML data
+		page_soup = soup(text, 'lxml')
+		# retrieve the list items
+		hdata = page_soup.findAll('option')
+		# calendars only
+		hd = [x for x in hdata if ' Calendar ' in x.text]
+		# get list of calendars
+		catalogs = []
+		for x in hd:
+			catalogs.append({'id': int(x['value']), 'name': x.text})
+		
 		# only authenticated users can access
 		if request.user.is_authenticated:
-			return render(request, 'admin/loader.html')
+			return render(request, 'admin/loader.html', {'enabled': True, 'catalogs': catalogs})
 		else:
 			return JsonResponse({'authenticated': 'no'})
 
