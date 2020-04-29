@@ -30,23 +30,6 @@ def load_course(file):
 			c = Course(course_id=d, code=code, name=name, desc=desc, units=units, department=department, offered_fall=True, offered_winter=False, offered_summer=False, offered_spring=False)
 			c.save()
 
-# def load_course(file):
-# 	with open(file) as json_file:
-# 		data = json.load(json_file)
-			
-# 		for d in data:
-# 			course_id = d
-# 			code = data[d]["code"]
-# 			name = data[d]["name"]
-# 			desc = data[d]["desc"]
-# 			units = data[d]["units"]
-# 			# print(course_id, code, name)
-# 			c = Course.objects.get(course_id=d)
-
-# 			c.department = code.split(" ")[0]
-
-# 			c.save()
-
 class Command(BaseCommand):
 		help = 'Loads course data'
 

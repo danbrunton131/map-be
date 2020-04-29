@@ -21,6 +21,8 @@ A temporary method of populating the database with science courses are provided.
  
  **py manage.py load_requirements requirements.json**
 
+ **py manage.py load_calculator courses.json programs.json**
+
 ## Building index to search
 
  **py manage.py rebuild_index **
@@ -39,9 +41,9 @@ Must run "rebuild_index" in order to search any courses
 ### 1 GET to populate frontend initially
 
 Request:
-/api/GetCourseData (This gets all courses)
-/api/GetCourseData?faculty=MATH
+/api/GetCourseData?calc_id=1
 
+This will return the list of courses and the title of the calculator
 
 ### GET to retrieve course name and desc, given a course ID
 
@@ -60,6 +62,7 @@ Body:
 		0101010,
 		5564732,
 		1238921
-	]
+	],
+	"calc_id": 1
 }
 

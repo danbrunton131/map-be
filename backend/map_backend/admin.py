@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.forms import TextInput, Textarea
 from django.db.models import TextField
-from .models import Course, CourseList, RequirementGroup, RequirementItem, Program
+from .models import Course, CourseList, RequirementGroup, RequirementItem, Program, Calculator
 from .requirement_handler import Parser
 
 class RequirementItemInline(admin.TabularInline):
@@ -97,7 +97,11 @@ class ProgramAdmin(admin.ModelAdmin):
 class CourseAdmin(admin.ModelAdmin):
 	search_fields = ['name', 'code']
 
+class CalculatorAdmin(admin.ModelAdmin):
+	filter_horizontal = ["courses", "programs"]
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(RequirementGroup, RequirementGroupAdmin)
 admin.site.register(CourseList, CourseListAdmin)
 admin.site.register(Program, ProgramAdmin)
+admin.site.register(Calculator, CalculatorAdmin)

@@ -5,17 +5,17 @@ from django.core import serializers
 from collections import defaultdict
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from  django.core.exceptions import ObjectDoesNotExist
 from haystack.query import SearchQuerySet
 from .requirement_handler import BinOp, Parser
 import json
 from django.core import management
 import time
-
 import bs4, re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
-from .models import Course, Program, RequirementGroup, RequirementItem
+from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
 
 # /admin/loader
 # template view for loading data frontend in admin
@@ -64,6 +64,7 @@ class Load(View):
 				management.call_command('load_courselist', 'course_list.json', verbosity=1)
 				management.call_command('load_programs', 'programs.json', verbosity=1)
 				management.call_command('load_requirements', 'requirements.json', verbosity=1)
+				management.call_command('load_calculator', 'courses.json', 'programs.json', verbosity=1)
 				return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
 			except Exception as e:
 				return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})
@@ -89,11 +90,11 @@ class SearchCourse(View):
 				"courseID": course.object.course_id,
 				"courseCode": course.object.code,
 				"courseName": course.object.name,
-				"courseDesc": course.desc,
-				"courseFall": course.offered_fall,
-				"courseWinter": course.offered_winter,
-				"courseSummer": course.offered_summer,
-				"courseSpring": course.offered_spring
+				"courseDesc": course.object.desc,
+				"courseFall": course.object.offered_fall,
+				"courseWinter": course.object.offered_winter,
+				"courseSummer": course.object.offered_summer,
+				"courseSpring": course.object.offered_spring
 			}
 
 			suggestions.append(course_data)
@@ -105,22 +106,27 @@ class SearchCourse(View):
 
 		return JsonResponse(response_data)
 
-# /api/GetCourseData?faculty=<faculty name>
-# returns the courselists for the given faculty.
-# if the faculty parameter is omitted, it returns courselists for all faculties.
+# /api/GetCourseData?calc_id=<id>
 class GetCourseData(View):
 
 	def get(self, request):
-		# faculty to filter by
-		faculty = request.GET.get('faculty', '')
 
-		if faculty == "":
-			courses = Course.objects.all()
-		else:
-			courses = Course.objects.filter(department=faculty)
+		# calc_id to filter by
+		calc_id = request.GET.get('calc_id', '')
+
+		try:
+			if calc_id == "": # default to 1
+				courses = Calculator.objects.get(calculator_id=1).courses.all()
+				title = Calculator.objects.get(calculator_id=1).title
+			else:
+				courses = Calculator.objects.get(calculator_id=calc_id).courses.all()
+				title = Calculator.objects.get(calculator_id=calc_id).title
+		except ObjectDoesNotExist:
+			return JsonResponse({"error": "no such calc_id exists"})
 
 		# need to build json object to send back that matches the API spec
 		response_data = {
+			"calcTitle" : title,
 			"courseLists": {
 				"Spring": defaultdict(list),
 				"Summer": defaultdict(list),
@@ -195,7 +201,16 @@ class SubmitCourseSelections(View):
 		if len(selected_courses) > 15:
 			return JsonResponse({"error" : "too many courses"})
 
-		programs = Program.objects.all()
+		
+
+		try:
+			calc_id = json.loads(request.body)["calc_id"]
+			if calc_id == "": # default to 1
+				programs = Calculator.objects.get(calculator_id=1).programs.all()
+			else:
+				programs = Calculator.objects.get(calculator_id=calc_id).programs.all()
+		except:
+			return JsonResponse({"error": "no such calc_id exists"})
 
 		response_json = {
 			"matchedPrograms" : [
@@ -206,7 +221,7 @@ class SubmitCourseSelections(View):
 
 			# create our course list and counter
 			course_list = selected_courses.copy()
-			original_course_list = set(selected_courses.copy())
+			fulfilled_courses_id = []
 
 			total_completed_courses = total_required_courses = 0
 
@@ -214,7 +229,9 @@ class SubmitCourseSelections(View):
 			requirement_groups = program.requirements.all().order_by('order').prefetch_related('requirementitem_set')
 
 			for requirement in requirement_groups:
-				#requirement_items = RequirementItem.objects.filter(parent_group=requirement)
+				
+				prev_course_list = set(course_list.copy())
+
 				requirement_items = requirement.requirementitem_set.all()
 
 				# TODO: merge == 1 and multi together
@@ -274,14 +291,24 @@ class SubmitCourseSelections(View):
 					total_completed_courses += completed_courses
 					total_required_courses += required_courses
 
+				fulfilled_courses_id.append(list(prev_course_list - set(course_list)))
 
+
+			# return name of fulfilled courses
+			fulfilled_courses_name = []
+
+			for courses in fulfilled_courses_id:
+				fulfilled_courses_name.append([Course.objects.get(course_id=course).code for course in courses])
+
+		
 			# append answer to our result
 			res = {
 				"programName" : program.name,
 				"programDescription" : program.desc,
+				"programId" : program.program_id,
 				"programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
 				"programRequirements": program.requirement_equation(),
-				"fufilledCourses": list(original_course_list - set(course_list))
+				"fulfilledCourses": fulfilled_courses_name
 			}
 			response_json["matchedPrograms"].append(res)
 

@@ -27,7 +27,7 @@ def load_program(file):
 			course_list = data[d]
 			for course in course_list:
 				c = Course.objects.get(course_id=course)
-				c_l.courses.add()
+				c_l.courses.add(c)
 
 			c_l.save()
 

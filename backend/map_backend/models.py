@@ -152,10 +152,13 @@ class Calculator(models.Model):
 	""" A calculator contains specific courses/programs to display to the user """
 	
 	# ID of calculator	
-	calculator_id = models.IntegerField(primary_key=True)
-	# calculator description
-	desc = models.TextField()
+	calculator_id = models.IntegerField(primary_key=True)	
+	# calculator title
+	title = models.TextField(help_text="This will be the title of the webpage for that calculator")
 	# courses to display to use to select from
 	courses = models.ManyToManyField(Course)
 	# programs available to check user's input against
 	programs = models.ManyToManyField(Program)
+
+	def __str__(self):
+		return self.title
