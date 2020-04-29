@@ -11,8 +11,18 @@
 <div>The below button will scrape data from the McMaster Undergraduate Calendar and insert it into the MAP.</div>
 <div>A catalog ID is required, this will be unique to each year's undegraduate calendar and can be found from inspecting API requests (or probably asking the team in charge of the calendar).</div>
 <div id="loader-text">
-	<div>Catalog ID: <input type="text" id="catalog" required value="41"/></div>
-	<div><input type="button" onclick="LoadData();" value="Load from Catalog"/></div>
+	{% if enabled %}
+		<div>Catalog ID: 
+			<select id="catalog">
+				{% for key in catalogs %}
+					<option value="{{key.id}}">{{key.name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div><input type="button" onclick="LoadData();" value="Load from Catalog"/></div>
+	{% else %}
+		<div>Failed to load catalogs from the Acalog API. Try refreshing the page, or else contact MAP administrators if this persists.</div>
+	{% endif %}
 </div>
 {% csrf_token %}
 <script type="text/javascript">
