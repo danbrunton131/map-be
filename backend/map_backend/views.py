@@ -176,14 +176,15 @@ class SubmitCourseSelections(View):
 		if len(selected_courses) > 15:
 			return JsonResponse({"error" : "too many courses"})
 
-		calc_id = json.loads(request.body)["calc_id"]
+		
 
 		try:
+			calc_id = json.loads(request.body)["calc_id"]
 			if calc_id == "": # default to 1
 				programs = Calculator.objects.get(calculator_id=1).programs.all()
 			else:
 				programs = Calculator.objects.get(calculator_id=calc_id).programs.all()
-		except ObjectDoesNotExist:
+		except:
 			return JsonResponse({"error": "no such calc_id exists"})
 
 		response_json = {
@@ -195,7 +196,7 @@ class SubmitCourseSelections(View):
 
 			# create our course list and counter
 			course_list = selected_courses.copy()
-			original_course_list = set(selected_courses.copy())
+			fulfilled_courses_id = []
 
 			total_completed_courses = total_required_courses = 0
 
@@ -203,7 +204,9 @@ class SubmitCourseSelections(View):
 			requirement_groups = program.requirements.all().order_by('order').prefetch_related('requirementitem_set')
 
 			for requirement in requirement_groups:
-				#requirement_items = RequirementItem.objects.filter(parent_group=requirement)
+				
+				prev_course_list = set(course_list.copy())
+
 				requirement_items = requirement.requirementitem_set.all()
 
 				# TODO: merge == 1 and multi together
@@ -263,14 +266,14 @@ class SubmitCourseSelections(View):
 					total_completed_courses += completed_courses
 					total_required_courses += required_courses
 
+				fulfilled_courses_id.append(list(prev_course_list - set(course_list)))
 
 
 			# return name of fulfilled courses
-			fulfilled_courses_id = list(original_course_list - set(course_list))
 			fulfilled_courses_name = []
 
-			for course in fulfilled_courses_id:
-				fulfilled_courses_name.append(Course.objects.get(course_id=course).code)
+			for courses in fulfilled_courses_id:
+				fulfilled_courses_name.append([Course.objects.get(course_id=course).code for course in courses])
 
 		
 			# append answer to our result
