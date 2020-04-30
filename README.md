@@ -56,7 +56,7 @@ Request:
 Must run "rebuild_index" in order to search any courses. See "Rebuilding index to search" section.
 	
 	
-### Populating the frontend with courses and a title
+### Populating the frontend with courses and a title (GET)
 
 Request:
 ```
@@ -81,7 +81,7 @@ Response:
 {"courseCode": "", "courseName": "", "courseDesc": ""}
 ```
 
-### Calculate program requirement completion
+### Calculate program requirement completion (POST)
 Request:
 ```
 /api/SubmitCourseSelections
