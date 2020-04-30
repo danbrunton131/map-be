@@ -18,32 +18,33 @@ Once activated, you can install all dependencies from the requirements.txt file
 ***
 
 ### Running the server
-To start run: **py manage.py runserver**
+To start run: ``` py manage.py runserver ``` 
 
 ***
 ## Preparing the database
 By default, an sqllite database will be automatically created by Django. You should run the following commands:
 
- **py manage.py makemigrations map_backend**
- **py manage.py migrate**
+ ``` py manage.py makemigrations map_backend ```
+ 
+ ``` py manage.py migrate ```
 
 ## Populating the database
 
 The fastest way to populate the database is with the json files included in the /data/ folder. You can automatically upload them using the following commands.
 
- **py manage.py load_courses courses.json**
+ ``` py manage.py load_courses courses.json ```
  
- **py manage.py load_courselist course_list.json**
+ ``` py manage.py load_courselist course_list.json ```
  
- **py manage.py load_programs programs.json**
+ ``` py manage.py load_programs programs.json ```
  
- **py manage.py load_requirements requirements.json**
+ ``` py manage.py load_requirements requirements.json ```
 
- **py manage.py load_calculator courses.json programs.json**
+ ``` py manage.py load_calculator courses.json programs.json ```
 
 ## Building index to search
 
- **py manage.py rebuild_index**
+ ``` py manage.py rebuild_index ```
 ***
 # Endpoints
 
