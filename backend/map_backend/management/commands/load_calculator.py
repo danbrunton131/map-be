@@ -3,9 +3,7 @@ from map_backend.models import Course, Calculator, Program
 from django.conf import settings
 import os, json
 
-
 def is_valid_file(parser, arg):
-
 	dir_path = os.path.abspath(os.path.join(
 		settings.BASE_DIR, 'data', arg
 		))
@@ -48,6 +46,4 @@ class Command(BaseCommand):
 				print('\nUploading Course/Program Data to create a Science Calculator with id 1...\n')
 				load_course(course_data, program_data)
 				print('\nSucessfully Upload\n')
-				
-
 				

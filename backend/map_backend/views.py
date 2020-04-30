@@ -14,8 +14,10 @@ import time
 import bs4, re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-
 from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
+
+AND = 0
+OR = 1
 
 # /admin/loader
 # template view for loading data frontend in admin
@@ -70,13 +72,10 @@ class Load(View):
 				return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})
 		else:
 			return JsonResponse({'authenticated': 'no'})
-AND = 0
-OR = 1
 
 class SearchCourse(View):
 
 	def get(self, request):
-
 		query = request.GET.get('q', '')
 
 		if len(query) > 30:
@@ -99,7 +98,6 @@ class SearchCourse(View):
 
 			suggestions.append(course_data)
 
-
 		response_data = {
 			'results' : suggestions # in list to maintain order/ranking
 		}
@@ -110,7 +108,6 @@ class SearchCourse(View):
 class GetCourseData(View):
 
 	def get(self, request):
-
 		# calc_id to filter by
 		calc_id = request.GET.get('calc_id', '')
 
@@ -157,7 +154,6 @@ class GetCourseData(View):
 		# return data
 		return JsonResponse(response_data)
 
-
 # Request:
 # /api/GetCourseDetails?courseid=1234567
 class GetCourseDetails(View):
@@ -195,13 +191,9 @@ class SubmitCourseSelections(View):
 
 	def post(self, request):
 		# get programs
-		# to do -> calculator ID should only filter a select number of courses
-
 		selected_courses = json.loads(request.body)["selections"]
 		if len(selected_courses) > 15:
 			return JsonResponse({"error" : "too many courses"})
-
-		
 
 		try:
 			calc_id = json.loads(request.body)["calc_id"]
@@ -234,7 +226,7 @@ class SubmitCourseSelections(View):
 
 				requirement_items = requirement.requirementitem_set.all()
 
-				# TODO: merge == 1 and multi together
+				# TODO: merge == 1 and multi together - improvement
 				
 				if len(requirement_items) == 1:
 
@@ -248,7 +240,6 @@ class SubmitCourseSelections(View):
 					# update total counter
 					total_completed_courses += completed_courses
 					total_required_courses += required_courses
-
 
 				else:
 
@@ -283,8 +274,6 @@ class SubmitCourseSelections(View):
 						# -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
 					check_list = Parser(build_requirements, not requirement.connector).parse()
 					
-
-
 					# apply calculations
 					completed_courses, required_courses, course_list = self.calculate(check_list, course_list)
 					# update total counter
@@ -299,7 +288,6 @@ class SubmitCourseSelections(View):
 
 			for courses in fulfilled_courses_id:
 				fulfilled_courses_name.append([Course.objects.get(course_id=course).code for course in courses])
-
 		
 			# append answer to our result
 			res = {
@@ -311,7 +299,6 @@ class SubmitCourseSelections(View):
 				"fulfilledCourses": fulfilled_courses_name
 			}
 			response_json["matchedPrograms"].append(res)
-
 
 		return JsonResponse(response_json)
 

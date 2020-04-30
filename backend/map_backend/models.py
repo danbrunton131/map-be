@@ -1,7 +1,6 @@
 from django.db import models
 from .requirement_handler import Parser
 
-
 class Course(models.Model):
 	""" Course, e.g. COMPSCI 1MD3 """
 
@@ -26,7 +25,6 @@ class Course(models.Model):
 	# department
 	department = models.CharField(max_length=50)
 
-
 	def __str__(self):
 		""" Displays course as a string """
 		return "{} : {}".format(self.code, self.name)
@@ -43,7 +41,6 @@ class CourseList(models.Model):
 
 	def __str__(self):
 		return "{}".format(self.name)
-
 
 class RequirementGroup(models.Model):
 	""" represents a requirement group which must be satisfied for a program """
@@ -64,7 +61,6 @@ class RequirementGroup(models.Model):
 
 	def __str__(self):
 		return "{} - Order #{}".format(self.desc, self.order)
-
 
 class RequirementItem(models.Model):
 	"""
@@ -104,7 +100,6 @@ class RequirementItem(models.Model):
 
 	def __str__(self):
 		return "{}".format(self.desc)
-
 
 class Program(models.Model):
 	""" A program offered """
@@ -162,3 +157,4 @@ class Calculator(models.Model):
 
 	def __str__(self):
 		return self.title
+		

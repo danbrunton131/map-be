@@ -3,9 +3,7 @@ from map_backend.models import Program, RequirementGroup, RequirementItem, Cours
 from django.conf import settings
 import os, json
 
-
 def is_valid_file(parser, arg):
-
 	dir_path = os.path.abspath(os.path.join(
 		settings.BASE_DIR, 'data', arg
 		))
@@ -44,7 +42,6 @@ def load_requirements(file):
 
 					course_list.save()
 
-
 				req_item = RequirementItem(parent_group=req, req_units=unit, req_list=course_list, desc="{} - requirement item {}".format(program.name, order))
 
 				req_item.save()
@@ -71,6 +68,4 @@ class Command(BaseCommand):
 				print('\nUploading Program Data...\n')
 				load_requirements(req_data)
 				print('\nSucessfully Upload\n')
-				
-
 				

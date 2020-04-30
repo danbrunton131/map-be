@@ -1,5 +1,4 @@
-
-AND = 0 # TODO make a proper enum class
+AND = 0 
 OR = 1
 
 class BinOp:
@@ -69,72 +68,3 @@ class Parser:
 			return self.factor()
 		else:
 			return self.term()
-
-
-# class Interpreter:
-# 	AND = 0
-# 	OR = 1
-# 	def __init__(self):
-# 		pass
-
-# 	def calculate(self, parser, course_list):
-# 		# base case
-# 		if not isinstance(parser, BinOp):
-
-# 			units, check_list = parser
-# 			req_units = units
-# 			# convert check_list to set for const lookup
-# 			check_list = set(check_list)
-
-# 			for course in course_list:
-# 				if course in check_list:
-# 					units -= 1
-# 					# course_list is still a list to maintain ordering
-# 					course_list.remove(course)
-# 					if units == 0:
-# 						break
-
-# 			if units == 0:
-# 				return req_units, req_units, course_list
-# 			else:
-# 				return req_units - units, req_units, course_list 
-
-# 		if parser.op == AND:
-# 			left_completed_courses, left_required_coures, left_course_list = self.calculate(parser.left, course_list)
-# 			# Since we have an AND, we use the updated course_list from the left
-# 			right_completed_courses, right_required_courses, right_course_list = self.calculate(parser.right, left_course_list)
-
-# 			return (left_completed_courses + right_completed_courses), (left_required_coures + right_required_courses), right_course_list
-# 		else:
-# 			# OR case
-# 			# Keep a copy to prevent aliasing
-# 			course_list_copy = course_list.copy()
-# 			left_completed_courses, left_required_coures, left_course_list = self.calculate(parser.left, course_list)
-# 			# Since we have an AND, we use the updated course_list from the left
-# 			right_completed_courses, right_required_courses, right_course_list = self.calculate(parser.right, course_list_copy)
-
-# 			# if left side of equation is True, we propogate that up
-# 			if left_completed_courses == left_required_coures or ((left_required_coures - left_completed_courses) > (right_required_courses - right_completed_courses)):
-# 				return left_completed_courses, left_required_coures, left_course_list
-# 			else:
-# 				return right_completed_courses, right_required_courses, right_course_list
-
-
-
-
-# AND = 0
-# OR = 1
-
-# course_list = ["apple", "a", "fruit", "e", "b"]
-
-# left = (1, ["apple"])
-# right = (1, ["bananna"])
-# eq = (1, ["a"])
-
-# i = Interpreter()
-# print(i.calculate(eq, course_list))
-
-# p = Parser(["A", AND, "B", OR, "C"], AND)
-
-# res = p.parse()
-# print(res.right)

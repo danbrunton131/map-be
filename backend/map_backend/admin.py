@@ -22,7 +22,6 @@ class RequirementGroupAdmin(admin.ModelAdmin):
 
 	readonly_fields = ['requirement_equation']
 
-	# todo repeated code, must combine together
 	def requirement_equation(self, obj):
 		requirement_items = obj.requirementitem_set.all()
 
@@ -72,7 +71,6 @@ class ProgramAdmin(admin.ModelAdmin):
 
 		requirement_groups = obj.requirements.all().order_by('order')
 
-		# TODO  move to models
 		for requirement in requirement_groups:
 			requirement_items = requirement.requirementitem_set.all()
 

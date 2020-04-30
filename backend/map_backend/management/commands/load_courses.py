@@ -3,7 +3,6 @@ from map_backend.models import Course
 from django.conf import settings
 import os, json
 
-
 def is_valid_file(parser, arg):
 
 	dir_path = os.path.abspath(os.path.join(
@@ -41,6 +40,4 @@ class Command(BaseCommand):
 				print('\nUploading Course Data...\n')
 				load_course(course_data)
 				print('\nSucessfully Upload\n')
-				
-
 				
