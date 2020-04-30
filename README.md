@@ -1,17 +1,35 @@
 # MAP back-end
 
-Since we don't have access to the API to retrieve data from, there are some json files that can be used to populate the database.  
-
-
+Test and developed on Python 3.8.1 on a Windows environment.
 # How to run
+### Create an environment
+Use the **requirements.txt**  with any virtual environment to install the necessary dependencies. 
+***
 
-Use the **requirements.txt** stored with any virtual environment. Might include some extra stuff that are no longer needed (I forgot to uninstall some stuff no longer needed, will fix later)
+#### venv
+Create a virtual environment
+  **py -m venv /path/to/new/virtual/environment**
 
+Activate the virual environment (Following is for windows)
+  **C:\> <venv>\Scripts\activate.bat**
+
+Once activated, you can install all dependencies from the requirements.txt file
+  **pip3 install -r requirements.txt**
+***
+
+### Running the server
 To start run: **py manage.py runserver**
+
+***
+## Preparing the database
+By default, an sqllite database will be automatically created by Django. You should run the following commands:
+
+ **py manage.py makemigrations map_backend**
+ **py manage.py migrate**
 
 ## Populating the database
 
-A temporary method of populating the database with science courses are provided.  Make sure to makemigrations and migrate before. Use admin panel to verify results
+The fastest way to populate the database is with the json files included in the /data/ folder. You can automatically upload them using the following commands.
 
  **py manage.py load_courses courses.json**
  
@@ -25,44 +43,69 @@ A temporary method of populating the database with science courses are provided.
 
 ## Building index to search
 
- **py manage.py rebuild_index **
-
+ **py manage.py rebuild_index**
+***
 # Endpoints
 
-There is no error checking right now so requests must be crafted carefully. 
-
-### GET to search
+### Searching (GET)
 Request:
+```
 /api/Search?q=<QUERY HERE>
+```
 
-Must run "rebuild_index" in order to search any courses
+Must run "rebuild_index" in order to search any courses. See "Rebuilding index to search" section.
 	
 	
-### 1 GET to populate frontend initially
+### Populating the frontend with courses and a title (GET)
 
 Request:
-/api/GetCourseData?calc_id=1
+```
+/api/GetCourseData?calc_id=<id>
+```
+
+Response:
+```
+{"calcTitle": "test", "courseLists": {"Spring": {}, "Summer": {}, "Fall": {}, "Winter": {}}}
+```
 
 This will return the list of courses and the title of the calculator
 
-### GET to retrieve course name and desc, given a course ID
+### Retrieve course name and description (GET)
 
 Request:
-/api/GetCourseDetails?courseid=1234567
+```
+/api/GetCourseDetails?courseid=<id>
+```
+Response:
+```
+{"courseCode": "", "courseName": "", "courseDesc": ""}
+```
 
-
-### POST for submitting course selections for calculation
+### Calculate program requirement completion (POST)
 Request:
-
+```
 /api/SubmitCourseSelections
 Body:
 {
 	"selections": [
-		1234567,
-		0101010,
-		5564732,
-		1238921
+		<List of course ids>,
 	],
-	"calc_id": 1
+	"calc_id": <calculator id>
 }
+```
 
+Response:
+```
+{"matchedPrograms": [
+                        {
+                        "programName": "",
+                        "programDescription": "",
+                        "programId": 0,
+                        "programPercentage": 0,
+                        "programRequirements": {
+                            "requirements": []
+                        },
+                        "fulfilledCourses": []
+                        }
+                    ]}
+```
