@@ -208,6 +208,6 @@ def get_programdata():
         fr = process_requirements(reqs[r], all_courselists, all_courses)
         all_requirements[r] = fr
     json.dump(all_requirements, open("requirements.json", 'w'), indent=4)
-    
+
 if __name__ == "__main__":
     get_programdata()
