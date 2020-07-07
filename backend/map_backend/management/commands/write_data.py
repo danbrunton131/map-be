@@ -170,7 +170,7 @@ def get_details(programs):
         if not reqs == []:
             progreqs[program] = reqs
 
-# gets courses fulfilling a requirement, given the program and requirement IDs                
+# gets courses fulfilling a requirement, given the program and requirement IDs
 def get_requirements(program, req):
     # pull details data
     data = uReq(REQ_URL.format(CID=CATALOG_ID,OID=program,CORE=req))
@@ -272,7 +272,7 @@ def get_one_course(course_id):
         dsrp.a.unwrap()
     except:
         pass
-    
+
     try:
         dsrp.em.unwrap()
     except:
@@ -296,7 +296,7 @@ def get_one_course(course_id):
 
 class Command(BaseCommand):
     help = 'Writes parsed requirements to files to be loaded'
-    
+
     def add_arguments(self, parser):
         parser.add_argument('catalog_id')
 
