@@ -162,4 +162,3 @@ if CACHING:
             'LOCATION': 'MAP_CACHE',
         }
     }
-
