@@ -1,0 +1,23 @@
+version: "3"
+services:
+  postgres:
+    image: "postgres:11"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: db_map_be
+      POSTGRES_USER: map
+      POSTGRES_PASSWORD: password
+
+    volumes:
+      - map_be_volume:/var/lib/postgresql/data
+volumes:
+  map_be_volume
+  external: true
+
+
+
+
+
+
+
