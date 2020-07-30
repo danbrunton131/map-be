@@ -12,12 +12,5 @@ services:
     volumes:
       - map_be_volume:/var/lib/postgresql/data
 volumes:
-  map_be_volume
-  external: true
-
-
-
-
-
-
-
+  map_be_volume:
+    external: true
