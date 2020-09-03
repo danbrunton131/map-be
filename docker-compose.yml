@@ -1,12 +1,23 @@
 version: "3"
 services:
+  web:  # TODO this is using Django's built in development server,
+        # need to figure out setting up an actual server
+    build: .
+    container_name: map_backend
+    command: python3 backend/manage.py runserver 8001
+    volumes:
+        - .:/backend
+    ports:
+        - "8001:8001"
+    depends_on:
+        - postgres
   postgres:
     image: "postgres:11"
     ports:
-      - "5432:5432"
+      - "8000:8000"
     environment:
       POSTGRES_DB: db_map_be
-      POSTGRES_USER: map
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
 
     volumes:

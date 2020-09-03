@@ -13,6 +13,7 @@ idna==2.9
 Jinja2==2.11.1
 lxml==4.5.0
 MarkupSafe==1.1.1
+psycopg2==2.8.5
 pycodestyle==2.5.0
 Pygments==2.5.2
 python-dateutil==2.8.1
@@ -24,3 +25,4 @@ soupsieve==2.0
 sqlparse==0.3.0
 urllib3==1.25.8
 Whoosh==2.7.4
+
