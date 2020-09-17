@@ -25,6 +25,10 @@ SECRET_KEY = '7pt!8320gjc@k521uvw+g*#!f0smbsf$$bgh=b1x0)#&t72nyx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# SECURITY WARNING: keep super use password secret!
+# DJANGO_SUPERUSER_PASSWORD = 'password'
+# DJANGO_SUPERUSER
+
 # Caching
 CACHING = False
 
@@ -101,12 +105,12 @@ DATABASES = {
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_map_be',
-        'USER': 'admin',
-        'PASSWORD': 'password',
-        'HOST': 'postgres',
-        'PORT': 8000,
+        'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.postgresql_psycopg2'),
+        'NAME': os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, 'postgres.postgresql_psycopg2')),
+        'USER': os.environ.get("SQL_USER", 'admin'),
+        'PASSWORD': os.environ.get("SQL_PASSWORD", 'password'),
+        'HOST': os.environ.get("SQL_HOST", 'postgres'),
+        'PORT': os.environ.get("SQL_PORT", "8001"),
     }
 }
 
