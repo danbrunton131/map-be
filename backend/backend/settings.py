@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'haystack',
     'map_backend',
     'corsheaders',
-    'rest_framework',
 ]
 
 CORS_ORIGIN_WHITELIST = [
