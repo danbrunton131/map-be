@@ -14,12 +14,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 
 from .views import GetCourseData, GetCourseDetails, SubmitCourseSelections, SearchCourse
 
+router = routers.DefaultRouter()
+#router.register(r'GetCourseData', GetCourseData.as_view())
+#router.register(r'GetCourseDetails', GetCourseDetails.as_view())
+#router.register(r'SubmitCourseSelections', SubmitCourseSelections.as_view())
+#router.register(r'Search', SearchCourse.as_view())
+
 urlpatterns = [
-        path('GetCourseData/', GetCourseData.as_view()),
-        path('GetCourseDetails/', GetCourseDetails.as_view()),
-        path('SubmitCourseSelections/', SubmitCourseSelections.as_view()),
-        path('Search/', SearchCourse.as_view())
+        path('', include(router.urls)),
 ]
+
+# old way, not using django rest framework
+#urlpatterns = [
+#        path('GetCourseData/', GetCourseData.as_view()),
+#        path('GetCourseDetails/', GetCourseDetails.as_view()),
+#        path('SubmitCourseSelections/', SubmitCourseSelections.as_view()),
+#        path('Search/', SearchCourse.as_view())
+#]
