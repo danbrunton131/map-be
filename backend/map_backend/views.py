@@ -15,6 +15,7 @@ import bs4, re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
+from .load_data_api import get_programdata
 
 AND = 0
 OR = 1
@@ -61,12 +62,14 @@ class Load(View):
         # only authenticated users can access
         if request.user.is_authenticated:
             try:
-                management.call_command('write_data', json.loads(request.body)['catalog'], verbosity=0)
-                management.call_command('load_courses', 'courses.json', verbosity=1)
-                management.call_command('load_courselist', 'course_list.json', verbosity=1)
-                management.call_command('load_programs', 'programs.json', verbosity=1)
-                management.call_command('load_requirements', 'requirements.json', verbosity=1)
-                management.call_command('load_calculator', 'courses.json', 'programs.json', verbosity=1)
+                get_programdata()
+                
+                #management.call_command('write_data', json.loads(request.body)['catalog'], verbosity=0)
+                #management.call_command('load_courses', 'courses.json', verbosity=1)
+                #management.call_command('load_courselist', 'course_list.json', verbosity=1)
+                #management.call_command('load_programs', 'programs.json', verbosity=1)
+                #management.call_command('load_requirements', 'requirements.json', verbosity=1)
+                #management.call_command('load_calculator', 'courses.json', 'programs.json', verbosity=1)
                 return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
             except Exception as e:
                 return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})

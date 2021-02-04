@@ -42,7 +42,7 @@ def extract_courses(courselist):
         return ('', {})
     for course in courselist['courseListItems']:
         link = course['_links']['courseCatalogSearch']['href']
-        req = requests.get(link)
+        req = requests.get(link, verify=False)
         if int(req.status_code) not in range(200,300):
             print ("Failed to make API call for course catalog info.")
             continue
@@ -59,8 +59,8 @@ def extract_courses(courselist):
             all_courses[cid] = {
                 'code': code,
                 'name': name,
-                'desc': desc
-                # TODO: units not provided
+                'desc': desc,
+                'units': 3, # TODO: units not provided, assume all 3 units for now
             }
     return (courselist['code'], all_courses)
 
@@ -97,7 +97,7 @@ def extract_courselists(group):
                     # get the link to the actual courselist
                     courselink = itemDetail['_links']['courseList']['href']
                     # read it
-                    req = requests.get(courselink)
+                    req = requests.get(courselink, verify=False)
                     if int(req.status_code) not in range(200,300):
                         print ("Failed to make API call for course list.")
                         continue
@@ -133,8 +133,8 @@ def extract_courselists(group):
 def find_requirements(program):
     # get requirements groups
     reqlink = program[1]
-    req = requests.get(reqlink)
-    if int(req.status_code) not in range(200,300):
+    req = requests.get(reqlink, verify=False)
+    if int(req.status_code) not in range(200,300):  
         print ("Failed to make API call for requirement groups.")
         return ([], {}, {})
     reqgroups = req.json()
@@ -145,7 +145,7 @@ def find_requirements(program):
     # open each individual requirement group
     for rg in reqgroups['_embedded']['requirementGroups']:
         rglink = rg['_links']['self']['href']
-        req = requests.get(rglink)
+        req = requests.get(rglink, verify=False)
         if int(req.status_code) not in range(200,300):
             print ("Failed to make API call for requirement group.")
             continue
@@ -158,13 +158,16 @@ def find_requirements(program):
 def get_programdata():
     all_programs = {}
     # retrieve base API data
-    req = requests.get("http://academic-map-service-academic-map.apps.ocp.mcmaster.ca/")
+    # TODO REMOVE verify=False on production,
+    # I think it errors because i'm on a vpn
+    req = requests.get("http://academic-map-service-academic-map.apps.ocp.mcmaster.ca/", verify=False)
     if int(req.status_code) not in range(200,300):
         print ("Failed to make initial API call.")
         return
     apidata = req.json()
     # get link to plans
-    req = requests.get(apidata['_links']['plans']['href'])
+    # TODO REMOVE verify=False on production
+    req = requests.get(apidata['_links']['plans']['href'], verify=False)
     if int(req.status_code) not in range(200,300):
         print ("Failed to make API call for program data.")
         return

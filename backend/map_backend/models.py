@@ -56,8 +56,14 @@ class RequirementGroup(models.Model):
     connector = models.PositiveSmallIntegerField(choices=CHOICES_CONNECTORS, default=AND)
     # description
     desc = models.TextField(blank=True, null=True, max_length=500)
+    # short description
+    shortDesc = models.TextField(blank=True, null=True, max_length=200)
     # order
     order = models.IntegerField(help_text="Order at which requirement is checked - checks from low to high")
+    # course ranking Scheme how the requirementGroups are ordered
+    #   e.g. possible value is "Chronological"
+    #   1st entry is lvl 1 requirements, 2nd is lvl 2 etc
+    courseRankingScheme = models.TextField(blank=True, null=True, max_length=500)
 
     def __str__(self):
         return "{} - Order #{}".format(self.desc, self.order)
