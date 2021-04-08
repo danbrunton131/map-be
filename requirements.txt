@@ -4,7 +4,7 @@ beautifulsoup4==4.9.0
 bs4==0.0.1
 certifi==2019.11.28
 chardet==3.0.4
-Django==3.0.12
+Django==3.0.14
 django-cachalot==2.2.0
 django-cors-headers==3.2.1
 django-haystack==3.0b1
