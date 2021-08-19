@@ -21,24 +21,39 @@ def load_requirements(file):
             program_id = d
             program = Program.objects.get(program_id=program_id)
 
-            print(program.name)
             req_groups = []
 
+            # TODO change this order to follow req.courseRankingScheme
             order = 1
             for req in data[program_id]:
                 unit, preq_courses = (next(iter(req.items())))
                 req = RequirementGroup(order=order, desc="{} - requirement #{}".format(program.name, order))
                 req.save()
 
+                print(req)
+                print('--------')
+                print(unit)
+                print('preq_courses')
+                print(preq_courses)
                  # base case -> science course list
                 if preq_courses == []:
+                    # TODO fix multiple courselists returned
                     course_list = CourseList.objects.get(list_id=1)
+                    
                 else:
                     course_list = CourseList(name="{} - list for req #{}".format(program.name, order))
                     course_list.save()
-
+                    
+                    print('///////')
+                    print(course_list)
+                    print('+++++++')
+                    print(preq_courses)
                     for course in preq_courses:
-                        course_list.courses.add(Course.objects.get(course_id=course))
+                        #TODO course isn't an id now
+                        print('-------')
+                        print(course)
+                        for courseId in course['list']:
+                            course_list.courses.add(Course.objects.get(course_id=courseId))
 
                     course_list.save()
 
@@ -50,7 +65,6 @@ def load_requirements(file):
 
                 order += 1
 
-            print(req_groups)
             for req in req_groups:
                 program.requirements.add(req)
 

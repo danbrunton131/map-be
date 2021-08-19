@@ -104,7 +104,8 @@ class RequirementItem(models.Model):
 class Program(models.Model):
     """ A program offered """
 
-    program_id = models.IntegerField(primary_key=True)
+    #program_id = models.IntegerField(primary_key=True)
+    program_id = models.CharField(max_length=20, primary_key=True)
     # name of the program
     name = models.TextField()
     # description of the program
