@@ -110,7 +110,7 @@ DATABASES = {
         'USER': os.environ.get("SQL_USER", 'admin'),
         'PASSWORD': os.environ.get("SQL_PASSWORD", 'password'),
         'HOST': os.environ.get("SQL_HOST", 'postgres'),
-        'PORT': os.environ.get("SQL_PORT", "8001"),
+        'PORT': os.environ.get("SQL_PORT", "5432"),
     }
 }
 
