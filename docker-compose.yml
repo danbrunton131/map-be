@@ -1,0 +1,35 @@
+version: "3"
+services:
+  postgres:
+    image: "postgres:11"
+    container_name: map_database
+    environment:
+      - POSTGRES_DB=db_map_be
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"    
+    volumes:
+      - map_be_volume:/var/lib/postgresql/data
+    command:
+        - "postgres"
+        - "-c"
+        - "listen_addresses=*"
+        - "-c"
+        - "port=5432"
+        
+  web: 
+    build: .
+    container_name: map_backend
+    command: python3 backend/manage.py runserver 0.0.0.0:8000
+    volumes:
+        - .:/backend
+    ports:
+        - "8000:8000"
+    env_file:
+        - ./.env.dev
+    depends_on:
+        - postgres
+volumes:
+  map_be_volume:
+    #external: true

@@ -45,6 +45,36 @@ The fastest way to populate the database is with the json files included in the 
 ## Building index to search
 
  ``` py manage.py rebuild_index ```
+ 
+# How to Run Using Docker
+### Setup Database and Backend
+
+Run **docker-compose up** to create the database and backend
+
+### Initialize the Backend and Create A SuperUser
+
+In a new terminal run **docker exec -it map_backend sh** to go into the backend container and run the following commands
+
+ ``` py backend/manage.py makemigrations map_backend ```
+ 
+ ``` py backend/manage.py migrate ```
+
+ ``` py backend/manage.py load_courses courses.json ```
+ 
+ ``` py backend/manage.py load_courselist course_list.json ```
+ 
+ ``` py backend/manage.py load_programs programs.json ```
+ 
+ ``` py backend/manage.py load_requirements requirements.json ```
+
+ ``` py backend/manage.py load_calculator courses.json programs.json ```
+ 
+ ``` py backend/manage.py rebuild_index ```
+ 
+ ``` py backend/manage.py createsuperuser ```
+ 
+Exit out of this container by running **exit**
+
 ***
 # Endpoints
 
