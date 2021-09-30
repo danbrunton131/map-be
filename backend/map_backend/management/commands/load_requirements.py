@@ -29,36 +29,36 @@ def load_requirements(file):
                 unit, preq_courses = (next(iter(req.items())))
                 req = RequirementGroup(order=order, desc="{} - requirement #{}".format(program.name, order))
                 req.save()
+                
+                totalUnits = 0
+                # loop through preq_courses and sum minUnits to create unit total for req
+                # TODO check if 'connector' needs to be taken into account
+                for courseReq in preq_courses:
+                    totalUnits = totalUnits + courseReq['minUnits']
 
-                print(req)
-                print('--------')
-                print(unit)
-                print('preq_courses')
-                print(preq_courses)
+                unit = totalUnits
                  # base case -> science course list
                 if preq_courses == []:
-                    # TODO fix multiple courselists returned
-                    course_list = CourseList.objects.get(list_id=1)
+                    course_list = CourseList.objects.filter(list_id=1)[0]
                     
                 else:
                     course_list = CourseList(name="{} - list for req #{}".format(program.name, order))
                     course_list.save()
                     
                     print('///////')
-                    print(course_list)
+                    #print(course_list)
                     print('+++++++')
-                    print(preq_courses)
+                    #print(preq_courses)
                     for course in preq_courses:
-                        #TODO course isn't an id now
-                        print('-------')
-                        print(course)
                         for courseId in course['list']:
                             course_list.courses.add(Course.objects.get(course_id=courseId))
 
                     course_list.save()
 
+                print(unit)
                 req_item = RequirementItem(parent_group=req, req_units=unit, req_list=course_list, desc="{} - requirement item {}".format(program.name, order))
 
+                print(req_item)
                 req_item.save()
 
                 req_groups.append(req)

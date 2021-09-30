@@ -16,16 +16,20 @@ def is_valid_file(parser, arg):
 
 def load_course(file):
     with open(file) as json_file:
+        print(json_file)
         data = json.load(json_file)
-
+        
+        
         for d in data:
+            #print(data[d])
             course_id = d
             code = data[d]["code"]
             name = data[d]["name"]
             desc = data[d]["desc"]
             units = data[d]["units"]
             department = code.split(" ")[0]
-            # print(course_id, code, name)
+            #print('-----')
+            #print(course_id, code, name)
             c = Course(course_id=d, code=code, name=name, desc=desc, units=units, department=department, offered_fall=True, offered_winter=False, offered_summer=False, offered_spring=False)
             c.save()
 

@@ -16,6 +16,10 @@ def is_valid_file(parser, arg):
 def load_program(file):
     with open(file) as json_file:
         data = json.load(json_file)
+        print(json_file)
+        print('-------')
+        print('DATA')
+        print(data)
 
         for d in data:
             courselist_id = d
