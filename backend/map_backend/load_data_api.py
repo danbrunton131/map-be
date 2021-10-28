@@ -1,6 +1,5 @@
 import requests
 import json
-import time
 
 # few things we need to get from the API:
 # 1. need to get all undergrad courses. This can be done by iterating over all UGRD plans, inspecting requirements groups -> inspecting courselists -> inspecting courses.
@@ -9,18 +8,6 @@ import time
 # 4. need to get all programs (aka plans), each plan has its own ID.
 
 # probably easiest to store all plans in one list, then iterate down and build up the other pieces.
-
-# GLOBAL VARIABLES
-clientId = '49c9205d5d15312e85e3c0f07af77ad4'
-headers = {
-    'X-IBM-Client-Id': clientId,
-    'accept': "application/json"
-}
-
-def sanitizeLink(link):
-    # old api: https://apis.mcmaster.ca/mcmaster-university/production/academy/
-
-    return link.replace('https://academic-map-service-academic-map.apps.ocp.mcmaster.ca/', 'https://academic-map.apps.ocpprd01.mcmaster.ca/')
 
 # processes the complex-form requirements into a form which is easier to insert into the DB.
 def process_requirements(reqs, lists, courses):
@@ -49,32 +36,22 @@ def process_requirements(reqs, lists, courses):
 # extracts a list of courses from courselist data.
 # returns a tuple of the courselist ID, and a dictionary mapping course IDs to courses found in the specific list.
 def extract_courses(courselist):
-
-    # Currently no endpoint for get all courses
-
     all_courses = {}
     if not 'courseListItems' in courselist:
-        print("No courses for course list", courselist['code'])
+        print("No courses for course list", courselist['_links']['self']['href'])
         return ('', {})
     for course in courselist['courseListItems']:
-    
-    # next((link['href'] for link in itemDetail['links'] if link['rel'] == 'courseList'), None)
-        link = next((link['href'] for link in course['links'] if link['rel'] == 'courseCatalogSearch'), None)
-        newLink = sanitizeLink(link)
-        
-        #link = course['links']['courseCatalogSearch']['href']
-        
-        req = requests.get(newLink, headers=headers)
+        link = course['_links']['courseCatalogSearch']['href']
+        req = requests.get(link, verify=False)
         if int(req.status_code) not in range(200,300):
             print ("Failed to make API call for course catalog info.")
             continue
         coursedata = req.json()
         # get the course info that's relevant
-        if not 'content' in coursedata:
-            selfHref = next((link['href'] for link in coursedata['links'] if link['rel'] == 'self'), None)
-            print ("Course data contains no offerings", selfHref)
+        if not '_embedded' in coursedata or not 'courseOfferings' in coursedata['_embedded']:
+            print ("Course data contains no offerings", coursedata['_links']['self']['href'])
             continue
-        for offering in coursedata['content']:
+        for offering in coursedata['_embedded']['courseOfferings']:
             cid = offering['code']
             code = offering['subjectCode'] + " " + offering['catalogNumber']
             name = (offering['shortDescription'] if 'shortDescription' in offering else "")
@@ -83,34 +60,24 @@ def extract_courses(courselist):
                 'code': code,
                 'name': name,
                 'desc': desc,
-                'units': 3
-                # TODO: units not provided
+                'units': 3, # TODO: units not provided, assume all 3 units for now
             }
     return (courselist['code'], all_courses)
 
 # extracts a list of courselists from requirement group data.
 # returns a triple; first element is a structure representing program requirements, second element in the tuple is the courselist data, third element is the list of courses.
 def extract_courselists(group):
-    
-    # TODO 
-    # --------------
-    # currently here
-    # --------------
-    # Currently no get all endpoint is provided for courselists
-
     all_courses = {}
     all_courselists = {}
     if not 'requirements' in group:
-        selfHref = next((link['href'] for link in group['links'] if link['rel'] == 'self'), None)
-        print("No requirements for requirements group", selfHref)
+        print("No requirements for requirements group", group['_links']['self']['href'])
         return ([], {}, {})
     # go over each requirement
     overall_reqs = []
     for requirement in group['requirements']:
         item_reqs = []
         if not 'requirementItems' in requirement:
-            selfHref = next((link['href'] for link in group['links'] if link['rel'] == 'self'), None)
-            print("No requirement items for requirement group ", requirement['code'], " in group", selfHref)
+            print("No requirement items for requirement group", requirement['code'], "in group", group['_links']['self']['href'])
             continue
         # go over each item inside the requirement (multiple items have set logic to form a requirement)
         for item in requirement['requirementItems']:
@@ -121,10 +88,6 @@ def extract_courselists(group):
             maxCourse = (item['maximumCourses'] if 'maximumCourses' in item else 0)
             minUnit = (item['minimumUnits'] if 'minimumUnits' in item else 0)
             maxUnit = (item['maximumUnits'] if 'maximumUnits' in item else 0)
-            
-            description = (item['description'] if 'description' in item else '')
-            shortDescription = (item['shortDescription'] if 'shortDescription' in item else '')
-            
             # take a look at each item detail
             # maintain a record for the requirements for this item
             reqs = []
@@ -132,16 +95,9 @@ def extract_courselists(group):
                 # possible itemDetailTypes: Course List, Derived Course List, ...?
                 if itemDetail['itemDetailType'] == "Course List":
                     # get the link to the actual courselist
-                    #print(itemDetail)
-                    
-                    courseLink = next((link['href'] for link in itemDetail['links'] if link['rel'] == 'courseList'), None)
-                    newLink = sanitizeLink(courseLink)
-                    
-                    # courselink = itemDetail['links']['courseList']['href']
+                    courselink = itemDetail['_links']['courseList']['href']
                     # read it
-                    req = requests.get(newLink, headers=headers)
-                    print('-------')
-                    print(req)
+                    req = requests.get(courselink, verify=False)
                     if int(req.status_code) not in range(200,300):
                         print ("Failed to make API call for course list.")
                         continue
@@ -150,7 +106,6 @@ def extract_courselists(group):
                     except:
                         print ("Invalid JSON response from API")
                     # get all the courses out of the list
-                    
                     c = extract_courses(courselist)
                     # append to the full list of courses
                     for c_ in c[1]:
@@ -170,119 +125,61 @@ def extract_courselists(group):
                         listItem = -2
                     # just append this in
                     reqs.append({'type': (itemDetail['listIncludeMode'] if 'listIncludeMode' in itemDetail else 'Base'), 'list': listItem})
-            item_reqs.append({'type': (item['connector'] if 'connector' in item else ' '), 'reqs': reqs, 'minCourse': minCourse, 'maxCourse': maxCourse, 'minUnits': minUnit, 'maxUnits': maxUnit, 'description': description, 'shortDescription': shortDescription})
+            item_reqs.append({'type': (item['connector'] if 'connector' in item else ' '), 'reqs': reqs, 'minCourse': minCourse, 'maxCourse': maxCourse, 'minUnits': minUnit, 'maxUnits': maxUnit})
         overall_reqs.append({'type': (requirement['connector'] if 'connector' in requirement else ' '), 'reqs': item_reqs})
     return (overall_reqs, all_courselists, all_courses)
 
 # finds the requirements for a program based on the link to its requirement groups.
 def find_requirements(program):
-
-    reqGroupResult = requests.get("https://academic-map.apps.ocpprd01.mcmaster.ca/requirementGroups", headers=headers)
-    if int(reqGroupResult.status_code) not in range(200,300):
-        print("Failed to make API call for requirement groups.")
-        return ([], {}, {})
-    
-    reqGroupsJson = reqGroupResult.json()["content"]
-    # print(reqGroupsJson)
-    
-    print("PROGRAM TO FIND REQ FOR")
-    print(program)
-    print(program[0])
-    print(program[1])
-    print(program[2])
-    req = None
-    
-    for reqGroup in reqGroupsJson:
-        #print(reqGroup["code"] + " " + reqGroup["description"])
-        rglink = next((link['href'] for link in reqGroup['links'] if link['rel'] == 'plan'), None)
-        #print(rglink)
-        if rglink != None and program[2] in rglink:
-            print("FOUND REQ")
-            print(reqGroup)
-            req = reqGroup
-            break
-
-    print('|||||||||||')
-    print(req)
-
     # get requirements groups
-    #reqlink = program[1].replace('https://academic-map-service-academic-map.apps.ocp.mcmaster.ca/', 'https://academic-map.apps.ocpprd01.mcmaster.ca/')
-    #req = requests.get(reqlink, headers=headers)
-    #if int(req.status_code) not in range(200,300):
-    #    print ("Failed to make API call for requirement groups.")
-    #    return ([], {}, {})
-    #reqgroups = req.json()
-    reqgroups = req
-    
+    reqlink = program[1]
+    req = requests.get(reqlink, verify=False)
+    if int(req.status_code) not in range(200,300):  
+        print ("Failed to make API call for requirement groups.")
+        return ([], {}, {})
+    reqgroups = req.json()
     # check that requirement groups actually exist, some joint programs seem not to have any.
-    if req == None:
+    if not '_embedded' in reqgroups or not 'requirementGroups' in reqgroups['_embedded']:
         print("No requirement groups for program", program[0])
         return ([], {}, {})
-    
-    rgList = []
-    
-    rgList = rgList + req['requirements']
-    
-    #for rg in req['requirements']:
-    print('EXTRACT COURSE LISTS')
-    print('--------')
-    #print(rg)
-    (r,cl,c) = extract_courselists(req)
-    
-    
-    ### TODO MIGHT NOT NEED TO DO THIS
-    ### seems they changed the get all endpoint to include all data
     # open each individual requirement group
-    #for rg in reqgroups['content']:
-    #    rglink = next((link['href'] for link in rg['links'] if link['rel'] == 'self'), None)
-    #    newLink = sanitizeLink(rglink)
-    #    # rglink = rg['links']['self']['href']
-    #    # time.sleep(38)
-    #    req = requests.get(newLink, headers=headers)
-    #    if int(req.status_code) not in range(200,300):
-    #        print ("Failed to make API call for requirement group.")
-    #        continue
-    #    group = req.json()
-    #    
-    #    rgList = rgList + [group]
-    #    # extract all the courselists from the requirement group
-    #    (r,cl,c) = extract_courselists(group)
-        
+    for rg in reqgroups['_embedded']['requirementGroups']:
+        rglink = rg['_links']['self']['href']
+        req = requests.get(rglink, verify=False)
+        if int(req.status_code) not in range(200,300):
+            print ("Failed to make API call for requirement group.")
+            continue
+        group = req.json()
+        # extract all the courselists from the requirement group
+        (r,cl,c) = extract_courselists(group)
     # TODO: not handling cases with multiple requirement groups, should just be joining together? idk
-    json.dump(rgList, open("rgTEST.json", 'w'), indent=4)
-    
     return (r,cl,c)
 
 def get_programdata():
     all_programs = {}
     # retrieve base API data
-    req = requests.get("https://academic-map.apps.ocpprd01.mcmaster.ca/", headers=headers)
-    # req = requests.get("http://academic-map-service-academic-map.apps.ocp.mcmaster.ca/")
+    # TODO REMOVE verify=False on production,
+    # I think it errors because i'm on a vpn
+    req = requests.get("http://academic-map-service-academic-map.apps.ocp.mcmaster.ca/", verify=False)
     if int(req.status_code) not in range(200,300):
         print ("Failed to make initial API call.")
-        print(req)
-        # return
+        return
     apidata = req.json()
     # get link to plans
-    req = requests.get("https://academic-map.apps.ocpprd01.mcmaster.ca/plans", headers=headers)
-    # req = requests.get(apidata['_links']['plans']['href'])
+    # TODO REMOVE verify=False on production
+    req = requests.get(apidata['_links']['plans']['href'], verify=False)
     if int(req.status_code) not in range(200,300):
         print ("Failed to make API call for program data.")
         return
     programdata = req.json()
     # iterate over all programs, find the ones that are in the UGRD career, and put them into a list of programs.
-    print(programdata)
-    for program in programdata['content']:
+    for program in programdata['_embedded']['plans']:
         if program['program']['career']['code'] == "UGRD":
             # for now store both the description (= program name) and the req groups link as a tuple
             # this can be filtered later
-            # all_programs[program['code']] = program
-            all_programs[program['code']] = (program['description'], next((link['href'] for link in program['links'] if link['rel'] == 'requirementGroups'), None), program["code"])
-            # all_programs[program['code']] = (program['description'], program['links']['requirementGroups']['href'])
+            all_programs[program['code']] = (program['description'], program['_links']['requirementGroups']['href'])
     # print programs out to a file
     json.dump(all_programs, open("programs.json", 'w'), indent=4)
-    
-    print('created programs.json')
     # now that we have all programs in a list, we can work through each program to find its requirements.
     #rq = process_requirements(r, cl, c)
     reqs = {}
@@ -290,18 +187,10 @@ def get_programdata():
     all_courselists = {}
     all_requirements = {}
     # iterate over all programs
-    
-
     for programname in all_programs:
         program = all_programs[programname]
         # get all requirements, courselists, courses
         (r,cl,c) = find_requirements(program)
-        
-        print('FINISHED---------')
-        print(r)
-        print(cl)
-        print(c)
-
         # add courses into the all_courses dict
         for c_ in c:
             if c_ not in all_courses:
@@ -312,18 +201,11 @@ def get_programdata():
                 all_courselists[c_] = cl[c_]
         # add requirements into temp reqs dict, these require more processing later.
         reqs[programname] = r
-        
-        # wait to not hit 100 calls/hr api limit
-        # 1 call every 38secs = ~94 calls per hour
-        # time.sleep(38)
-    
-    
     # add the -1 courselist to reperesent all undegrad courses, as generated
     all_courselists['-1'] = [c_ for c_ in all_courses]
     all_courselists['-2'] = []
-    # TODO change to dump into backend/data folder
     json.dump(all_courses, open("courses.json", 'w'), indent=4)
-    json.dump(all_courselists, open("course_list.json", 'w'), indent=4)
+    json.dump(all_courselists, open("course_lists.json", 'w'), indent=4)
     # now, process requirements
     for r in reqs:
         fr = process_requirements(reqs[r], all_courselists, all_courses)
