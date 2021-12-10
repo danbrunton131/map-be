@@ -25,6 +25,13 @@ def load_program(file):
             courselist_id = d
             c_l = CourseList(name="Science Level 1", list_id=courselist_id)
             c_l.save()
+            
+            # TODO add ability to specify new calculator
+            #print(courselist_id)
+            #print(data[d])
+            #if courselist_id != '':
+            #    c_l = CourseList(name="Calculator name here???", list_id=courselist_id)
+            #    c_l.save()
 
             course_list = data[d]
             for course in course_list:

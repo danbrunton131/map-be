@@ -4,7 +4,6 @@ from django.conf import settings
 import os, json
 
 def is_valid_file(parser, arg):
-
     dir_path = os.path.abspath(os.path.join(
             settings.BASE_DIR, 'data', arg
             ))
@@ -16,7 +15,6 @@ def is_valid_file(parser, arg):
 
 def load_course(file):
     with open(file) as json_file:
-        print(json_file)
         data = json.load(json_file)
         
         
