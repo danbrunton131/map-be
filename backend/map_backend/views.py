@@ -15,6 +15,7 @@ import bs4, re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
+from .load_data_api import get_programdata
 
 AND = 0
 OR = 1
@@ -54,14 +55,19 @@ class LoadView(View):
 
 # /admin/loader/Load
 # should be authenticated access only.
-# loads data into the model from the scraper.
+# loads data into the model from the api
 class Load(View):
 
     def post(self, request):
         # only authenticated users can access
         if request.user.is_authenticated:
             try:
-                management.call_command('write_data', json.loads(request.body)['catalog'], verbosity=0)
+                print('before get_programdata')
+                get_programdata()
+                print('after get_programdata')
+                #return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
+                
+                #management.call_command('write_data', json.loads(request.body)['catalog'], verbosity=0)
                 management.call_command('load_courses', 'courses.json', verbosity=1)
                 management.call_command('load_courselist', 'course_list.json', verbosity=1)
                 management.call_command('load_programs', 'programs.json', verbosity=1)

@@ -39,26 +39,25 @@ def load_requirements(file):
                 unit = totalUnits
                  # base case -> science course list
                 if preq_courses == []:
+                    print(req)
+                    # TODO figure out the index out of range error
+                    #if CourseList.objects.filter(list_id=1).count() > 0:
                     course_list = CourseList.objects.filter(list_id=1)[0]
+                    #else:
+                    #    course_list = None
                     
                 else:
                     course_list = CourseList(name="{} - list for req #{}".format(program.name, order))
                     course_list.save()
-                    
-                    print('///////')
-                    #print(course_list)
-                    print('+++++++')
-                    #print(preq_courses)
+
                     for course in preq_courses:
                         for courseId in course['list']:
                             course_list.courses.add(Course.objects.get(course_id=courseId))
 
                     course_list.save()
 
-                print(unit)
                 req_item = RequirementItem(parent_group=req, req_units=unit, req_list=course_list, desc="{} - requirement item {}".format(program.name, order))
 
-                print(req_item)
                 req_item.save()
 
                 req_groups.append(req)
