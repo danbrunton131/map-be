@@ -77,8 +77,18 @@ def extract_courses(courselist):
         global courseCatalogSearchDict
         if newLink not in courseCatalogSearchDict:
             print("add to courseCatalogSearchDict")
-            req = requests.get(newLink, headers=headers)
-            courseCatalogSearchDict[newLink] = req.json()
+
+            try:
+                req = requests.get(newLink, headers=headers)
+                courseCatalogSearchDict[newLink] = req.json()
+            except:
+                print("Connection refused by the server..")
+                print("Let me sleep for 5 seconds")
+                print("ZZzzzz...")
+                time.sleep(5)
+                req = requests.get(newLink, headers=headers)
+                courseCatalogSearchDict[newLink] = req.json()
+
         else:
             print("Found courseCatalogSearchDict in dict")
             
@@ -241,15 +251,21 @@ def get_programdata():
         return
     print("Plans retrieved")
     programdata = req.json()
+
+    print(1111111, programdata["content"][0])
+    science_plan_list = ['HACTFMTH', 'HASTROPHYS', "HBIOCHEM", "HBIOCBMEDR", "HBIOLOGY", "HBIODENVR", "HBIOLMATH","HBIOLPSYC",  "HBIOBIODSP", "HBIOLPHYS","HCHEMBIOL", "HCHEMISTRY", "HERTHENVHC", "ENVSCIENCE", "HLIFESCI",  "HLSCIORDIS", "HLSCISMSYS",  "HMATHCSCI", "HMATHPHYS","HMATHSTATS", "HMATHSTATM", "HMATHSTATS", "HMEDBIPHY", "HMOLEBIOL", "HNEUROSCI", 'HPHYSICS', "HPSYCNEBE","HPSYCNEBEM", "HPSYCNEBEC","PHYSICSCI", "ENVSCIENCE","LIFESCIENC", "HMATHSCIS", "HHUMBEHVR", 'HHUMBAUTIS', "HHUMBECHLD","HSUSCHEMCO"]
+    programdata['content'] = [plan for plan in programdata['content'] if plan['code'] in  science_plan_list]
+    print('pgdata,', programdata)
     # iterate over all programs, find the ones that are in the UGRD career, and put them into a list of programs.
     # TODO add ability to only get stuff by faculty
     for program in programdata['content']:
         # for now only getting Science faculty data
-        if program['program']['career']['code'] == "UGRD" and program['program']['faculty']['code'] == "02":
+        if program['program']['career']['code'] == "UGRD" and program['program']['faculty']['code'] == "02" :
             # for now store both the description (= program name) and the req groups link as a tuple
             # this can be filtered later
             all_programs[program['code']] = (program['description'], next((link['href'] for link in program['links'] if link['rel'] == 'requirementGroups'), None), program["code"])
-    
+    # all_programs= {k: all_programs[k] for k in list(all_programs) if k['code'] in science_plan_list}
+    print("all_programs", all_programs)
     global baseFilePath
     jsonPath = baseFilePath / 'programs.json'
     jsonPath.write_text(json.dumps(all_programs))
@@ -302,7 +318,7 @@ def get_programdata():
         
         # wait to not hit 100 calls/hr api limit
         # 1 call every 38secs = ~94 calls per hour
-        # time.sleep(38)
+        time.sleep(38)
     
     
     # add the -1 courselist to reperesent all undegrad courses, as generated
