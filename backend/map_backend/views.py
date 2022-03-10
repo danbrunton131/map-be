@@ -84,10 +84,7 @@ class SearchCourse(View):
         res = SearchQuerySet().filter(content=query)
         suggestions = []
 
-        for course in res:
-            print('course search')
-            print(course.object.offered_fall)
-            
+        for course in res:            
             # only return courses that are offered during at least one term
             if (course.object.offered_fall == True or
                 course.object.offered_winter == True or
