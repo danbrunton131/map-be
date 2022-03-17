@@ -1,512 +1,434 @@
-{
-    "201900": {
-        "code": "MATH 1A03",
-        "name": "Calculus For Science I",
-        "desc": "For students in science: geared towards applications, with attention to underlying concepts. Functions: limits, continuity, derivatives, optimization, curve sketching. Antiderivative, definite integral, techniques of integration.\nThree lectures, one tutorial; one termPrerequisite(s): Grade 12 Calculus and Vectors U or MATH 1F03Antirequisite(s): ARTSSCI 1D06 A/B, MATH 1LS3, 1N03, 1X03, 1Z04, 1ZA3Not open to students who have achieved a grade of at least B- in MATH 1M03.\nNot open to students in Mathematics and Statistics I or an Engineering program or with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "201906": {
-        "code": "MATH 1LS3",
-        "name": "Calculus for the Life Sciences I",
-        "desc": "Topics from differential and integral calculus, differential equations, discrete-time dynamical systems, chosen for their relevance to the life sciences.\nThree lectures, one tutorial; one termPrerequisite(s): Grade 12 Calculus and Vectors U or MATH 1F03Antirequisite(s): MATH 1A03Not open to students with credit or registration in ARTSSCI 1D06 A/B, ISCI 1A24 A/B, MATH 1M03, 1N03, 1X03, 1Z04, 1ZA3.",
-        "units": 3
-    },
-    "201909": {
-        "code": "MATH 1X03",
-        "name": "Calculus for Math and Stats I",
-        "desc": "Algebraic, geometric and numeric approaches to calculus, development of mathematical thinking, intuition and theoretical foundations. Functions: limits, continuity, derivatives, applications. Antiderivative, definite integral, integration techniques.\nThree lectures, one tutorial; one termPrerequisite(s): Registration in Level I Math and StatsAntirequisite(s): ARTSSCI 1D06 A/B, MATH 1A03, MATH 1LS3, 1N03, 1Z04, 1ZA3Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "201911": {
-        "code": "MATH 1ZA3",
-        "name": "Engineering Mathematics I",
-        "desc": "Functions: limits, continuity, derivatives, optimization, curve sketching. Antiderivative, definite integral, techniques of integration, with applications.\nThree lectures, one tutorial, one lab; one termPrerequisite(s): Registration in a program in EngineeringAntirequisite(s): ARTSSCI 1D06 A/B, MATH 1A03, 1LS3, 1N03, 1NN3, 1X03, 1Z04Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "201901": {
-        "code": "MATH 1AA3",
-        "name": "Calculus For Science II",
-        "desc": "For students in science: additional techniques of integration, applications of definite integrals, differential equations, polar coordinates, parametrized curves. Sequences, infinite series, power series. Partial derivatives, double integrals.\nThree lectures, one tutorial; one termPrerequisite(s): One of MATH 1A03, 1X03, 1ZA3; or a grade of at least B- in MATH 1LS3\u00c2\u00a0or 1M03Antirequisite(s): ARTSSCI 1D06 A/B, MATH 1LT3, 1NN3, 1XX3, 1ZB3, 1ZZ5Not open to students in Mathematics and Statistics I or with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "201907": {
-        "code": "MATH 1LT3",
-        "name": "Calculus for the Life Sciences II",
-        "desc": "Applications of integration, autonomous differential equations, functions of several variables; probability as application of calculus. All topics chosen for their relevance to the life sciences.\nThree lectures, one tutorial; one termPrerequisite(s): MATH 1LS3, or a grade of at least B- in MATH 1A03\u00c2\u00a0or 1M03Antirequisite(s): MATH 1AA3Not open to students with credit or registration in ARTSSCI 1D06 A/B, ISCI 1A24 A/B, MATH 1XX3, 1ZZ5, 1ZB3.",
-        "units": 3
-    },
-    "201910": {
-        "code": "MATH 1XX3",
-        "name": "Calculus for Math and Stats II",
-        "desc": "For students in mathematics/statistics. Additional techniques of integration, applications of definite integrals, differential equations, polar coordinates, parametrized curves. Sequences, infinite series, power series. Partial derivatives, double integrals.\nThree lectures, one tutorial; one termPrerequisite(s): MATH 1X03\u00c2\u00a0and registration in Level I Math and StatsAntirequisite(s): ARTSSCI 1D06 A/B, MATH 1AA3, 1LT3, 1NN3, 1ZB3, 1ZZ5Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "201912": {
-        "code": "MATH 1ZB3",
-        "name": "Engineering Mathematics II-A",
-        "desc": "Techniques of integration, applications of definite integrals, differential equations, polar coordinates, parametrized curves. Sequences, infinite series, power series. Partial derivatives.\nThree lectures, one tutorial, one lab; one termPrerequisite(s): MATH 1ZA3Antirequisite(s): ARTSSCI 1D06 A/B, MATH 1AA3, 1LT3, 1N03, 1NN3, 1XX3, 1ZZ5Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "201902": {
-        "code": "MATH 1B03",
-        "name": "Linear Algebra I",
-        "desc": "Vector spaces given by solutions to linear systems. Linear independence, dimension. Determinants. Eigenvalues, eigenvectors and diagonalisation. Complex numbers.\nThree lectures, one tutorial; one termPrerequisite(s): Grade 12 Calculus and Vectors U or MATH 1F03Antirequisite(s): MATH 1ZC3Not open to students registered in an Engineering program.",
-        "units": 3
-    },
-    "201913": {
-        "code": "MATH 1ZC3",
-        "name": "Engineering Mathematics II-B",
-        "desc": "Vector spaces given by solutions to linear systems. Linear independence, dimension. Determinants. Eigenvalues, eigenvectors and diagonalisation. Complex numbers.\nThree lectures, one tutorial, one lab; one termPrerequisite(s): One of Grade 12 Calculus and Vectors U, MATH 1F03, or credit or registration in MATH 1ZA3Antirequisite(s): MATH 1B03, 1ZZ5",
-        "units": 3
-    },
-    "203985": {
-        "code": "PHYSICS 1A03",
-        "name": "Introductory Physics",
-        "desc": "A first course in university physics, taught using examples and applications from many areas of science. Topics include the concepts of force and energy, mechanics, waves and fluids.\nLectures, web modules (three hours), one lab (two hours) every other week; one termPrerequisite(s): One of Grade 12 Calculus and Vectors U, Grade 12 Advanced Functions and Introductory Calculus U, MATH 1F03Co-requisite(s): WHMIS 1A00\u00a0if not already completed, must be completed prior to the first lab.Antirequisite(s): PHYSICS 1B03, 1C03Not open to students with credit or registration in ISCI 1A24 A/B\u00a0or PHYSICS 1D03.\nIt is recommended that students in Chemical and Physical Sciences Gateway\u00a0complete PHYSICS 1C03.",
-        "units": 3
-    },
-    "203913": {
-        "code": "PHYSICS 1C03",
-        "name": "Physics for the Chemical and Physical Sciences",
-        "desc": "A first course in university physics intended for physics and chemistry students, or students in any other discipline who have an appropriate secondary school background. This course is a comprehensive treatment of linear and rotational mechanics - kinematics, dynamics, and the relevant conservation laws.\nThree lectures, one lab (two hours) every week; one termPrerequisite(s): Either Grade 12 Physics U or PHYSICS 1L03; and either Grade 12 Calculus and Vectors U or MATH 1F03; and credit or registration in one of ARTSSCI 1D06 A/B, MATH 1A03, 1LS3, MATH 1X03, 1ZA3Co-requisite(s): WHMIS 1A00\u00a0if not already completed, must be completed prior to the first lab.Antirequisite(s): PHYSICS 1A03, 1B03Not open to students with credit or registration in ISCI 1A24 A/B\u00a0or PHYSICS 1D03.",
-        "units": 3
-    },
-    "203276": {
-        "code": "PHYSICS 1D03",
-        "name": "Introductory Mechanics",
-        "desc": "A course for engineering students. Principles of mechanics of particles and rigid bodies, including Newton's Laws, rotational kinematics and dynamics, torque, energy, momentum, angular momentum, and simple harmonic motion.\nThree lectures, one lab (three hours) every other week; one termPrerequisite(s): Registration in a program in the Faculty of Engineering",
-        "units": 3
-    },
-    "203986": {
-        "code": "PHYSICS 1AA3",
-        "name": "Introduction To Modern Physics",
-        "desc": "A course presenting aspects of modern physics relevant to life sciences. Electromagnetic fields. Atomic, quantum, and nuclear physics. Applications to imaging and understanding biological systems.\nThree lectures, one lab (three hours) every other week; one termPrerequisite(s): One of PHYSICS 1A03, 1B03\u00a0, 1C03Antirequisite(s): PHYSICS 1BA3, 1BB3, 1CC3Not open to students with credit or registration in ISCI 1A24 A/B.\nIt is recommended that students in Chemical and Physical Sciences Gateway\u00a0complete PHYSICS 1CC3.",
-        "units": 3
-    },
-    "203916": {
-        "code": "PHYSICS 1CC3",
-        "name": "Modern Physics for the Chemical and Physical Sciences",
-        "desc": "This course is the continuation of PHYSICS 1C03.\nTopics include simple harmonic motion, waves, interference, electrostatics, magnetostatics and an introduction to quantum physics.\nThree lectures, one lab (three hours) every other week; one termPrerequisite(s): PHYSICS 1A03, 1B03\u00c2\u00a0or 1C03Antirequisite(s): PHYSICS 1AA3, 1BA3, 1BB3Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "203277": {
-        "code": "PHYSICS 1E03",
-        "name": "Waves, Electricity and Magnetic Fields",
-        "desc": "A course for engineering students. Oscillations and waves, interference; electrostatics, electric potential, circuit elements; magnetic fields.\nThree lectures, one lab (three hours) every other week; one termPrerequisite(s): PHYSICS 1D03\u00c2\u00a0and registration in EngineeringAntirequisite(s): PHYSICS 2A03",
-        "units": 3
-    },
-    "202300": {
-        "code": "CHEM 1A03",
-        "name": "Introductory Chemistry I",
-        "desc": "A discussion of chemical fundamentals, including bonding, structure, reactivity, and energetics, with emphasis on applications to health, energy, and the environment. Laboratories highlight hands-on experimental techniques; tutorials support the development of problem-solving skills.\nLectures, web modules (three hours), one lab (two and one half hours) every other week; one termPrerequisite(s): Grade 12 Chemistry U and either registration in a Level I program in the Faculty of Science\u00a0or Engineering I/Engineering I Co-Op, Arts & Science I, Health Sciences I, any program above Level I; or a grade of at least 80% in Grade 12 Chemistry U; or CHEM 1R03Co-requisite(s): WHMIS 1A00\u00a0if not already completed, must be completed prior to the first lab.Antirequisite(s): CHEM 1E03Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "203786": {
-        "code": "CHEM 1E03",
-        "name": "General Chemistry for Engineering I",
-        "desc": "An introduction to chemical principles for Engineering students, including reactivity, bonding, structure, energetics and electrochemistry.\nThree lectures, one lab (two and one half hours) every other week; one termPrerequisite(s): Registration in a program in EngineeringAntirequisite(s): CHEM 1A03Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "202188": {
-        "code": "BIOLOGY 1A03",
-        "name": "Cellular and Molecular Biology",
-        "desc": "Structure, molecular composition and function in sub-cellular and cellular systems.\nThree hours (lectures, web modules), one lab (two hours); one termPrerequisite(s): One of Grade 12 Biology U, BIOLOGY 1P03 or registration in an Engineering programCo-requisite(s): WHMIS 1A00, and BIOSAFE 1BS0\u00c2\u00a0(or HTHSCI 1BS0) if not already completed. Both requirements must be completed prior to the first lab.Not open to students with credit or registration in HTHSCI 1I06 A/B or ISCI 1A24 A/B.\nStudents are strongly encouraged to take BIOLOGY 1A03 and BIOLOGY 1M03 in the different terms.",
-        "units": 3
-    },
-    "203811": {
-        "code": "BIOLOGY 1M03",
-        "name": "Biodiversity, Evolution and Humanity",
-        "desc": "Fundamental evolutionary and ecological concepts with particular reference to the diversity of life.\nThree lectures, seminar/lab (two hours every other week); one termPrerequisite(s): Grade 12 Biology U or BIOLOGY 1P03Not open to students with credit or registration in ISCI 1A24 A/B.\nStudents are strongly encouraged to take BIOLOGY 1A03\u00c2\u00a0and 1M03 in the different terms.",
-        "units": 3
-    },
-    "202301": {
-        "code": "CHEM 1AA3",
-        "name": "Introductory Chemistry II",
-        "desc": "A discussion of organic chemistry, chemical kinetics, acid-base equilibrium, and the energetics of phase transformations, with emphasis on relevant experimental techniques and solving real problems ranging from drug discovery to environmental chemistry.\nThree lectures, one lab (two and one half hours) every other week; one termPrerequisite(s): CHEM 1A03\u00c2\u00a0or CHEM 1E03Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "202163": {
-        "code": "BIOCHEM 2B03",
-        "name": "Nucleic Acid Structure and Function",
-        "desc": "Fundamental concepts and experimental methods in studying both DNA and RNA. Nature of genetic information and its storage. Molecular basis of replication, transcription and translation. Students will be required to participate in a seminar outside of regular class hours.\nThree lectures; one termPrerequisite(s): Credit or registration in one of CHEMBIO 2OA3, 2OG3, CHEM 2OA3, 2OG3, and credit or registration in one of CHEMBIO 2OB3,\u00a02OD3, CHEM 2OB3, 2OD3, and registration in Honours Biochemistry, Honours Chemical Biology or Honours Molecular Biology and Genetics; or registration in Honours Biophysics or Honours Medical and Biological PhysicsAntirequisite(s): BIOCHEM 3G03\u00a0Not open to students with credit or registration in ISCI 2A18 A/B.",
-        "units": 3
-    },
-    "202164": {
-        "code": "BIOCHEM 2BB3",
-        "name": "Protein Structure and Enzyme Function",
-        "desc": "Fundamental concepts and experimental methods in studying structures of proteins, including membrane proteins. Nature of enzyme catalysis. Introduction to enzyme kinetics and mechanism.\nThree lectures, one tutorial; one termPrerequisite(s): Credit or registration in one of CHEMBIO 2OA3, 2OG3, CHEM 2OA3, 2OG3, and credit or registration in one of CHEMBIO 2OB3, 2OD3, CHEM 2OB3, 2D03, and registration in Honours Biochemistry, Honours Chemical Biology or Honours Molecular Biology and Genetics; or registration in Honours Arts & Science and Biochemistry or Honours Biophysics or Honours Medical and Biological PhysicsAntirequisite(s): BIOCHEM 3G03\u00c2\u00a0Not open to students with credit or registration in ISCI 2A18 A/B.",
-        "units": 3
-    },
-    "202166": {
-        "code": "BIOCHEM 2L06 A/B",
-        "name": "Inquiry in Biochemical Techniques",
-        "desc": "An inquiry approach to learning about current techniques in biochemistry research. Students will work in small groups in labs and workshops, with a focus on how to search the primary literature, prepare and deliver written and oral presentations.\nOne lecture (two hours), one lab or workshop (four hours); two termsPrerequisite(s): Credit or registration in BIOCHEM 2B03, 2B03, BIOSAFE 1BS0\u00a0(or HTHSCI 1BS0) and registration in Honours Biochemistry (B.Sc.)\u00a0 or Honours Biophysics (B.Sc.) or Honours Medical and Biological Physics\u00a0 (B.Sc.) or Honours Arts & Science and Biochemistry; or Honours Integrated Science (Biochemistry Concentration). BIOSAFE 1BS0\u00a0(or HTHSCI 1BS0) must be completed prior to the first lab.Antirequisite(s): BIOCHEM 3L03",
-        "units": 6
-    },
-    "202192": {
-        "code": "BIOLOGY 2C03",
-        "name": "Genetics",
-        "desc": "Structure, function and transmission of genes; chromosomal basis of inheritance; mono- and dihybrid crosses; sequential steps in gene function; linkage maps; sex chromosome inheritance.\nLectures (three hours), online modules (two hours), tutorial (one hour); one termPrerequisite(s): BIOLOGY 1A03,  1M03&nbsp;(or ISCI 1A24 A/B); and registration in an Honours program in the Faculty of Science, the Faculty of Health Sciences, or the Arts & Science ProgramAntirequisite(s): MOLBIOL 2C03\u00c2\u00a0Not open to students registered in Honours Molecular Biology and Genetics.",
-        "units": 3
-    },
-    "202307": {
-        "code": "CHEM 2OA3",
-        "name": "Organic Chemistry I",
-        "desc": "An introduction to organic chemistry with emphasis on the reactions of functional groups and an introduction to spectroscopic techniques for structure determination.\nThree lectures, one lab (three hours) every other week; one tutorial (one hour) every other week; one termPrerequisite(s): ISCI 1A24 A/B; or CHEM 1A03\u00a0(or 1E03) and 1AA3\u00a0and registration in an Honours program; or CHEM 1A03\u00a0(or 1E03) and 1AA3\u00a0with a grade of at least C-; or CHEM 1A03\u00a0(or 1E03), 1AA3\u00a0and permission of the Department (See Department Note 2.)\nRegistration priority will be given to students for whom this course is a program requirement.Antirequisite(s): CHEM 2E03, 2OC3, 2OG3, CHEMBIO 2OA3, 2OG3\u00a0Students with credit in CHEM 2E03\u00a0will forfeit credit upon completion of this course.\nStudents who complete CHEM 2OA3 and subsequently complete CHEM 2E03 will forfeit credit in CHEM 2OA3.\nNot open to students registered in Honours Chemical Biology.",
-        "units": 3
-    },
-    "202308": {
-        "code": "CHEM 2OB3",
-        "name": "Organic Chemistry II",
-        "desc": "Nucleophilic substitutions at carbonyl centres, aromatic chemistry, carbohydrates, applications of spectroscopic techniques in organic chemistry.\nThree lectures, one lab (three hours) every other week; one tutorial (one hour) every other week; one termPrerequisite(s): CHEM 1A03\u00a0(or 1E03) and 1AA3\u00a0or ISCI 1A24 A/B; and one of CHEM 2OA3, 2OC3, 2OG3, CHEMBIO 2OA3, 2OG3\u00a0\nRegistration priority will be given to students for whom this course is a program requirement.Antirequisite(s): CHEM 2OD3, CHEMBIO 2OB3, 2OD3\u00a0Not open to students registered in Honours Chemical Biology.",
-        "units": 3
-    },
-    "202698": {
-        "code": "EARTHSC 1G03",
-        "name": "Earth and the Environment",
-        "desc": "An introduction to Earth's composition and processes including topics such as rocks, fossils, plate tectonics, earthquakes, volcanoes, and glaciers. We will consider the interactions between people and Earth's environments and the implications for sustainable development. Two field trips will be held during regular lab periods.\nThree lectures, one lab (two hours); one termAntirequisite(s): ENVIRSC 1G03Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "203969": {
-        "code": "ENVIRSC 1C03",
-        "name": "Climate, Water And Environment",
-        "desc": "An introduction to the science of environmental issues and sustainability through the study of the soil, climate and water processes.\nLectures, web modules (three hours), one lab (two hours); one termCo-requisite(s): WHMIS 1A00, if not already completed, must be completed prior to the first lab.Antirequisite(s): ENVIRSC 1A03, 1B03\u00c2\u00a0",
-        "units": 3
-    },
-    "202138": {
+[
+    {
         "code": "ASTRON 1F03",
+        "description": "Topics include orbital motion, electromagnetic radiation, the solar system, stars and stellar evolution, the Milky Way Galaxy, galaxies and quasars, the evolution of the universe.",
+        "id": 0,
         "name": "Introduction to Astronomy and Astrophysics",
-        "desc": "Topics include orbital motion, electromagnetic radiation, the solar system, stars and stellar evolution, the Milky Way Galaxy, galaxies and quasars, the evolution of the universe.\nThree lectures; one termPrerequisite(s): One of Grade 12 Calculus and Vectors U, Grade 12 Advanced Functions and Introductory Calculus U, MATH 1F03\u00c2\u00a0Antirequisite(s): PHYSICS 1F03, SCIENCE 1D03",
-        "units": 3
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures; one term"
     },
-    "202223": {
+    {
+        "code": "BIOLOGY 1A03",
+        "description": "Structure, molecular composition and function in sub-cellular and cellular systems.",
+        "id": 1,
+        "name": "Cellular and Molecular Biology",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three hours (lectures, web modules), one lab (three hours, alternating weeks), one tutorial (one hour, alternating weeks); one term"
+    },
+    {
+        "code": "BIOLOGY 1M03",
+        "description": "Fundamental evolutionary and ecological concepts with particular reference to the diversity of life.",
+        "id": 2,
+        "name": "Biodiversity, Evolution and Humanity",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures, seminar/lab (two hours every other week); one term"
+    },
+    {
         "code": "BIOPHYS 1S03",
+        "description": "A conceptual course, based on and requiring Grade 12 Physics. Applications to biological systems exploring the interdisciplinary field of biophysics. Topics include: Sound, Hearing and Echolocation, Optics of Vision, Animal Locomotion, Thermal Motion of Molecules, Heat and Heat Flow in biological systems, Fluid Dynamics. Intended for students in Life Science Gateway, Chemical and Physical Sciences Gateway, and those interested in physical aspects of biology.",
+        "id": 3,
         "name": "Biophysics of Movement and the Senses: From Microbes to Moose",
-        "desc": "A conceptual course, based on and requiring Grade 12 Physics. Applications to biological systems exploring the interdisciplinary field of biophysics. Topics include: Sound, Hearing and Echolocation, Optics of Vision, Animal Locomotion, Thermal Motion of Molecules, Heat and Heat Flow in biological systems, Fluid Dynamics. Intended for students in Life Science Gateway, Chemical and Physical Sciences Gateway, and those interested in physical aspects of biology.\nThree lectures; one termPrerequisite(s): Grade 12 Physics U or credit or registration in one of PHYSICS 1A03, 1L03; and credit or registration in one of MATH 1A03, 1LS3, 1X03, 1ZA3; or ISCI 1A24 A/B\u00c2\u00a0",
-        "units": 3
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Three lectures; one term"
     },
-    "202604": {
-        "code": "COMPSCI 1JC3",
-        "name": "Introduction to Computational Thinking",
-        "desc": "Inquiry into ideas and methods of computer science (CS), the science underlying our computational universe. Topics include what computers can and cannot do, the Internet and search engines, artificial intelligence, computer-controlled devices, and sustainability in computing.\nThree lectures, one tutorial (two hours), first termPrerequisite(s): One of MATH 1K03, Grade 12 Advanced Functions and Introductory Calculus U, Grade 12 Calculus and Vectors, or registration in Computer Science 1",
-        "units": 3
+    {
+        "code": "CHEM 1A03",
+        "description": "A discussion of chemical fundamentals, including bonding, structure, reactivity, and energetics of phase transitions, with emphasis on applications to health, energy, and the environment. Laboratories highlight experimental techniques.",
+        "id": 4,
+        "name": "Introductory Chemistry 1",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Three hours (lectures, web modules), one lab (two and one half hours) every other week; one term"
     },
-    "202605": {
-        "code": "COMPSCI 1MD3",
-        "name": "Introduction to Programming",
-        "desc": "Introduction to fundamental programming concepts: values and types, expressions and evaluation, control flow constructs and exceptions, recursion, input/output and file processing.\nThree lectures, one tutorial (one hour); second termPrerequisite(s): One of MATH 1K03, 1LS3, Grade 12 Advanced Functions and Introductory Calculus U, Grade 12 Calculus and VectorsAntirequisite(s): ENGINEER 1D04",
-        "units": 3
+    {
+        "code": "CHEM 1AA3",
+        "description": "Three lectures, one lab (two and one half hours) every other week; one term",
+        "id": 5,
+        "name": "Introductory Chemistry 2",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one lab (two and one half hours) every other week; one term"
     },
-    "202607": {
-        "code": "COMPSCI 1XA3",
-        "name": "Computer Science Practice and Experience: Basic Concepts",
-        "desc": "Practical experience with implementing basic CS concepts such as data representation, recursion, computer architecture, concurrency. Hands-on application of CS concepts to formulating, analyzing, and solving problems.\nOne lecture, two labs (two hours each); second termPrerequisite(s): Registration in Computer Science or permission of the InstructorCo-requisite(s): One of COMPSCI 1MD3\u00a0or ENGINEER 1D04\u00a0",
-        "units": 3
-    },
-    "201339": {
-        "code": "GEOG 1HA3",
-        "name": "Society, Culture and Environment",
-        "desc": "An introduction to human geography, and in particular social, cultural, and political geography, and environmental studies. Topics include: the spatial significance of culture and cultural difference; cities as forms of cultural settlements; the rise of urban societies; the meanings of cultural landscapes; geographical perspectives on global politics; humans' changing relationship with the environment; and contemporary environmental issues.\nTwo lectures, one tutorial (one hour); one term",
-        "units": 3
-    },
-    "201340": {
-        "code": "GEOG 1HB3",
-        "name": "Population, Cities and Development",
-        "desc": "An introduction to human geography, and in particular urban and economic geography and population and development studies. Topics include: the meaning, and changing significance, of globalization; the causes and consequences of uneven economic and social development; the nature of changes in world population via demographic change and migration; the nature and consequences of global urbanization; and urban planning.\nTwo lectures, one tutorial (one hour); one term",
-        "units": 3
-    },
-    "205212": {
-        "code": "LIFESCI 1D03",
-        "name": "Medical Imaging Physics",
-        "desc": "An introduction to the physics underlying some of the medical imaging techniques used in the diagnosis and treatment of disease. Topics include: X-ray (transmission) radiography, computed tomography, an introduction to magnetic resonance imaging (MRI), basic principles of ultrasonography, radioactivity and nuclear medicine, and a brief investigation into the biological effects of radiation.\nThree lectures, one tutorial; one term\nPrerequisite(s): Registration in Medical Radiation Sciences I; or credit or registration in one MATH 1A03, 1LS3, 1X03\u00c2\u00a0and either Grade 12 Physics U or credit or registration in one of PHYSICS 1A03, 1C03, ISCI 1A24 A/B\nAntirequisite(s): LIFESCI 1E03, MEDRADSC 1C03",
-        "units": 3
-    },
-    "203431": {
-        "code": "PSYCH 1F03",
-        "name": "Survey of Psychology",
-        "desc": "Students completing this course will have a good understanding of the methods, research questions and major areas of psychology. This course would be ideal for students looking to complete an elective requirement without necessarily planning to continue study in psychology. Students considering applying to an Honours Psychology, Neuroscience & Behaviour program are referred to PSYCH 1X03\u00c2\u00a0for which this course is an anti-requisite.\nOn-line web modules, discussions and testing; one termAntirequisite(s): PSYCH 1N03, 1X03Not open to students with credit or registration in ISCI 1A24 A/B.",
-        "units": 3
-    },
-    "205220": {
-        "code": "PSYCH 1FF3",
-        "name": "Survey of Biological Basis of Psychology",
-        "desc": "This course introduces important themes as the foundations to investigate psychology, neuroscience and behaviour with an emphasis on sensory systems, and behaviours critical to survival. This course would be ideal for students looking to complete an elective requirement without necessarily planning to continue study in psychology. Students considering applying to an Honours Psychology, Neuroscience & Behaviour program are referred to PSYCH 1XX3 for which this course is an anti-requisite.\nOnline web modules, discussions and testing; one term\nPrerequisite(s): Grade 12 Biology U or credit or registration in one of BIOLOGY 1A03, 1M03, 1P03; or registration in a Nursing program; or registration in Level I or above of an Arts & Sciences program\nAntirequisite(s): PSYCH 1NN3, 1XX3\nNot open to students with credit or registration in ISCI 1A24 A/B or students registered in the Bachelor of Health Sciences (Honours) (B.H.Sc.) program or B.Sc.N. Conestoga campus.",
-        "units": 3
-    },
-    "203434": {
-        "code": "PSYCH 1X03",
-        "name": "Introduction to Psychology, Neuroscience & Behaviour",
-        "desc": "This course introduces the scientific methods used to study the psychology of higher order processes and interpersonal behaviour. Students interested in applying to an Honours Psychology, Neuroscience & Behaviour program are encouraged to take PSYCH 1X03 rather than PSYCH 1F03.\nLecture, web modules, weekly tutorials (three hours); one termAntirequisite(s): PSYCH 1F03, 1N03It is recommended that students without Grade 12 Biology U complete BIOLOGY 1P03\u00a0prior to or concurrently with this course.\nNot open to students with credit or registration in ISCI 1A24 A/B\u00a0or registered in B.Sc.N. Conestoga campus.",
-        "units": 3
-    },
-    "203435": {
-        "code": "PSYCH 1XX3",
-        "name": "Foundations of Psychology, Neuroscience & Behaviour",
-        "desc": "This course introduces important themes as the foundations to investigate psychology, neuroscience and behaviour with an emphasis on sensory systems, and behaviours critical to survival. Students interested in applying to an Honours Psychology, Neuroscience & Behaviour program are encouraged to take PSYCH 1XX3 rather than PSYCH 1FF3.\nThree hours (lecture, web modules, weekly tutorials); one term\nPrerequisite(s): Grade 12 Biology U or credit or registration in one of BIOLOGY 1A03, 1M03, 1P03; or registration in a Nursing program; or registration in Level I or above of an Arts & Sciences program\nAntirequisite(s): HTHSCI 1G03, PSYCH 1FF3, 1NN3\nNot open to students with credit or registration in ISCI 1A24 A/B or students registered at the B.Sc.N. Conestoga campus.",
-        "units": 3
-    },
-    "203947": {
-        "code": "SCIENCE 1A03",
-        "name": "Investigating Science: Opportunities & Experiences",
-        "desc": "Designed to prepare students for their university careers through the introduction to the people, academic programs, resources and attitudes needed during their undergraduate studies. Course content is taught through in-class sessions and mini-projects and will focus on investigating science through research to explore the opportunities and experiences available to students in the Faculty of Science.\nLecture (two hours), tutorial (three hours); one termPrerequisite(s): Registration in one of Chemical and Physical Sciences I, Environmental and Earth Sciences I, Life Sciences I, or Mathematics and Statistics IThis course is administered by the School of Interdisciplinary Science (SIS).",
-        "units": 3
-    },
-    "202303": {
-        "code": "CHEM 2AA3",
-        "name": "Quantitative Chemical Analysis",
-        "desc": "The art and science of performing quantitative analysis on samples based on classical volumetric techniques and modern instrumental methods including electrochemistry, optical spectroscopy, and chromatography.\nThree lectures; one termPrerequisite(s): CHEM 1A03\u00a0(or 1E03) and 1AA3; or ISCI 1A24 A/B\u00a0Antirequisite(s): CHEM 2A03, CHEMBIO 2A03, 2AA3\u00a0",
-        "units": 3
-    },
-    "202304": {
-        "code": "CHEM 2II3",
-        "name": "Introductory Inorganic Chemistry: Structure and Bonding",
-        "desc": "The basic theories and models of bonding and structure that explain the combination of elements across the periodic table with primary emphasis on the main-group elements.\nThree lectures, one tutorial; one termPrerequisite(s): CHEM 1A03\u00a0(or 1E03) and 1AA3\u00a0; or ISCI 1A24 A/B\u00a0",
-        "units": 3
-    },
-    "202306": {
-        "code": "CHEM 2LB3",
-        "name": "Tools for Chemical Discovery I",
-        "desc": "Advanced techniques for synthesis and characterization of organic and inorganic molecules and materials, and the use of modern instrumentation in chemistry.\nOne lecture, two labs; one termPrerequisite(s): Registration in an Honours Chemistry program",
-        "units": 3
-    },
-    "202310": {
-        "code": "CHEM 2OD3",
-        "name": "Synthesis and Function of Organic Molecules",
-        "desc": "Fundamental reactions used to construct organic molecules, nucleophilic substitutions at carbonyl centres, biomolecules, and applications of spectroscopic techniques in organic chemistry. Emphasis on reaction mechanisms.\nThree lectures, one tutorial; one termPrerequisite(s): CHEM 1A03\u00a0(or 1E03) and 1AA3; or ISCI 1A24 A/B; and CHEM 2OG3\u00a0Antirequisite(s): CHEM 2OB3, CHEMBIO 2OB3,  2OD3\u00a0",
-        "units": 3
-    },
-    "203964": {
-        "code": "CHEM 2P03",
-        "name": "Applications of Physical Chemistry",
-        "desc": "Chemical thermodynamics and kinetics and their application to biological, chemical and environmental systems.\nThree lectures, one tutorial; one termPrerequisite(s): CHEM 1A03\u00c2\u00a0(or  1E03) and 1AA3; and one of MATH 1A03, 1LS3, 1X03, 1ZA3; or ISCI 1A24 A/BAntirequisite(s): EARTHSC 2L03, EARTHSC 2Q03, ENVIRSC 2L03, PHYSICS 2H04Cross-list(s): CHEMBIO 2P03Not open to students with credit or registration in ISCI 2A18 A/B.",
-        "units": 3
-    },
-    "202311": {
-        "code": "CHEM 2PC3",
-        "name": "Mathematical Tools for Chemical Problems",
-        "desc": "An introduction to vector calculus, differential equations and linear algebra - including solving linear equations, eigenvalues and eigenvectors - motivated by problems of chemical equilibrium and kinetics.\nThree lectures, one tutorial; one termPrerequisite(s): One of CHEM 2PD3, 2P03, EARTHSC 2L03, ENGINEER 2H03, ENVIRSC 2L03, ISCI 2A18 A/B, MATLS 2B03, PHYSICS 2H04; and one of MATH 1A03, 1LS3, 1X03, 1ZA3, ISCI 1A24 A/B; or permission of the Instructor",
-        "units": 3
-    },
-    "202302": {
+    {
         "code": "CHEM 1R03",
+        "description": "A general introduction to chemistry, suitable for students without Grade 12 Chemistry U.",
+        "id": 6,
         "name": "General Chemistry",
-        "desc": "A general introduction to chemistry, suitable for students without Grade 12 Chemistry U.\nThree lectures, one tutorial; Winter termPrerequisite(s): Grade 11 Chemistry SCH3UNot open to students with 80% or higher in Grade 12 Chemistry U or with credit or registration in CHEM 1A03.",
-        "units": 3
+        "source": "Honours Earth & Environmental Sciences",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; Winter term"
     },
-    "202702": {
-        "code": "EARTHSC 2E03",
-        "name": "Earth History",
-        "desc": "Geological evolution of the Earth and paleontological evidence for the evolution of marine life, with emphasis on the geological history of North America.\nStudents enrolling in this course must purchase a field kit available through the School of Geography and Earth Sciences.\nTwo lectures, one lab (three hours); one termPrerequisite(s): EARTHSC 1G03, ENVIRSC 1G03 or ISCI 1A24 A/B\u00a0Antirequisite(s): ENVIRSC 2E03Not open to students with credit or registration in ISCI 2A18 A/B\u00a0",
-        "units": 3
+    {
+        "code": "COMPSCI 1DM3",
+        "description": "Sets, functions, relations, trees and graphs; counting principles, modular arithmetic, discrete probabilities; induction and recursion, recurrence relations.",
+        "id": 7,
+        "name": "Discrete Mathematics for Computer Science",
+        "source": "Honours Mathematics & Computer Science",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial (two hours), second term"
     },
-    "202706": {
-        "code": "EARTHSC 2K03",
-        "name": "Optical Crystallography and Mineralogy",
-        "desc": "Introduction to crystallography, optical theory, and the polarizing microscope. Identification of minerals in igneous and sedimentary rocks and discussion of their structure and chemistry.\nTwo lectures, one lab (three hours); one termPrerequisite(s): ENVIRSC 1G03\u00c2\u00a0or ISCI 1A24 A/B",
-        "units": 3
+    {
+        "code": "COMPSCI 1MD3",
+        "description": "Introduction to fundamental programming concepts: values and types, expressions and evaluation, control flow constructs and exceptions, recursion, input/output and file processing.",
+        "id": 8,
+        "name": "Introduction to Programming",
+        "source": "Honours Biodiversity and Environmental Sciences",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial (one hour); first term"
     },
-    "202709": {
-        "code": "EARTHSC 2T03",
-        "name": "Geology of Canada",
-        "desc": "Description and understanding of the tectonic processes involved in the development and evolution of the Precambrian rocks of Canada.\nStudents enrolling in this course must purchase a field kit available through the School of Geography and Earth Sciences.\nTwo lectures, one lab (three hours); one termPrerequisite(s): One of EARTHSC 1G03, ENVIRSC 1G03, ISCI 1A24 A/B\u00c2\u00a0",
-        "units": 3
+    {
+        "code": "COMPSCI 1XC3",
+        "description": "Acquiring familiarity with professional software development settings via practical experience with interaction with UNIX-like systems, programming in C, with documentation, testing, benchmarking, profiling and debugging; shell interaction and programming, pipes and filters; revision control.",
+        "id": 9,
+        "name": "Computer Science Practice and Experience: Development Basics",
+        "source": "Honours Mathematics & Computer Science",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Two lectures, two labs (two hours each); second term"
     },
-    "201226": {
-        "code": "ENVIRSC 2B03",
-        "name": "Soils and the Environment",
-        "desc": "An introduction to the physical, chemical and biological properties of soil. Application to environmental and land-use impacts.\nTwo lectures, one lab (three hours); one termPrerequisite(s): One of EARTHSC 1G03, ENVIRSC 1A03, 1B03,  1C03, 1G03, ISCI 1A24 A/BAntirequisite(s): EARTHSC 2B03",
-        "units": 3
+    {
+        "code": "COMPSCI 1XD3",
+        "description": "Introduction to different aspects of design: Identifying user needs, goals and desires and translating them into software, and structuring and communicating the structure of software to improve reliability, readability and adaptability. Topics include web languages and protocols, types and design patterns.",
+        "id": 10,
+        "name": "Computer Science Practice and Experience: Introduction to Software Design Using Web Programming",
+        "source": "Honours Mathematics & Computer Science",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Two lectures, two labs (two hours each); second term"
     },
-    "201231": {
-        "code": "ENVIRSC 2Q03",
-        "name": "Introduction to Environmental Geochemistry",
-        "desc": "Introductory study of the interactions of geochemistry (water-rock interaction) and biology in determining pH, oxygen status and ionic strength in water, and their implications will be explored through lecture and laboratory work.\nTwo lectures, one lab (three hours); one termPrerequisite(s): ISCI 1A24; or CHEM 1A03\u00a0and one of EARTHSC 1G03, ENVIRSC 1C03, ENVIRSC 1G03\u00a0(or ENVIRSC 1A03 or 1B03); or registration in Level II or above of a program in the Faculty of Engineering. ENVIRSC 1C03\u00a0is recommended.Antirequisite(s): EARTHSC 2L03, 2Q03, ENVIRSC 2L03",
-        "units": 3
+    {
+        "code": "EARTHSC 1G03",
+        "description": "An introduction to Earth’s composition and processes including topics such as rocks, fossils, plate tectonics, earthquakes, volcanoes, and glaciers. We will consider the interactions between people and Earth’s environments and the implications for sustainable development. Two field trips will be held during regular lab periods.",
+        "id": 11,
+        "name": "Earth and the Environment",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures, one lab (two hours); one term"
     },
-    "201232": {
-        "code": "ENVIRSC 2W03",
-        "name": "Physical Hydrology",
-        "desc": "Hydrological processes including precipitation, snowmelt, hillslope runoff, streamflow and hydrological data analysis.\nTwo lectures, one lab (two hours); one termPrerequisite(s): One of EARTHSC 1G03, ENVIRSC 1A03, 1B03, 1C03, 1G03 or ISCI 1A24 A/B\u00a0. ENVIRSC 1A03, 1C03\u00a0or ISCI 1A24 A/B\u00a0is strongly recommended.Antirequisite(s): EARTHSC 2W03",
-        "units": 3
+    {
+        "code": "ENVIRSC 1C03",
+        "description": "An introduction to the science of environmental issues and sustainability through the study of the soil, climate and water processes.",
+        "id": 13,
+        "name": "Climate, Water and Environment",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Lectures, web modules (three hours), one lab (two hours); one term"
     },
-    "202193": {
-        "code": "BIOLOGY 2D03",
-        "name": "Plant Biodiversity and Biotechnology",
-        "desc": "Key concepts in plant biology and biodiversity will be explored, including the origin of plants, plant structure and development, plant genomes, plant responses to the environment and other organisms, agriculture and plant biotechnology.\nThree lectures, one lab (three hours); one termPrerequisite(s): BIOLOGY 1A03, 1M03; or ISCI 1A24 A/B. If not already completed, BIOSAFE 1BS0\u00a0(or HTHSCI 1BS0)\u00a0must be done prior to the first lab.",
-        "units": 3
+    {
+        "code": "ENVSOCTY 1HA3",
+        "description": "An introduction to human (societal) - environment interactions, mostly through a human geographic perspective. Topics include: the spatial significance of culture and cultural difference; cities as forms of cultural settlements; the rise of urban societies; the meanings of cultural landscapes; geographical perspectives on local and global politics; humans’ changing relationship with the environment; and contemporary environmental issues.",
+        "id": 14,
+        "name": "Society, Culture and Environment",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Two lectures, one tutorial (one hour); one term"
     },
-    "202195": {
-        "code": "BIOLOGY 2F03",
-        "name": "Fundamental and Applied Ecology",
-        "desc": "An introduction to fundamental ecological principles and their application to current environmental problems at the level of organisms, populations and ecosystems.\nThree lectures, one optional tutorial, one lab (three hours); one termPrerequisite(s): BIOLOGY 1M03\u00c2\u00a0or ISCI 1A24 A/BNot open to students with credit or registration in ISCI 2A18 A/B.",
-        "units": 3
+    {
+        "code": "ENVSOCTY 1HB3",
+        "description": "An introduction to the study of relationships between people and their environments. The natural, built, social and economic environments are examined through human geography, urban studies, population and development studies, and environmental studies. Topics include: the meaning, and changing significance, of globalization; the causes and consequences of uneven economic and social development; the nature of changes in world population via demographic change and migration; the nature and consequences of global urbanization; and urban planning.",
+        "id": 15,
+        "name": "Population, Cities and Development ",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Two lectures, one tutorial (one hour); one term"
     },
-    "205239": {
-        "code": "CHEM 2A03",
-        "name": "Quantitative Chemical Analysis",
-        "desc": "The art and science of performing quantitative analysis on samples based on classical volumetric techniques and modern instrumental methods including electrochemistry, optical spectroscopy, and chromatography.\nThree lectures, one lab (three hours); one termPrerequisite(s): CHEM 1A03\u00a0(or 1E03) and 1AA3\u00a0; or ISCI 1A24 A/B\u00a0Antirequisite(s): CHEM 2AA3\u00a0, CHEMBIO 2A03\u00a0, 2AA3",
-        "units": 3
+    {
+        "code": "LIFESCI 1D03",
+        "description": "An introduction to the physics underlying some of the medical imaging techniques used in the diagnosis and treatment of disease. Topics include: X-ray (transmission) radiography, computed tomography, an introduction to magnetic resonance imaging (MRI), basic principles of ultrasonography, radioactivity and nuclear medicine, and a brief investigation into the biological effects of radiation.",
+        "id": 16,
+        "name": "Medical Imaging Physics",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "203793": {
-        "code": "CHEM 2E03",
-        "name": "Introductory Organic Chemistry",
-        "desc": "An introduction to the chemistry of monofunctional aliphatic compounds with emphasis on reactions and their mechanisms. Special topics will include synthetic and natural polymers.\nThree lectures, one tutorial; one termPrerequisite(s): CHEM 1A03\u00a0(or 1E03) and CHEM 1AA3; or ISCI 1A24 A/B\u00a0Antirequisite(s): CHEM 2OA3\u00a0, 2OC3, 2OG3\u00a0, CHEMBIO 2OA3, 2OG3\u00a0Students will forfeit credit in CHEM 2E03 if any of CHEM 2OA3, 2OC3, 2OG3 or CHEMBIO 2OA3, 2OG3 are subsequently completed. Similarly, students with a program that requires CHEM 2E03 or 2OA3 and 2OB3 will forfeit credit in CHEM 2OA3 if they subsequently complete CHEM 2E03.\nCHEM 2E03 is not a prerequisite for further courses in Organic Chemistry.",
-        "units": 3
+    {
+        "code": "MATH 1A03",
+        "description": "For students in science: geared towards applications, with attention to underlying concepts. Functions: limits, continuity, derivatives, optimization, curve sketching. Antiderivative, definite integral, techniques of integration.",
+        "id": 17,
+        "name": "Calculus For Science 1",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "204140": {
-        "code": "EARTHSC 2FE3",
-        "name": "Introduction to Field Methods in Earth Sciences",
-        "desc": "A field camp to introduce students to field equipment and methodologies used by earth and environmental scientists focusing on recognition and description of rock types, construction of geological maps and cross-sections. Most of this course occurs outside the regular academic term, usually the first two weeks of May; details and applications are available in January.\nStudents enrolling in this course must pay both the incidental fees as prescribed by the School of Geography and Earth Sciences and the regular tuition fees. Students intending to enrol in this course must submit an application by February 15 of the academic year prior to registration. Application forms are available from the School of Geography and Earth Sciences main office after January 15. Students will be informed of acceptance of their application by March 1 subject to fulfillment of the requirements.Prerequisite(s): One of EARTHSC 1G03, ENVIRSC 1G03, ISCI 1A24 A/B; and permission of the instructor",
-        "units": 3
+    {
+        "code": "MATH 1AA3",
+        "description": "For students in science: additional techniques of integration, applications of definite integrals, differential equations, polar coordinates, parametrized curves. Sequences, infinite series, power series. Partial derivatives, double integrals.",
+        "id": 18,
+        "name": "Calculus For Science 2",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "201227": {
-        "code": "ENVIRSC 2C03",
-        "name": "Surface Climate Processes and Environmental Interactions",
-        "desc": "The surface heat and water balance of natural and human-modified landscapes. Emphasis on interactions of people and the biosphere with climate.\nTwo lectures, one lab (two hours); one termPrerequisite(s): One of EARTHSC 1G03\u00c2\u00a0, ENVIRSC 1A03, 1B03, 1C03, 1G03, ISCI 1A24 A/BAntirequisite(s): EARTHSC 2C03",
-        "units": 3
+    {
+        "code": "MATH 1B03",
+        "description": "Vector spaces given by solutions to linear systems. Linear independence, dimension. Determinants. Eigenvalues, eigenvectors and diagonalisation. Complex numbers.",
+        "id": 19,
+        "name": "Linear Algebra 1",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "201341": {
-        "code": "GEOG 2EI3",
-        "name": "Environmental Issues",
-        "desc": "An introduction to issues, perspectives and models in environmental studies at local, regional, national and international scales.\nLectures, web modules (three hours), one tutorial (one hour); one termPrerequisite(s): One of BIOLOGY 1M03, EARTHSC 1G03, ENVIRSC 1A03, 1B03, 1C03\u00c2\u00a0, 1G03, GEOG 1HA3, 1HB3, ISCI 1A24 A/BAntirequisite(s): EARTHSC 2EI3, ENVIRSC 2EI3",
-        "units": 3
+    {
+        "code": "MATH 1LS3",
+        "description": "Topics from differential and integral calculus, differential equations, discrete-time dynamical systems, chosen for their relevance to the life sciences.",
+        "id": 20,
+        "name": "Calculus for the Life Sciences 1",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "201342": {
-        "code": "GEOG 2GI3",
-        "name": "Geographic Information Systems",
-        "desc": "Introduction to the principles and techniques underlying the use of geographic information systems (GIS) for capturing and visualizing geographically referenced information. Databases, models and cartographic principles are also introduced emphasizing the production of effective thematic maps using GIS software.\nTwo lectures, one lab (two hours); one termPrerequisite(s): One of BIOLOGY 1M03, EARTHSC 1G03, ENVIRSC 1A03, 1B03, 1C03, 1G03, GEOG 1HA3, 1HB3\u00a0, ISCI 1A24 A/B\u00a0Antirequisite(s): ENVIRSC 2GI3, EARTHSC 2GI3",
-        "units": 3
+    {
+        "code": "MATH 1LT3",
+        "description": "Applications of integration, autonomous differential equations, functions of several variables; probability as application of calculus. All topics chosen for their relevance to the life sciences.",
+        "id": 21,
+        "name": "Calculus for the Life Sciences 2",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "203706": {
-        "code": "STATS 2B03",
-        "name": "Statistical Methods for Science",
-        "desc": "Applied statistics, with emphasis on inferential methods relevant to the environmental and life sciences. Use of a computer statistics package.\nThree lectures, one lab; one termPrerequisite(s): One of Grade 12 Data Management U, STATS 1A03, 1L03\u00a0or registration in Level II or above of a program in the Faculty of ScienceNot open to students with credit or registration in ARTSSCI 2R03, COMMERCE 2QA3, EARTHSC 2MB3, ECON 2B03, ENVIRSC 2MB3, GEOG 2MB3, HTHSCI 1F03, 2A03, KINESIOL 3C03,\u00a0PNB 2XE3, STATS 2D03, 2MA3, 2MB3.",
-        "units": 3
+    {
+        "code": "MATH 1MM3",
+        "description": "Integral calculus of polynomial, rational, exponential and logarithmic functions. Optimization problems. Applications in Sciences, Social Sciences and Business",
+        "id": 22,
+        "name": "Applied Calculus",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "205204": {
-        "code": "GEOG 2EK3",
-        "name": "Traditional Indigenous Ecological Knowledge",
-        "desc": "This course is a study of the ecological teachings of Indigenous peoples and of their relationships with the natural environment in historical and contemporary times.\nThree hours (lectures and seminars); one term\nPrerequisite(s): INDIGST 1A03, 1AA3 or RECONCIL 1A03; or permission of the instructor\nCross-list(s): ANTHROP 2DA3, INDIGST 2D03\nThis course is administered by the Indigenous Studies Program.",
-        "units": 3
-    },
-    "202199": {
-        "code": "BIOLOGY 3DD3",
-        "name": "Communities and Ecosystems",
-        "desc": "Communities and ecosystems: mechanism and principles governing their form and function in origin, development, and maintenance of terrestrial and aquatic communities and ecosystems and their interactions with anthropogenic change, with elements of macroecology, biogeography, landscape, and global ecology.\nThree lectures, one tutorial; one termPrerequisite(s): BIOLOGY 2F03\u00a0or ISCI 2A18 A/B. BIOLOGY 2D03\u00a0is recommended.",
-        "units": 3
-    },
-    "201908": {
-        "code": "MATH 1M03",
-        "name": "Calculus for Business, Humanities and the Social Sciences",
-        "desc": "Integral calculus of polynomial, rational, exponential and logarithmic functions. Optimization problems. Applications in the Social Sciences and Business.\nThree lectures, one tutorial; one termPrerequisite(s): One of Grade 12 Calculus and Vectors U, MATH 1F03\u00c2\u00a0or a grade of at least B- in MATH 1K03Students considering upper year mathematics courses should take MATH 1A03.\nNot open to students with credit or registration in ARTSSCI 1D06 A/B, ISCI 1A24 A/B, MATH 1A03, 1LS3, 1N03, 1X03, 1Z04, 1ZA3.",
-        "units": 3
-    },
-    "201343": {
-        "code": "GEOG 2HI3",
-        "name": "Geographies of Health",
-        "desc": "Introduction to population geography and medical geography. Historical and contemporary trends and patterns of mortality and morbidity are examined using ideas from demography, medicine, ecology and cultural studies, with examples from different parts of the world.\nTwo lectures, one tutorial (one hour); one termPrerequisite(s): One of GEOG 1HA3, 1HB3\u00a0Antirequisite(s): HEALTHST 2HI3Cross-list(s): HLTHAGE 2HI3\u00a0",
-        "units": 3
-    },
-    "201344": {
-        "code": "GEOG 2LE3",
-        "name": "Economic Geography",
-        "desc": "An introduction to economic geography. Emphasis is placed on the changing locations and spatial patterns of economic activity, including: manufacturing and service production; trade, transportation, communications, and corporate organization; and regional economic development using national and international examples.\nTwo lectures; one termPrerequisite(s): One of GEOG 1HA3, 1HB3\u00c2\u00a0",
-        "units": 3
-    },
-    "201351": {
-        "code": "GEOG 2UI3",
-        "name": "Cities in a Changing World",
-        "desc": "An introduction to key concepts and perspectives in the study of urbanization, urban systems and city life. Emphasis is placed on North American and European urban geographies.\nTwo lectures, one tutorial (one hour); one termPrerequisite(s): One of GEOG 1HA3, 1HB3",
-        "units": 3
-    },
-    "201802": {
-        "code": "LIFESCI 2A03",
-        "name": "Research Methods in Life Sciences",
-        "desc": "An examination and application of the scientific method. Selected research problems will be explored to experience different approaches to hypothesis formulation, testing, interpretation and communication in the Life Sciences.Lectures (two hours), tutorial (two hours); one termPrerequisite(s): Registration in Level II or above of a Life Sciences program. Priority will be given to students registered in an Honours Life Sciences program.",
-        "units": 3
-    },
-    "204145": {
-        "code": "LIFESCI 2AA3",
-        "name": "Introduction to Topics in Life Sciences",
-        "desc": "This course is a forum for the introduction of diverse interdisciplinary research topics within Life Sciences. Students will explore different methodologies and applications of current research in these fields to human health.Lectures (two hours), tutorial (two hours); one termPrerequisite(s): Registration in Level II or above of a Life Sciences program",
-        "units": 3
-    },
-    "204146": {
-        "code": "LIFESCI 2L03",
-        "name": "Living Systems Laboratory",
-        "desc": "Students will take diverse experimental approaches to studying real-world research questions in Life Sciences. Basic research using model organisms will be used to confront current issues in human health and disease.Lectures (one hour), lab (two hours), tutorial (two hours); one termPrerequisite(s): Registration in Level II or above of a Life Sciences or Medical Radiation Sciences program",
-        "units": 3
-    },
-    "201805": {
-        "code": "LIFESCI 2G03",
-        "name": "Genes, Genomes and Society",
-        "desc": "An introduction to genetics that explores the application of genetics and genomics research in our world, from single organisms to ecological systems and from evolution to genetic engineering.Lectures, web modules (two hours); one termPrerequisite(s): One of BIOLOGY 1A03, 1M03, ISCI 1A24 A/BNot open to students with credit or registration in BIOLOGY 2C03, MOLBIOL 2C03. LIFE SCI 2G03 is not a prerequisite for further genetics courses in the Department of Biology.",
-        "units": 3
-    },
-    "202191": {
-        "code": "BIOLOGY 2B03",
-        "name": "Cell Biology",
-        "desc": "Basic treatment of cell structure and function, including transport and chemical signals; adaptation of structure and function in specialized cells.\nLectures (one hour), web modules (three hours), tutorial, seminars; one termPrerequisite(s): BIOLOGY 1A03, CHEM 1A03, 1AA3; or ISCI 1A24 A/B; or BIOLOGY 1A03\u00a0 and registration in Chemical Engineering and Biosciences, or Honours Medical and Biological Physics (B.Sc.)Antirequisite(s): HTHSCI 2K03\u00a0Not open to students with credit or registration in ISCI 2A18 A/B.",
-        "units": 3
-    },
-    "203980": {
-        "code": "LIFESCI 2CC3",
-        "name": "Fundamentals of Neuroscience",
-        "desc": "This course will cover foundational topics in neuroscience, including mechanisms of nerve cell signaling, synaptic transmission, neurotransmitter systems, synaptic plasticity, and nervous system development and repair. Topics will be explored through the lens of human and animal case studies.Lectures (three hours), tutorial (one hour); one termPrerequisite(s): BIOLOGY 1A03 and PSYCH 1FF3 or 1XX3 Antirequisite(s): ISCI 2A18 A/B, LIFESCI 2C03",
-        "units": 3
-    },
-    "201804": {
-        "code": "LIFESCI 2D03",
-        "name": "Behavioural Processes",
-        "desc": "An examination of the concepts that underpin animal behaviour and an illustration of how selection pressures have operated to produce the diversity of behaviour that humans and other animals share.Lectures (three hours); one termPrerequisite(s): BIOLOGY 1A03, 1M03 and one of PSYCH 1F03, 1FF3, 1X03, 1XX3; or ISCI 1A24 A/BAntirequisite(s): PNB 2XC3, PSYCH 2TT3",
-        "units": 3
-    },
-    "201807": {
-        "code": "LIFESCI 2N03",
-        "name": "Human Nutrition for Life Sciences",
-        "desc": "Basic principles of human nutrition, including the interaction between nutrients and physiological processes that impact health and disease risk.Three hours (lectures); one termPrerequisite(s): Registration in Level II or above of a Life Sciences programAntirequisite(s): HTHSCI 3BB3, KINESIOL 1F03 Priority will be given to students in an Honours Life Sciences program.Not open to students registered in a Kinesiology program.",
-        "units": 3
-    },
-    "204147": {
-        "code": "LIFESCI 2X03",
-        "name": "Environmental Change and Human Health",
-        "desc": "An examination through case-studies of the direct and indirect links between environmental change and human health. Topics may include the impacts of climate change, stratospheric ozone depletion, and globalization.Lectures (two hours), tutorial (one hour); one termPrerequisite(s): One of BIOLOGY 1M03, ENVIRSC 1A03, 1B03, 1C03, 1G03 or ISCI 1A24 A/B Antirequisite(s): LIFESCI 2H03",
-        "units": 3
-    },
-    "203983": {
+    {
         "code": "MATH 1MP3",
-        "name": "Introduction to Mathematical Scientific Computation",
-        "desc": "Introduction to mathematical problem-solving using computational methods. Introduction to a programming language; good scientific programming practices.\nThree lectures, one lab; one termPrerequisite(s): Credit or registration in one of MATH 1A03, 1LS3, 1X03\u00a0(or ISCI 1A24 A/B); and registration in a program in the Faculty of ScienceNot open to students with credit or registration in COMPSCI 1MD3\u00a0or ENGINEER 1D04.",
-        "units": 3
+        "description": "Introduction to mathematical problem-solving using computational methods. Introduction to a programming language; good scientific programming practices.",
+        "id": 23,
+        "name": "Introduction to Mathematical Scientific Computation ",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three lectures, one lab; one term"
     },
-    "202194": {
-        "code": "BIOLOGY 2EE3",
-        "name": "Introduction to Microbiology and Biotechnology",
-        "desc": "Microbial structure, genetics, metabolism, and evolution. Overview of agricultural, medical, environmental, and industrial microbiology. Covers key concepts, fundamental principles, and common research tools in microbiology.\nThree lectures, one lab (three hours); one termPrerequisite(s): ISCI 1A24 A/B; or BIOLOGY 1A03, 1M03, CHEM 1A03, 1AA3; or registration in Level III Chemical Engineering and Bioengineering. If not already completed, BIOSAFE 1BS0\u00a0(or HTHSCI 1BS0)\u00a0must be done prior to the first lab.",
-        "units": 3
+    {
+        "code": "MATH 1X03",
+        "description": "Algebraic, geometric and numeric approaches to calculus, development of mathematical thinking, intuition and theoretical foundations. Functions: limits, continuity, derivatives, applications. Antiderivative, definite integral, integration techniques.",
+        "id": 24,
+        "name": "Calculus for Math and Stats 1",
+        "source": "Honours Actuarial and Financial Mathematics",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "202987": {
-        "code": "MOLBIOL 2C03",
-        "name": "Genetics",
-        "desc": "Structure, function and transmission of genes; chromosomal basis of inheritance; mono- and dihybrid crosses; sequential steps in gene function; linkage maps; sex chromosome inheritance.\nLectures, web modules (three hours), one lab or tutorial (two hours); one termPrerequisite(s): BIOLOGY 1A03, 1M03\u00a0(or ISCI 1A24 A/B) and registration in Honours Molecular Biology and Genetics (B.Sc.)\u00a0or Honours Arts & Science (B.Arts Sc.)\u00a0and Molecular Biology and GeneticsAntirequisite(s): BIOLOGY 2C03Students not registered in an Honours Molecular Biology and Genetics program should register in BIOLOGY 2C03.",
-        "units": 3
+    {
+        "code": "MATH 1XX3",
+        "description": "For students in mathematics and statistics. Additional techniques of integration, applications of definite integrals, differential equations, polar coordinates, parametrized curves. Sequences, infinite series, power series. Partial derivatives, double integrals.",
+        "id": 25,
+        "name": "Calculus for Math and Stats 2",
+        "source": "Honours Actuarial and Financial Mathematics",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one tutorial; one term"
     },
-    "202190": {
-        "code": "BIOLOGY 2A03",
-        "name": "Integrative Physiology of Animals",
-        "desc": "Fundamental principles of animal physiology, including: cellular energetics, diffusion, osmosis, membrane transport, excitability and contractility, gas exchange, fluid dynamics, electrolyte balance.\nThree lectures, one lab (three hours); one termPrerequisite(s): BIOLOGY 1A03, 1M03; and one of PHYSICS 1A03\u00a0(or 1B03) or 1C03\u00a0 or credit or registration in ARTSSCI 2D06 A/B; or ISCI 1A24 A/B\u00a0Antirequisite(s): MEDPHYS 4XX3Not open to students with credit or registration in BIOLOGY 3P03, 3U03, 3UU3\u00a0or to students registered in the B.Sc.N., Bachelor of Health Sciences (Honours) (B.H.Sc.), Bachelor of Health Sciences (Honours) - Biomedical Sciences Specialization (B.H.Sc.), Bachelor of Health Sciences (Honours) - Child Health Specialization (B.H.Sc.), or Bachelor of Health Sciences (Honours) - Global Health Specialization (B.H.Sc.), or with credit or registration in HTHSCI 2F03\u00a0 or 2FF3\u00a0",
-        "units": 3
-    },
-    "203024": {
+    {
         "code": "MUSIC 1A03",
-        "name": "Introduction to the History of Music I",
-        "desc": "An introductory survey of Western music, from Gregorian chant to the time of Bach and Handel. Emphasis is on important composers and their works in relation to their society and culture. No previous knowledge of music required.\nThree lectures; one termNot open to students registered in any Music program.",
-        "units": 3
+        "description": "An introductory survey of Western music, from Gregorian chant to the time of Bach and Handel. Emphasis is on important composers and their works in relation to their society and culture. No previous knowledge of music required.",
+        "id": 26,
+        "name": "Introduction to the History of Music",
+        "source": "Honours Psychology, Neuroscience & Behaviour – Music Cognition Specialization",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Three lectures; one term"
     },
-    "203025": {
+    {
         "code": "MUSIC 1AA3",
-        "name": "Introduction to the History of Music II",
-        "desc": "An introductory survey of Western music, from the time of Mozart to the present. Composers studied include Beethoven, Schubert, Chopin, Verdi, Wagner, Debussy, and Stravinsky. No previous knowledge of music required.\nThree lectures; one termNot open to students registered in any Music program.",
-        "units": 3
+        "description": "An introductory survey of Western music, from the time of Mozart to the present. Composers studied include Beethoven, Schubert, Chopin, Verdi, Wagner, Debussy, and Stravinsky. No previous knowledge of music required.",
+        "id": 27,
+        "name": "Introduction to the History of Music",
+        "source": "Honours Psychology, Neuroscience & Behaviour – Music Cognition Specialization",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures; one term"
+    },
+    {
+        "code": "PHYSICS 1A03",
+        "description": "A first course in university physics, taught using examples and applications from many areas of science. Topics include the concepts of force and energy, mechanics, waves and fluids.",
+        "id": 28,
+        "name": "Introductory Physics",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": true
+        },
+        "timetable": "Three hours (lectures, web modules), one lab (two hours) every other week; one term"
+    },
+    {
+        "code": "PHYSICS 1AA3",
+        "description": "A course presenting aspects of modern physics relevant to life sciences. Electromagnetic fields. Atomic, quantum, and nuclear physics. Applications to imaging and understanding biological systems.",
+        "id": 29,
+        "name": "Introduction To Modern Physics",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one lab (three hours) every other week; one term"
+    },
+    {
+        "code": "PHYSICS 1C03",
+        "description": "A first course in university physics intended for physics and chemistry students, or students in any other discipline who have an appropriate secondary school background. This course is a comprehensive treatment of linear and rotational mechanics - kinematics, dynamics, and the relevant conservation laws.",
+        "id": 30,
+        "name": "Physics for the Chemical and Physical Sciences",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Three lectures, one lab (two hours) every week; one term"
+    },
+    {
+        "code": "PHYSICS 1CC3",
+        "description": "This course is the continuation of PHYSICS 1C03. Topics include simple harmonic motion, waves, interference, electrostatics, magnetostatics and an introduction to quantum physics.",
+        "id": 31,
+        "name": "Modern Physics for the Chemical and Physical Sciences",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three lectures, one lab (three hours) every other week; one term"
+    },
+    {
+        "code": "PSYCH 1F03",
+        "description": "Students completing this course will have a good understanding of the methods, research questions and major areas of psychology. This course would be ideal for students looking to complete an elective requirement without necessarily planning to continue study in psychology. Students considering applying to an Honours Psychology, Neuroscience & Behaviour program are referred to PSYCH 1X03 for which this course is an anti-requisite.",
+        "id": 32,
+        "name": "Survey of Psychology",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "On-line web modules, discussions and testing; one term"
+    },
+    {
+        "code": "PSYCH 1FF3",
+        "description": "This course introduces important themes as the foundations to investigate psychology, neuroscience and behaviour with an emphasis on sensory systems, and behaviours critical to survival. This course would be ideal for students looking to complete an elective requirement without necessarily planning to continue study in psychology. Students considering applying to an Honours Psychology, Neuroscience & Behaviour program are referred to PSYCH 1XX3 for which this course is an anti-requisite.",
+        "id": 33,
+        "name": "Survey of Biological Basis of Psychology",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Online web modules, discussions and testing; one term"
+    },
+    {
+        "code": "PSYCH 1X03",
+        "description": "This course introduces the scientific methods used to study the psychology of higher order processes and interpersonal behaviour. Students interested in applying to an Honours Psychology, Neuroscience & Behaviour program are encouraged to take PSYCH 1X03 rather than PSYCH 1F03.",
+        "id": 34,
+        "name": "Introduction to Psychology, Neuroscience & Behaviour",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Lecture, web modules, weekly tutorials (three hours); one term"
+    },
+    {
+        "code": "PSYCH 1XX3",
+        "description": "This course introduces important themes as the foundations to investigate psychology, neuroscience and behaviour with an emphasis on sensory systems, and behaviours critical to survival. Students interested in applying to an Honours Psychology, Neuroscience & Behaviour program are encouraged to take PSYCH 1XX3 rather than PSYCH 1FF3.",
+        "id": 35,
+        "name": "Foundations of Psychology, Neuroscience & Behaviour",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": false,
+            "winter": true
+        },
+        "timetable": "Three hours (lecture, web modules, weekly tutorials); one term"
+    },
+    {
+        "code": "SCIENCE 1A03",
+        "description": "Designed to prepare students for their university careers through the introduction to the people, academic programs, resources and attitudes needed during their undergraduate studies. Course content is taught through in-class sessions and mini-projects and will focus on investigating science through research to explore the opportunities and experiences available to students in the Faculty of Science.",
+        "id": 36,
+        "name": "Investigating Science: Opportunities & Experiences",
+        "source": "Honours Biochemistry",
+        "term": {
+            "fall": true,
+            "winter": false
+        },
+        "timetable": "Lecture (two hours), tutorial (three hours); one term"
     }
-}
+]

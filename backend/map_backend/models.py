@@ -77,7 +77,6 @@ class RequirementItem(models.Model):
               - AND C
               - OR D
             In this example, A OR B AND C OR D becomes (A OR B) AND (C OR D)
-
     """
     AND = 0
     OR = 1
@@ -97,21 +96,18 @@ class RequirementItem(models.Model):
     # course list
     req_list = models.ForeignKey(CourseList, on_delete=models.PROTECT, blank=True, null=True)
 
-
     def __str__(self):
         return "{}".format(self.desc)
 
 class Program(models.Model):
     """ A program offered """
-
-    program_id = models.IntegerField(primary_key=True)
+    program_id = models.CharField(max_length=20, primary_key=True)
     # name of the program
     name = models.TextField()
-    # description of the program
-    desc = models.TextField()
     # requirement groups
     requirements = models.ManyToManyField(RequirementGroup)
-
+    # optional link to learn more about the program
+    href = models.TextField(null=True)
 
     def __str__(self):
         return "{} - {}".format(self.pk, self.name)
@@ -157,3 +153,4 @@ class Calculator(models.Model):
 
     def __str__(self):
         return self.title
+   

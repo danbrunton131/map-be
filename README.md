@@ -32,15 +32,8 @@ By default, an sqllite database will be automatically created by Django. You sho
 
 The fastest way to populate the database is with the json files included in the /data/ folder. You can automatically upload them using the following commands.
 
- ``` py manage.py load_courses courses.json ```
+ ``` py manage.py load_data courses.json programs.json```
  
- ``` py manage.py load_courselist course_list.json ```
- 
- ``` py manage.py load_programs programs.json ```
- 
- ``` py manage.py load_requirements requirements.json ```
-
- ``` py manage.py load_calculator courses.json programs.json ```
 
 ## Building index to search
 
@@ -59,15 +52,7 @@ In a new terminal run **docker exec -it map_backend sh** to go into the backend 
  
  ``` py backend/manage.py migrate ```
 
- ``` py backend/manage.py load_courses courses.json ```
- 
- ``` py backend/manage.py load_courselist course_list.json ```
- 
- ``` py backend/manage.py load_programs programs.json ```
- 
- ``` py backend/manage.py load_requirements requirements.json ```
-
- ``` py backend/manage.py load_calculator courses.json programs.json ```
+ ``` py backend/manage.py load_data courses.json programs.json```
  
  ``` py backend/manage.py rebuild_index ```
  
@@ -130,7 +115,7 @@ Response:
 {"matchedPrograms": [
                         {
                         "programName": "",
-                        "programDescription": "",
+                        "programHref": "",
                         "programId": 0,
                         "programPercentage": 0,
                         "programRequirements": {
