@@ -95,9 +95,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+#os.path.join(BASE_DIR, 'postgres.postgresql_psycopg2
+# TODO: Load config variables from .env.dev
 
 DATABASES = {
 #    'default': {
@@ -106,10 +108,10 @@ DATABASES = {
 #    }
     'default': {
         'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.postgresql_psycopg2'),
-        'NAME': os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, 'postgres.postgresql_psycopg2')),
-        'USER': os.environ.get("SQL_USER", 'admin'),
+        'NAME': os.environ.get("SQL_DATABASE", 'db_map_be'),
+        'USER': os.environ.get("SQL_USER", 'postgres'),
         'PASSWORD': os.environ.get("SQL_PASSWORD", 'password'),
-        'HOST': os.environ.get("SQL_HOST", 'postgres'),
+        'HOST': os.environ.get("SQL_HOST", 'localhost'),
         'PORT': os.environ.get("SQL_PORT", "5432"),
     }
 }

@@ -292,7 +292,7 @@ class SubmitCourseSelections(View):
             # append answer to our result
             res = {
                     "programName" : program.name,
-                    "programDescription" : program.desc,
+                    "programHref" : program.href,
                     "programId" : program.program_id,
                     "programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
                     "programRequirements": program.requirement_equation(),

@@ -2,6 +2,7 @@
 
 Test and developed on Python 3.8.1 on a Windows environment.
 # How to run
+
 ### Create an environment
 Use the **requirements.txt**  with any virtual environment to install the necessary dependencies. 
 ***
@@ -15,7 +16,13 @@ Activate the virual environment (Following is for windows)
 
 Once activated, you can install all dependencies from the requirements.txt file
   **pip3 install -r requirements.txt**
-***
+  ***
+
+TODO: add docker instructions
+
+### Install Postgres Verision 11
+Once installed create user with the name "postgres" and password "password"
+create a database named "db_map_be" using default port (5432)
 
 ### Running the server
 To start run: ``` py manage.py runserver ``` 
@@ -24,27 +31,23 @@ To start run: ``` py manage.py runserver ```
 ## Preparing the database
 By default, an sqllite database will be automatically created by Django. You should run the following commands:
 
- ``` py manage.py makemigrations map_backend ```
+``` py manage.py makemigrations map_backend ```
  
- ``` py manage.py migrate ```
+``` py manage.py migrate ```
 
 ## Populating the database
 
 The fastest way to populate the database is with the json files included in the /data/ folder. You can automatically upload them using the following commands.
 
- ``` py manage.py load_courses courses.json ```
- 
- ``` py manage.py load_courselist course_list.json ```
- 
- ``` py manage.py load_programs programs.json ```
- 
- ``` py manage.py load_requirements requirements.json ```
-
- ``` py manage.py load_calculator courses.json programs.json ```
+ ```py manage.py load_data courses.json programs.json```
 
 ## Building index to search
 
  ``` py manage.py rebuild_index ```
+
+## Create a superuser
+
+``` py backend/manage.py createsuperuser ```
  
 # How to Run Using Docker
 ### Setup Database and Backend
@@ -59,15 +62,7 @@ In a new terminal run **docker exec -it map_backend sh** to go into the backend 
  
  ``` py backend/manage.py migrate ```
 
- ``` py backend/manage.py load_courses courses.json ```
- 
- ``` py backend/manage.py load_courselist course_list.json ```
- 
- ``` py backend/manage.py load_programs programs.json ```
- 
- ``` py backend/manage.py load_requirements requirements.json ```
-
- ``` py backend/manage.py load_calculator courses.json programs.json ```
+ ``` py backend/manage.py load_data courses.json programs.json```
  
  ``` py backend/manage.py rebuild_index ```
  
@@ -130,7 +125,7 @@ Response:
 {"matchedPrograms": [
                         {
                         "programName": "",
-                        "programDescription": "",
+                        "programHref": "",
                         "programId": 0,
                         "programPercentage": 0,
                         "programRequirements": {
