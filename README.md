@@ -52,10 +52,6 @@ The fastest way to populate the database is with the json files included in the 
 ## Building index to search
 
  ``` py manage.py rebuild_index ```
-
-## Create a superuser
-
-``` py backend/manage.py createsuperuser ```
  
 ## Create a superuser
 
