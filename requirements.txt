@@ -8,11 +8,13 @@ Django==3.0.12
 django-cachalot==2.2.0
 django-cors-headers==3.2.1
 django-haystack==3.0b1
+et-xmlfile==1.1.0
 gprof2dot==2019.11.30
 idna==2.9
 Jinja2==2.11.3
 lxml==4.6.3
 MarkupSafe==1.1.1
+openpyxl==3.1.2
 psycopg2==2.8.5
 pycodestyle==2.5.0
 Pygments==2.7.4
@@ -25,4 +27,3 @@ soupsieve==2.0
 sqlparse==0.3.0
 urllib3==1.25.8
 Whoosh==2.7.4
-

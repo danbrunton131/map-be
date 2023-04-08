@@ -14,7 +14,12 @@ import time
 import bs4, re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
+from openpyxl import load_workbook
 from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
+
+from django.core.management.base import BaseCommand, CommandError
+from django.conf import settings
+import os, json
 
 AND = 0
 OR = 1
@@ -50,6 +55,96 @@ class LoadView(View):
         if request.user.is_authenticated:
             return render(request, 'admin/loader.html', {'enabled': True, 'catalogs': catalogs})
         else:
+            return JsonResponse({'authenticated': 'no'})
+
+class ImportView(View):
+    def get(self, request):
+        # only authenticated users can access
+        if request.user.is_authenticated:
+            return render(request, 'admin/importer.html', {'enabled': True})
+        else:
+            return JsonResponse({'authenticated': 'no'})
+
+class Import(View):
+    def post(self, request):
+        print(request)
+        if request.user.is_authenticated:
+            try:
+                excel_file = request.FILES['file']  # assume the file is sent in the 'file' field
+                wb = load_workbook(excel_file, read_only=True)
+                programs = []
+                courses = []
+                for ws in wb:
+                    if ws.title == 'Programs':
+                        for row in ws.iter_rows(min_row=2, values_only=True):  # skip the first row (header row)
+                            if row[0]:
+                                row_data = {
+                                    'program': row[0],
+                                    'description': row[1],
+                                    'units': row[2],
+                                    'course_list': row[3],
+                                }
+                                programs.append(row_data)
+                    elif ws.title == 'Courses':
+                        for row in ws.iter_rows(min_row=2, values_only=True):  # skip the first row (header row)
+                            if row[0]:
+                                row_data = {
+                                    'course_code': row[0],
+                                    'name': row[1],
+                                    'description': row[2],
+                                    'offered_in_fall': row[3],
+                                    'offered_in_winter': row[4],
+                                    'offered_in_spring': row[5],
+                                    'offered_in_summer': row[6],
+                                    'units': row[7]
+                                }
+                                courses.append(row_data)
+
+                # Import Courses
+
+                counter = 1
+                new_course_list = []
+
+                for course in courses:
+                    # TODO: figure out autoincement ids
+                    course_id = counter
+                    code = course["course_code"]
+                    name = course["name"]
+                    desc = course["description"]
+                    units = course["units"]
+                    offered_fall = course["offered_in_fall"]
+                    offered_winter = course["offered_in_winter"]
+                    offered_spring = course["offered_in_spring"]
+                    offered_summer = course["offered_in_summer"]
+                    department = ""
+
+                    new_course_list.append(Course(course_id=course_id, code=code, name=name, desc=desc, units=units,
+                               department=department, offered_fall=offered_fall, offered_winter=offered_winter,
+                               offered_summer=offered_spring, offered_spring=offered_summer))
+
+                    counter = counter + 1
+
+                for new_course in new_course_list:
+                    print(new_course.course_id)
+                    try:
+                        new_course.save(force_insert=True)
+                    except Exception as e:
+                        print(e)
+
+                # parse programs
+
+                # create list of programs
+
+                # create list of requirementGroups
+
+                # create list of requirementItems
+
+                # create list of courseLists
+
+                return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
+            except Exception as e:
+                return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})
+        else :
             return JsonResponse({'authenticated': 'no'})
 
 # /admin/loader/Load

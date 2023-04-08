@@ -1,0 +1,145 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}Import Data{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'McMaster Academic Planner - Data Importer' %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>Please select an excel file to upload.</div>
+<div>Select a calculator Id to upload against.</div>
+<div id="loader-text">
+<!--	{% if enabled %}-->
+<!--		<div>Catalog ID:-->
+<!--			<select id="catalog">-->
+<!--				{% for key in catalogs %}-->
+<!--					<option value="{{key.id}}">{{key.name}}</option>-->
+<!--				{% endfor %}-->
+<!--			</select>-->
+<!--		</div>-->
+		<div><input id="fileUpload" type="file" value="Excel Import"/></div>
+		<div><input id="uploadButton" type="button" onclick="ImportData();" value="Upload File"/></div>
+<!--	{% else %}-->
+<!--		<div>Failed to load catalogs from the Acalog API. Try refreshing the page, or else contact MAP administrators if this persists.</div>-->
+<!--	{% endif %}-->
+</div>
+{% csrf_token %}
+<script type="text/javascript">
+	function ImportData() {
+<!--		var xhr = new XMLHttpRequest();-->
+
+<!--		document.getElementById('loader-text').innerHTML = "<br/><br/>Performing data import... (this will take several minutes)";-->
+
+<!--		xhr.open('POST', '/admin/loader/Load', true);-->
+<!--		xhr.setRequestHeader("X-CSRFToken", csrftoken);-->
+<!--		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");-->
+<!--		xhr.onload = function (e) {-->
+<!--      var json = JSON.parse(xhr.responseText);-->
+<!--			if (xhr.readyState === 4)  {-->
+<!--				if ((xhr.status === 200) && (json.successful == "yes")) {-->
+<!--					document.getElementById('loader-text').innerHTML = "<br/><br/>Completed data load successfully.";-->
+<!--				} else {-->
+<!--					document.getElementById('loader-text').innerHTML = "<br/><br/>Errors occurred in data load.<br/>" + json.msg;-->
+<!--				}-->
+<!--			}-->
+<!--		};-->
+<!--		xhr.send(JSON.stringify({'catalog': catalog}));-->
+
+<!-- TODO: add file validation -->
+<!-- TODO: disabled upload button while loading -->
+
+		  var csrftoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+		  const fileInput = document.querySelector('#fileUpload');
+		  const uploadButton = document.querySelector('#uploadButton');
+
+		  const file = fileInput.files[0];
+
+		  console.log(file);
+		  const xhr = new XMLHttpRequest();
+		  let formData = new FormData();
+
+		  formData.append('file', file); // append the uploaded file to the FormData object
+		  xhr.open('POST', '/admin/importer/Import');
+		  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+
+		  xhr.send(formData); // send the FormData object as the request body
+
+		  xhr.onload = () => {
+			if (xhr.status === 200) {
+			  console.log('File uploaded successfully');
+			} else {
+			  console.log('Error uploading file');
+			}
+		  };
+	}
+</script>
+{% endblock %}
+
+{% block extrastyle %}
+
+<!-- adapted from https://coderwall.com/p/qbhwfa/how-to-quickly-add-custom-branding-to-django-admin -->
+<style>
+  :root {
+    --primary-color: #7a003c;
+    --primary-color-faded: #7a003c;
+    --secondary-color: #ac1455;
+  }
+
+  ::selection {
+    background: var(--secondary-color);
+    color:var(--primary-color);
+    opacity:1
+  }
+
+  ::-moz-selection {
+    background: var(--secondary-color);
+    color:var(--primary-color);
+    opacity:1
+  }
+  body {
+    font-family:
+          'Roboto',
+          sans-serif,
+          'Roboto Condensed';
+    }
+  #header {
+    background: var(--primary-color);
+  }
+  #branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: white;
+  }
+
+  .object-tools a:link, .object-tools a:visited {
+    background: var(--primary-color-faded);
+  }
+
+  .module h2, .module caption, .inline-group h2 {
+    background-color: var(--primary-color-faded);
+  }
+  div.breadcrumbs {
+    background: var(--primary-color-faded);
+  }
+  a:link, a:visited {
+    color: var(--primary-color-faded);
+  }
+  .selector-chosen h2 {
+    background: var(--primary-color-faded) !important;
+  }
+  .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: var(--primary-color-faded);
+  }
+  .button.default, input[type=submit].default, .submit-row input.default {
+    background: var(--primary-color);
+  }
+  .button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover {
+    background: var(--primary-color-faded);
+    opacity: 0.8;
+  }
+  .button.default:active, input[type=submit].default:active, .button.default:focus, input[type=submit].default:focus, .button.default:hover, input[type=submit].default:hover {
+    background: var(--primary-color);
+    opacity: 0.8;
+  }
+</style>
+{% endblock %}

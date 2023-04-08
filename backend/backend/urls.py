@@ -18,11 +18,13 @@ from django.urls import path, include
 
 from django.views.generic import TemplateView
 
-from map_backend.views import Load, LoadView
+from map_backend.views import Load, LoadView, ImportView, Import
 
 urlpatterns = [
+    path('admin/importer/', ImportView.as_view()),
+    path('admin/importer/Import', Import.as_view()),
     path('admin/loader/', LoadView.as_view()),
     path('admin/loader/Load', Load.as_view()),
-        path('admin/', admin.site.urls),
-        path('api/', include('map_backend.urls')),
+    path('admin/', admin.site.urls),
+    path('api/', include('map_backend.urls')),
 ]

@@ -18,18 +18,18 @@ services:
         - "-c"
         - "port=5432"
         
-  web: 
-    build: .
-    container_name: map_backend
-    command: python3 backend/manage.py runserver 0.0.0.0:8000
-    volumes:
-        - .:/backend
-    ports:
-        - "8000:8000"
-    env_file:
-        - ./.env.dev
-    depends_on:
-        - postgres
+#  web: 
+#    build: .
+#    container_name: map_backend
+#    command: python3 backend/manage.py runserver 0.0.0.0:8000
+#    volumes:
+#        - .:/backend
+#    ports:
+#        - "8000:8000"
+#    env_file:
+#        - ./.env.dev
+#    depends_on:
+#        - postgres
 volumes:
   map_be_volume:
     #external: true
