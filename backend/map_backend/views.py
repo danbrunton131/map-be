@@ -5,7 +5,7 @@ from django.core import serializers
 from collections import defaultdict
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from  django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 from haystack.query import SearchQuerySet
 from .requirement_handler import BinOp, Parser
 import json
@@ -15,7 +15,7 @@ import bs4, re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 from openpyxl import load_workbook
-from .models import Course, Program, RequirementGroup, RequirementItem, Calculator
+from .models import Course, Program, RequirementGroup, RequirementItem, Calculator, CourseList
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
@@ -23,6 +23,7 @@ import os, json
 
 AND = 0
 OR = 1
+
 
 # /admin/loader
 # template view for loading data frontend in admin
@@ -34,7 +35,8 @@ class LoadView(View):
         data = uReq(BASE_URL)
         # check status code
         if data.getcode() < 200 or data.getcode() > 299:
-            return render(request, 'admin/loader.html', {'enabled': False, 'catalogs': [{'id': 0, 'name': 'No catalogs available.'}]})
+            return render(request, 'admin/loader.html',
+                          {'enabled': False, 'catalogs': [{'id': 0, 'name': 'No catalogs available.'}]})
         # read the text of the calendar page
         text = data.read()
         # close the stream
@@ -57,6 +59,7 @@ class LoadView(View):
         else:
             return JsonResponse({'authenticated': 'no'})
 
+
 class ImportView(View):
     def get(self, request):
         # only authenticated users can access
@@ -65,11 +68,14 @@ class ImportView(View):
         else:
             return JsonResponse({'authenticated': 'no'})
 
+
 class Import(View):
     def post(self, request):
         print(request)
         if request.user.is_authenticated:
             try:
+                # TODO: delete all previous data
+
                 excel_file = request.FILES['file']  # assume the file is sent in the 'file' field
                 wb = load_workbook(excel_file, read_only=True)
                 programs = []
@@ -77,6 +83,7 @@ class Import(View):
                 for ws in wb:
                     if ws.title == 'Programs':
                         for row in ws.iter_rows(min_row=2, values_only=True):  # skip the first row (header row)
+                            # TODO: add validation
                             if row[0]:
                                 row_data = {
                                     'program': row[0],
@@ -87,6 +94,7 @@ class Import(View):
                                 programs.append(row_data)
                     elif ws.title == 'Courses':
                         for row in ws.iter_rows(min_row=2, values_only=True):  # skip the first row (header row)
+                            # TODO: add validation
                             if row[0]:
                                 row_data = {
                                     'course_code': row[0],
@@ -101,13 +109,9 @@ class Import(View):
                                 courses.append(row_data)
 
                 # Import Courses
-
-                counter = 1
                 new_course_list = []
 
                 for course in courses:
-                    # TODO: figure out autoincement ids
-                    course_id = counter
                     code = course["course_code"]
                     name = course["name"]
                     desc = course["description"]
@@ -118,34 +122,67 @@ class Import(View):
                     offered_summer = course["offered_in_summer"]
                     department = ""
 
-                    new_course_list.append(Course(course_id=course_id, code=code, name=name, desc=desc, units=units,
-                               department=department, offered_fall=offered_fall, offered_winter=offered_winter,
-                               offered_summer=offered_spring, offered_spring=offered_summer))
-
-                    counter = counter + 1
+                    new_course_list.append(Course(code=code, name=name, desc=desc, units=units,
+                                                  department=department, offered_fall=offered_fall,
+                                                  offered_winter=offered_winter,
+                                                  offered_summer=offered_spring, offered_spring=offered_summer))
 
                 for new_course in new_course_list:
-                    print(new_course.course_id)
                     try:
-                        new_course.save(force_insert=True)
+                        c = Course.objects.filter(code=new_course.code).exists()
+                        if not c:
+                            new_course.save()
                     except Exception as e:
                         print(e)
 
-                # parse programs
+                programDict = dict()
+                # TODO: get order working properly
+                order = 1
 
-                # create list of programs
+                try:
+                    # create list of programs
+                    for program in programs:
+                        # TODO: add validation that each course is separated by ', '
+                        row_course_list = program['course_list'].split(", ")
+                        print(row_course_list)
 
-                # create list of requirementGroups
+                        course_list = CourseList(name="Change this!!!!!")
+                        course_list.save()
 
-                # create list of requirementItems
+                        # loop through rowCourseList and get course id's from database
+                        for courseCode in row_course_list:
+                            c = Course.objects.get(code=courseCode)
+                            course_list.courses.add(c)
 
-                # create list of courseLists
+                        # create list of requirementGroups
+                        req = RequirementGroup(order=order, desc="CHANGE THIS!!!!")
+                        req.save()
+
+                        # create list of requirementItems
+                        req_item = RequirementItem(parent_group=req, req_units=program['units'], req_list=course_list,
+                                                   desc="CHANGE THIS!!!!")
+                        req_item.save()
+
+                        # Check if program in set
+                        # if so add to existing requirements list
+                        if program['program'] in programDict:
+                            programDict[program['program']].requirements.add(req)
+                        # else create new program
+                        else:
+                            new_program = Program(name=program['program'], desc=program['description'])
+                            new_program.save()
+                            new_program.requirements.add(req)
+
+                            programDict[program['program']] = new_program
+                except Exception as e:
+                    print(e)
 
                 return JsonResponse({'authenticated': 'yes', 'successful': 'yes'})
             except Exception as e:
                 return JsonResponse({'authenticated': 'yes', 'successful': 'no', 'msg': str(e)})
-        else :
+        else:
             return JsonResponse({'authenticated': 'no'})
+
 
 # /admin/loader/Load
 # should be authenticated access only.
@@ -168,36 +205,38 @@ class Load(View):
         else:
             return JsonResponse({'authenticated': 'no'})
 
+
 class SearchCourse(View):
 
     def get(self, request):
         query = request.GET.get('q', '')
 
         if len(query) > 30:
-            return JsonResponse({"error" : "long query"})
+            return JsonResponse({"error": "long query"})
 
         res = SearchQuerySet().filter(content=query)
         suggestions = []
 
         for course in res:
             course_data = {
-                    "courseID": course.object.course_id,
-                    "courseCode": course.object.code,
-                    "courseName": course.object.name,
-                    "courseDesc": course.object.desc,
-                    "courseFall": course.object.offered_fall,
-                    "courseWinter": course.object.offered_winter,
-                    "courseSummer": course.object.offered_summer,
-                    "courseSpring": course.object.offered_spring
+                "courseID": course.object.course_id,
+                "courseCode": course.object.code,
+                "courseName": course.object.name,
+                "courseDesc": course.object.desc,
+                "courseFall": course.object.offered_fall,
+                "courseWinter": course.object.offered_winter,
+                "courseSummer": course.object.offered_summer,
+                "courseSpring": course.object.offered_spring
             }
 
             suggestions.append(course_data)
 
         response_data = {
-                'results' : suggestions # in list to maintain order/ranking
+            'results': suggestions  # in list to maintain order/ranking
         }
 
         return JsonResponse(response_data)
+
 
 # /api/GetCourseData?calc_id=<id>
 class GetCourseData(View):
@@ -207,7 +246,7 @@ class GetCourseData(View):
         calc_id = request.GET.get('calc_id', '')
 
         try:
-            if calc_id == "": # default to 1
+            if calc_id == "":  # default to 1
                 courses = Calculator.objects.get(calculator_id=1).courses.all()
                 title = Calculator.objects.get(calculator_id=1).title
             else:
@@ -218,22 +257,22 @@ class GetCourseData(View):
 
         # need to build json object to send back that matches the API spec
         response_data = {
-                "calcTitle" : title,
-                "courseLists": {
-                        "Spring": defaultdict(list),
-                        "Summer": defaultdict(list),
-                        "Fall": defaultdict(list),
-                        "Winter": defaultdict(list)
-                }
+            "calcTitle": title,
+            "courseLists": {
+                "Spring": defaultdict(list),
+                "Summer": defaultdict(list),
+                "Fall": defaultdict(list),
+                "Winter": defaultdict(list)
+            }
         }
         # iterate over courses
         for course in courses:
             # build the course data
             course_data = {
-                    "courseID": course.course_id,
-                    "courseCode": course.code,
-                    "courseName": course.name,
-                    "courseDesc": course.desc
+                "courseID": course.course_id,
+                "courseCode": course.code,
+                "courseName": course.name,
+                "courseDesc": course.desc
             }
 
             # insert into the response based on season, department
@@ -249,6 +288,7 @@ class GetCourseData(View):
         # return data
         return JsonResponse(response_data)
 
+
 # Request:
 # /api/GetCourseDetails?courseid=1234567
 class GetCourseDetails(View):
@@ -258,12 +298,12 @@ class GetCourseDetails(View):
         course_id = request.GET.get('courseid', '')
 
         if course_id == "":
-            return JsonResponse({"error" : "Invalid Course ID"})
+            return JsonResponse({"error": "Invalid Course ID"})
 
         try:
             course = Course.objects.get(course_id=course_id)
         except:
-            return JsonResponse({"error" : "Invalid Course ID"})
+            return JsonResponse({"error": "Invalid Course ID"})
 
         response_data = defaultdict(str)
 
@@ -272,6 +312,7 @@ class GetCourseDetails(View):
         response_data["courseDesc"] = course.desc
 
         return JsonResponse(response_data)
+
 
 # /api/SubmitCourseSelections
 # send as a POST.
@@ -288,11 +329,11 @@ class SubmitCourseSelections(View):
         # get programs
         selected_courses = json.loads(request.body)["selections"]
         if len(selected_courses) > 15:
-            return JsonResponse({"error" : "too many courses"})
+            return JsonResponse({"error": "too many courses"})
 
         try:
             calc_id = json.loads(request.body)["calc_id"]
-            if calc_id == "": # default to 1
+            if calc_id == "":  # default to 1
                 programs = Calculator.objects.get(calculator_id=1).programs.all()
             else:
                 programs = Calculator.objects.get(calculator_id=calc_id).programs.all()
@@ -300,8 +341,8 @@ class SubmitCourseSelections(View):
             return JsonResponse({"error": "no such calc_id exists"})
 
         response_json = {
-                "matchedPrograms" : [
-                ]
+            "matchedPrograms": [
+            ]
         }
 
         for program in programs:
@@ -341,18 +382,18 @@ class SubmitCourseSelections(View):
                     build_requirements = []
 
                     # We are converting a complex requirement_group
-                            # Ex. Group connector is OR
-                            #
-                            # -     |   3 units from List 1
-                            # AND   |   3 units from List 2
-                            # OR    |   3 units from List 3
-                            # AND   |   3 units from List 4
-                            #
-                            # This is converted to
-                            # output -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
+                    # Ex. Group connector is OR
+                    #
+                    # -     |   3 units from List 1
+                    # AND   |   3 units from List 2
+                    # OR    |   3 units from List 3
+                    # AND   |   3 units from List 4
+                    #
+                    # This is converted to
+                    # output -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
 
                     for i, item in enumerate(requirement_items):
-                            # We skip the connector for the first item
+                        # We skip the connector for the first item
                         if i != 0:
                             build_requirements.append(item.connector)
 
@@ -366,7 +407,7 @@ class SubmitCourseSelections(View):
                     # Parser takes in a precedence which is opposite of connector
                     #        -> mosaic's connector is the opposite of the precedence
                     # This will output something like
-                        # -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
+                    # -> (3 units from L1 AND 3 units from L2) OR (3 units from L3 AND 3 units from L4)
                     check_list = Parser(build_requirements, not requirement.connector).parse()
 
                     # apply calculations
@@ -377,7 +418,6 @@ class SubmitCourseSelections(View):
 
                 fulfilled_courses_id.append(list(prev_course_list - set(course_list)))
 
-
             # return name of fulfilled courses
             fulfilled_courses_name = []
 
@@ -386,12 +426,13 @@ class SubmitCourseSelections(View):
 
             # append answer to our result
             res = {
-                    "programName" : program.name,
-                    "programDescription" : program.desc,
-                    "programId" : program.program_id,
-                    "programPercentage" :  round(total_completed_courses / total_required_courses, 2) if total_required_courses != 0 else 0,
-                    "programRequirements": program.requirement_equation(),
-                    "fulfilledCourses": fulfilled_courses_name
+                "programName": program.name,
+                "programDescription": program.desc,
+                "programId": program.program_id,
+                "programPercentage": round(total_completed_courses / total_required_courses,
+                                           2) if total_required_courses != 0 else 0,
+                "programRequirements": program.requirement_equation(),
+                "fulfilledCourses": fulfilled_courses_name
             }
             response_json["matchedPrograms"].append(res)
 
@@ -428,19 +469,23 @@ class SubmitCourseSelections(View):
         if tree.op == AND:
             left_completed_courses, left_required_coures, left_course_list = self.calculate(tree.left, course_list)
             # Since we have an AND, we use the updated course_list from the left
-            right_completed_courses, right_required_courses, right_course_list = self.calculate(tree.right, left_course_list)
+            right_completed_courses, right_required_courses, right_course_list = self.calculate(tree.right,
+                                                                                                left_course_list)
 
-            return (left_completed_courses + right_completed_courses), (left_required_coures + right_required_courses), right_course_list
+            return (left_completed_courses + right_completed_courses), (
+                    left_required_coures + right_required_courses), right_course_list
         else:
             # OR case
             # Keep a copy to prevent aliasing
             course_list_copy = course_list.copy()
             left_completed_courses, left_required_coures, left_course_list = self.calculate(tree.left, course_list)
             # Since we have an AND, we use the updated course_list from the left
-            right_completed_courses, right_required_courses, right_course_list = self.calculate(tree.right, course_list_copy)
+            right_completed_courses, right_required_courses, right_course_list = self.calculate(tree.right,
+                                                                                                course_list_copy)
 
             # if left side of equation is True, we propogate that up
-            if left_completed_courses == left_required_coures or ((left_required_coures - left_completed_courses) < (right_required_courses - right_completed_courses)):
+            if left_completed_courses == left_required_coures or ((left_required_coures - left_completed_courses) < (
+                    right_required_courses - right_completed_courses)):
                 return left_completed_courses, left_required_coures, left_course_list
             else:
                 return right_completed_courses, right_required_courses, right_course_list

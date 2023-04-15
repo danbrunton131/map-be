@@ -4,8 +4,9 @@ from .requirement_handler import Parser
 class Course(models.Model):
     """ Course, e.g. COMPSCI 1MD3 """
 
+    id = models.AutoField(primary_key=True)
     # ID of the course (just a unique number)
-    course_id = models.IntegerField(primary_key=True)
+    course_id = models.IntegerField(null=True)
     # course code, e.g. COMPSCI 1MD3
     code = models.CharField(max_length=20)
     # course name, e.g. Principles of Programming
@@ -20,7 +21,7 @@ class Course(models.Model):
     offered_summer = models.BooleanField()
     # is course in spring
     offered_spring = models.BooleanField()
-    # numbe of units (typically 3 units a course)
+    # number of units (typically 3 units a course)
     units = models.PositiveSmallIntegerField()
     # department
     department = models.CharField(max_length=50)
@@ -32,6 +33,7 @@ class Course(models.Model):
 class CourseList(models.Model):
     """ A list of courses """
 
+    id = models.AutoField(primary_key=True)
     # only used when importing from API
     list_id = models.IntegerField(blank=True, null=True)
     # list desc, to allow for common reuse (ex. Science Level 1 courses)
@@ -104,7 +106,8 @@ class RequirementItem(models.Model):
 class Program(models.Model):
     """ A program offered """
 
-    program_id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
+    program_id = models.IntegerField(null=True)
     # name of the program
     name = models.TextField()
     # description of the program
