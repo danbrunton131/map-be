@@ -1,53 +1,2032 @@
-{
-    "20695": "Chemical and Physical Sciences Gateway",
-    "20689": "Environmental and Earth Sciences Gateway",
-    "20734": "Honours Actuarial and Financial Mathematics (B.Sc.)",
-    "20740": "Honours Actuarial and Financial Mathematics Co-op (B.Sc.)",
-    "20752": "Honours Astrophysics (B.Sc.)",
-    "20696": "Honours Biochemistry (B.Sc.)",
-    "20697": "Honours Biochemistry - Biomedical Research Specialization (B.Sc.)",
-    "20699": "Honours Biochemistry - Biomedical Research Specialization Co-op (B.Sc.)",
-    "20571": "Honours Biology (B.Sc.)",
-    "20886": "Honours Biology - Discovery Sub-Plan (B.Sc.)",
-    "20702": "Honours Biology - Physiology (B.Sc.)",
-    "20704": "Honours Biology and Environmental Sciences (B.Sc.)",
-    "20705": "Honours Biology and Mathematics (B.Sc.)",
-    "20912": "Honours Biology and Pharmacology Co-op (B.Sc.)",
-    "20707": "Honours Biology and Psychology, Neuroscience & Behaviour (B.Sc.)",
-    "20711": "Honours Chemical Biology (B.Sc.)",
-    "20714": "Honours Chemical Biology Co-op (B.Sc.)",
-    "20710": "Honours Chemistry (B.Sc.)",
-    "20715": "Honours Chemistry Co-op (B.Sc.)",
-    "20718": "Honours Earth and Environmental Sciences (B.Sc.)",
-    "20855": "Honours Earth and Environmental Sciences Co-op (B.Sc.)",
-    "20719": "Honours Environmental Sciences (B.Sc.)",
-    "20856": "Honours Environmental Sciences Co-op (B.Sc.)",
-    "20720": "Honours Geography and Environmental Sciences (B.Sc.)",
-    "20857": "Honours Geography and Environmental Sciences Co-op (B.Sc.)",
-    "20728": "Honours Integrated Science (B.Sc.)",
-    "20693": "Honours Integrated Science (Level I)",
-    "20730": "Honours Life Sciences (B.Sc.)",
-    "20903": "Honours Life Sciences - Origins of Disease Specialization (B.Sc.)",
-    "20904": "Honours Life Sciences - Sensory Motor Systems Specialization (B.Sc.)",
-    "20854": "Honours Life Sciences Co-op (B.Sc.)",
-    "20738": "Honours Mathematics and Computer Science (B.Sc.)",
-    "20739": "Honours Mathematics and Physics (B.Sc.)",
-    "20733": "Honours Mathematics and Statistics (B.Sc.)",
-    "20735": "Honours Mathematics and Statistics - Mathematics Sub-Plan (B.Sc.)",
-    "20741": "Honours Mathematics and Statistics - Mathematics Sub-Plan Co-op (B.Sc.)",
-    "20737": "Honours Mathematics and Statistics - Statistics Sub-Plan (B.Sc.)",
-    "20744": "Honours Mathematics and Statistics - Statistics Sub-Plan Co-op (B.Sc.)",
-    "20742": "Honours Mathematics and Statistics Co-op (B.Sc.)",
-    "20908": "Honours Medical and Biological Physics (B.Sc.)",
-    "20909": "Honours Medical and Biological Physics Co-op (B.Sc.)",
-    "20703": "Honours Molecular Biology and Genetics (B.Sc.)",
-    "20708": "Honours Molecular Biology and Genetics Co-op (B.Sc.)",
-    "20887": "Honours Neuroscience (B.Sc.)",
-    "20754": "Honours Physics (B.Sc.)",
-    "20758": "Honours Physics Co-op (B.Sc.)",
-    "20761": "Honours Psychology, Neuroscience & Behaviour (B.Sc.)",
-    "20760": "Honours Psychology, Neuroscience & Behaviour - Mental Health Specialization (B.Sc.)",
-    "20762": "Honours Psychology, Neuroscience & Behaviour - Music Cognition Specialization (B.Sc.)",
-    "20690": "Life Sciences Gateway",
-    "20691": "Mathematics and Statistics Gateway"
-}
+[
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biochemistry",
+        "id": "?HBIOCHEM",
+        "name": "Honours Biochemistry",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-actuarial-financial-mathematics",
+        "id": "HACTFMTH",
+        "name": "Honours Actuarial and Financial Mathematics",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1B03"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-environmental-sciences",
+        "id": "ENVSCIENCE",
+        "name": "Environmental Science",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 6,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-astrophysics",
+        "id": "HASTROPHYS",
+        "name": "Honours Astrophysics",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1CC3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/chemical-physical-sciences",
+        "id": "PHYSICSCI",
+        "name": "Chemical and Physical Sciences",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3"
+                ]
+            },
+            {
+                "count": 4,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-aphb",
+        "id": "HHUMBEHVR",
+        "name": "Honours Applied Psychology in Human Behaviour",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1F03",
+                    "PSYCH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-aphb-autism-and-behavioural-science-specialization",
+        "id": "HHUMBAUTIS",
+        "name": "Honours Applied Psychology in Human Behaviour: Autism & Behavioural Science Specialization ",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1F03",
+                    "PSYCH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-aphb-ealry-childhood-studies-specialization",
+        "id": "HHUMBECHLD",
+        "name": "Honours Applied Psychology in Human Behaviour: Early Childhood Studies Specialization",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1F03",
+                    "PSYCH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biodiversity-and-environmental-sciences",
+        "id": "HBIODENVR",
+        "name": "Honours Biodiversity and Environmental Sciences",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03"
+                ]
+            },
+            {
+                "count": 4,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03",
+                    "COMPSCI 1MD3"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/preview_program.php?catoid=44&poid=23043#core_328059",
+                "name": "Science 1 Courselist + COMPSCI 1MD3"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biology",
+        "id": "HBIOLOGY",
+        "name": "Honours Biology",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biology-physiology-research-specialization",
+        "id": "HBIOLPHYS",
+        "name": "Honours Biology: Physiology Research Specialization",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biology-research-specialization",
+        "id": "?HBIOLRS",
+        "name": "Honours Biology: Research Specialization ",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biology-mathematics",
+        "id": "HBIOLMATH",
+        "name": "Honours Biology & Mathematics",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-biology-pnb",
+        "id": "HBIOLPSYC",
+        "name": "Honours Biology & Psychology, Neuroscience & Behaviour",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/undefined",
+        "id": "HCHEMBIOL",
+        "name": "Honours Chemical Biology",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-chemical-biology",
+        "id": "HCHEMISTRY",
+        "name": "Honours Chemistry ",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 4,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-earth-environmental-sciences",
+        "id": "HERTHENVHC",
+        "name": "Honours Earth & Environmental Sciences",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1R03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 4,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "CHEM 1AA3",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LT3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "SCIENCE 1A03"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-environmental-sciences",
+        "id": "?HENVSCIENCE",
+        "name": "Honours Environmental Sciences",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1MM3"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-life-sciences",
+        "id": "HLIFESCI",
+        "name": "Honours Life Sciences",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1M03",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-life-sciences-orgins-of-desease-specialization",
+        "id": "HLSCIORDIS",
+        "name": "Honours Life Sciences: Origins of Disease Specialization",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1A03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1M03",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-life-sciences-sensory-motor-systems-specialization/",
+        "id": "HLSCISMSYS",
+        "name": "Honours Life Sciences: Sensory Motor Systems Specialization ",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1M03",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-life-sciences-sensory-motor-systems-specialization",
+        "id": "HMATHCSCI",
+        "name": "Honours Mathematics & Computer Science",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1B03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "COMPSCI 1DM3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "COMPSCI 1MD3",
+                    "MATH 1MP3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "COMPSCI 1XC3",
+                    "COMPSCI 1XD3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-mathematics-and-statistics",
+        "id": "?HMATHSTAT",
+        "name": "Honours Mathematics & Statistics",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1B03"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-mathematics-and-statistics-mathematics-sub-plan",
+        "id": "HMATHSTATM",
+        "name": "Honours Mathematics & Statistics: Mathematics Sub-Plan",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1B03"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-mathematics-and-statistics-statistics-sub-plan",
+        "id": "HMATHSTATS",
+        "name": "Honours Mathematics and Statistics: Statistics Sub-Plan",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1B03"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-mathematics-and-physics",
+        "id": "HMATHPHYS",
+        "name": "Honours Mathematics and Physics",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1B03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1CC3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-medical-and-biological-physics",
+        "id": "HMEDBIPHY",
+        "name": "Honours Medical and Biological Physics",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1CC3",
+                    "BIOPHYS 1S03",
+                    "LIFESCI 1D03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "CHEM 1AA3",
+                    "MATH 1B03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-molecular-biology-and-genetics-research-specialization",
+        "id": "HMOLEBIOL",
+        "name": "Honours Molecular Biology and Genetics Research Specialization",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1M03",
+                    "BIOLOGY 1A03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-neuroscience",
+        "id": "HNEUROSCI",
+        "name": "Honours Neuroscience",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1M03",
+                    "BIOLOGY 1A03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1XX3",
+                    "PSYCH 1FF3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LT3",
+                    "MATH 1MP3",
+                    "COMPSCI 1MD3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-physics",
+        "id": "HPHYSICS",
+        "name": "Honours Physics",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1CC3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-pnb",
+        "id": "HPSYCNEBE",
+        "name": "Honours Psychology, Neuroscience & Behaviour",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-pnb-mental-health-specialization",
+        "id": "HPSYCNEBEM",
+        "name": "Honours Psychology, Neuroscience & Behaviour: Mental Health Specialization",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-pnb-music-cognition-specialization",
+        "id": "HPSYCNEBEC",
+        "name": "Honours Psychology, Neuroscience & Behaviour: Music Cognition Specialization",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MUSIC 1A03",
+                    "MUSIC 1AA3"
+                ]
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/honours-sustainable-chemistry",
+        "id": "?HSUSCHEM",
+        "name": "Honours Sustainable Chemistry",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "CHEM 1A03",
+                    "CHEM 1AA3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1MM3",
+                    "MATH 1X03"
+                ]
+            },
+            {
+                "count": 2,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/life-sciences",
+        "id": "LIFESCIENC",
+        "name": "Life Sciences",
+        "requirements": [
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "CHEM 1A03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "PHYSICS 1A03",
+                    "PHYSICS 1C03"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "BIOLOGY 1M03",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1XX3"
+                ]
+            },
+            {
+                "count": 3,
+                "from": [
+                    "ASTRON 1F03",
+                    "BIOLOGY 1A03",
+                    "BIOLOGY 1M03",
+                    "BIOPHYS 1S03",
+                    "CHEM 1A03",
+                    "CHEM 1AA3",
+                    "EARTHSC 1G03",
+                    "ENVIRSC 1C03",
+                    "ENVSOCTY 1HA3",
+                    "ENVSOCTY 1HB3",
+                    "LIFESCI 1D03",
+                    "MATH 1A03",
+                    "MATH 1AA3",
+                    "MATH 1B03",
+                    "MATH 1LS3",
+                    "MATH 1LT3",
+                    "MATH 1MM3",
+                    "MATH 1MP3",
+                    "PHYSICS 1A03",
+                    "PHYSICS 1AA3",
+                    "PHYSICS 1C03",
+                    "PHYSICS 1CC3",
+                    "PSYCH 1F03",
+                    "PSYCH 1FF3",
+                    "PSYCH 1X03",
+                    "PSYCH 1XX3",
+                    "SCIENCE 1A03"
+                ],
+                "href": "https://academiccalendars.romcmaster.ca/content.php?catoid=44&navoid=9091",
+                "name": "Science 1 Courselist"
+            }
+        ]
+    },
+    {
+        "href": "https://mps-macsites.mcmaster.ca/mapsci/beyond-level-1/programs/mathematical-sciences",
+        "id": "?HMATHSCIS",
+        "name": "Mathematical Sciences",
+        "requirements": [
+            {
+                "count": 2,
+                "from": [
+                    "MATH 1A03",
+                    "MATH 1LS3",
+                    "MATH 1X03",
+                    "MATH 1AA3",
+                    "MATH 1LT3",
+                    "MATH 1XX3"
+                ]
+            },
+            {
+                "count": 1,
+                "from": [
+                    "COMPSCI 1MD3",
+                    "MATH 1B03",
+                    "MATH 1MP3"
+                ]
+            }
+        ]
+    }
+]
