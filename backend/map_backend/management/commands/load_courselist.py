@@ -16,11 +16,22 @@ def is_valid_file(parser, arg):
 def load_program(file):
     with open(file) as json_file:
         data = json.load(json_file)
+        print(json_file)
+        print('-------')
+        print('DATA')
+        print(data)
 
         for d in data:
             courselist_id = d
             c_l = CourseList(name="Science Level 1", list_id=courselist_id)
             c_l.save()
+            
+            # TODO add ability to specify new calculator
+            #print(courselist_id)
+            #print(data[d])
+            #if courselist_id != '':
+            #    c_l = CourseList(name="Calculator name here???", list_id=courselist_id)
+            #    c_l.save()
 
             course_list = data[d]
             for course in course_list:

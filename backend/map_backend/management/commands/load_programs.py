@@ -17,9 +17,9 @@ def load_program(file):
     with open(file) as json_file:
         data = json.load(json_file)
 
-        for d in data:
+        for d in data:            
             program_id = d
-            name = data[d]
+            name = data[d][0]
             c = Program(program_id=d, name=name)
             c.save()
 

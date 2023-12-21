@@ -21,24 +21,38 @@ def load_requirements(file):
             program_id = d
             program = Program.objects.get(program_id=program_id)
 
-            print(program.name)
             req_groups = []
 
+            # TODO change this order to follow req.courseRankingScheme
             order = 1
             for req in data[program_id]:
                 unit, preq_courses = (next(iter(req.items())))
                 req = RequirementGroup(order=order, desc="{} - requirement #{}".format(program.name, order))
                 req.save()
+                
+                totalUnits = 0
+                # loop through preq_courses and sum minUnits to create unit total for req
+                # TODO check if 'connector' needs to be taken into account
+                for courseReq in preq_courses:
+                    totalUnits = totalUnits + courseReq['minUnits']
 
+                unit = totalUnits
                  # base case -> science course list
                 if preq_courses == []:
-                    course_list = CourseList.objects.get(list_id=1)
+                    print(req)
+                    # TODO figure out the index out of range error
+                    #if CourseList.objects.filter(list_id=1).count() > 0:
+                    course_list = CourseList.objects.filter(list_id=1)[0]
+                    #else:
+                    #    course_list = None
+                    
                 else:
                     course_list = CourseList(name="{} - list for req #{}".format(program.name, order))
                     course_list.save()
 
                     for course in preq_courses:
-                        course_list.courses.add(Course.objects.get(course_id=course))
+                        for courseId in course['list']:
+                            course_list.courses.add(Course.objects.get(course_id=courseId))
 
                     course_list.save()
 
@@ -50,7 +64,6 @@ def load_requirements(file):
 
                 order += 1
 
-            print(req_groups)
             for req in req_groups:
                 program.requirements.add(req)
 

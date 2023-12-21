@@ -20,12 +20,34 @@
 			</select>
 		</div>
 		<div><input type="button" onclick="LoadData();" value="Load from Catalog"/></div>
+		<div><input type="button" onclick="LoadDataApi();" value="Load from McMaster API"/></div>
 	{% else %}
 		<div>Failed to load catalogs from the Acalog API. Try refreshing the page, or else contact MAP administrators if this persists.</div>
 	{% endif %}
 </div>
 {% csrf_token %}
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+
 <script type="text/javascript">
+    function LoadDataApi() {
+        document.getElementById('loader-text').innerHTML = "<br/><br/>Performing data load... (this will take several minutes)";
+        
+        $.ajax({
+            url: "load_data_api.py",
+            context: document.body
+        }).done(function (e) {
+            alert('finished python');
+        });
+        
+        //console.log("new xhr request", xhr);
+        //xhr.open('GET', "load_data_api.py", true);
+        //xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //xhr.onload = function(e) {
+        //    console.log("finished running python", e);
+        //    document.getElemenById('load-text').innerHTML = "<br/><br/> Finished. <br/><br/>";
+        //}
+    }
+    
 	function LoadData() {
 		var csrftoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
 		var catalog = document.getElementById('catalog').value;
