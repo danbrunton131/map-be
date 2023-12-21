@@ -84,19 +84,25 @@ class SearchCourse(View):
         res = SearchQuerySet().filter(content=query)
         suggestions = []
 
-        for course in res:
-            course_data = {
-                    "courseID": course.object.course_id,
-                    "courseCode": course.object.code,
-                    "courseName": course.object.name,
-                    "courseDesc": course.object.desc,
-                    "courseFall": course.object.offered_fall,
-                    "courseWinter": course.object.offered_winter,
-                    "courseSummer": course.object.offered_summer,
-                    "courseSpring": course.object.offered_spring
-            }
+        for course in res:            
+            # only return courses that are offered during at least one term
+            if (course.object.offered_fall == True or
+                course.object.offered_winter == True or
+                course.object.offered_summer == True or
+                course.object.offered_spring == True):
+            
+                course_data = {
+                        "courseID": course.object.course_id,
+                        "courseCode": course.object.code,
+                        "courseName": course.object.name,
+                        "courseDesc": course.object.desc,
+                        "courseFall": course.object.offered_fall,
+                        "courseWinter": course.object.offered_winter,
+                        "courseSummer": course.object.offered_summer,
+                        "courseSpring": course.object.offered_spring
+                }
 
-            suggestions.append(course_data)
+                suggestions.append(course_data)
 
         response_data = {
                 'results' : suggestions # in list to maintain order/ranking
